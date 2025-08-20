@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button/Button";
 import { Text } from "@/components/ui/typography/Typography";
 import ThemeToggle from "@/components/ThemeToggle";
 import { megaMenu, type MenuKey } from "@/components/layout/Navbar/data";
-import styles from "./NavBar.module.css";
+import styles from "./Navbar.module.css";
 import gsap from "gsap";
 
 export default function Navbar() {
