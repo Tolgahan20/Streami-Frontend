@@ -1,0 +1,18 @@
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.error {
+  font-size: 0.875rem;
+  color: var(--color-destructive);
+  margin-top: var(--space-1);
+}
+
+.hint {
+  font-size: 0.875rem;
+  color: var(--color-muted-foreground);
+  margin-top: var(--space-1);
+}

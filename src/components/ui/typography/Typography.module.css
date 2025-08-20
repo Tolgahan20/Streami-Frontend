@@ -1,0 +1,90 @@
+.text {
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+/* Headings */
+.h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.h4 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+/* Body text */
+.large {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.base {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.tiny {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* Font weights */
+.regular {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+/* Colors */
+.primary {
+  color: var(--color-primary);
+}
+
+.secondary {
+  color: var(--color-secondary-foreground);
+}
+
+.muted {
+  color: var(--color-muted-foreground);
+}
+
+.accent {
+  color: var(--color-accent-foreground);
+}
+
+.destructive {
+  color: var(--color-destructive);
+}

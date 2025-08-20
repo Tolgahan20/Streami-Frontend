@@ -1,0 +1,131 @@
+.root {
+  position: relative;
+  margin: var(--space-32) 0;
+  padding: var(--space-32) var(--space-6);
+  background: var(--background);
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+}
+
+.inner {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  z-index: 1;
+  padding: var(--space-16) 0;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: var(--space-8) 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-12);
+  backdrop-filter: blur(8px);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 12px var(--primary);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.title {
+  font-size: clamp(3rem, 6vw, 4.5rem) !important;
+  line-height: 1.1 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  margin: 0 0 var(--space-8) !important;
+  color: var(--foreground);
+}
+
+.subtitle {
+  max-width: 600px;
+  margin: 0 auto var(--space-12) !important;
+  color: var(--muted-foreground);
+}
+
+.cta {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  margin-top: var(--space-8);
+}
+
+.mainCta {
+  min-width: 180px;
+  height: 44px !important;
+  font-size: 0.875rem !important;
+  letter-spacing: 0.05em !important;
+  font-weight: 600 !important;
+}
+
+/* Background */
+.bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.gradientLeft {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 40%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle at center, var(--primary) 0%, transparent 70%);
+  opacity: 0.1;
+  transform: translate(-30%, -50%);
+  filter: blur(80px);
+}
+
+.gradientRight {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 40%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle at center, var(--primary) 0%, transparent 70%);
+  opacity: 0.1;
+  transform: translate(30%, -50%);
+  filter: blur(80px);
+}
+
+:global(.dark) .badge {
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  border-color: color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+:global(.dark) .dot {
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@media (max-width: 640px) {
+  .cta {
+    flex-direction: column;
+    padding: 0 var(--space-4);
+  }
+  .mainCta {
+    width: 100%;
+  }
+}

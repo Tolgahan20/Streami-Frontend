@@ -1,0 +1,154 @@
+.root {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12) var(--space-6);
+  background: var(--background);
+  overflow: hidden;
+}
+
+/* Background effects */
+.background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Content */
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.banner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  margin-bottom: var(--space-8);
+  backdrop-filter: blur(10px);
+}
+
+.tag {
+  padding: 2px var(--space-2);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.downloadLink {
+  text-decoration: none;
+  padding-left: var(--space-3);
+  margin-left: var(--space-3);
+  border-left: .1px solid var(--muted-foreground);
+  color: var(--muted-foreground);
+}
+
+.title {
+  font-size: clamp(3rem, 8vw, 5rem) !important;
+  line-height: 1.1 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  margin: 0 0 var(--space-6) !important;
+  color: var(--foreground);
+}
+
+.subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.5rem) !important;
+  max-width: 600px;
+  margin: 0 auto var(--space-8) !important;
+  color: var(--muted-foreground);
+}
+
+.cta {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-8);
+}
+
+.mainCta {
+  min-width: 200px;
+  height: 48px !important;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0 var(--space-6) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: 0 8px 24px rgba(95, 79, 255, 0.25) !important;
+}
+
+.mainCta:hover {
+  transform: translateY(-1px);
+}
+
+.secondaryCta {
+  width: 48px !important;
+  height: 48px !important;
+  padding: 0 !important;
+  border-radius: var(--radius) !important;
+  background: color-mix(in srgb, var(--primary) 8%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent) !important;
+  color: var(--foreground) !important;
+}
+
+.secondaryCta:hover {
+  background: color-mix(in srgb, var(--primary) 12%, transparent) !important;
+  border-color: var(--primary) !important;
+  transform: translateY(-1px);
+}
+
+:global(.dark) .banner {
+  background: color-mix(in srgb, var(--ring) 15%, transparent);
+  border-color: color-mix(in srgb, var(--accent-foreground) 30%, transparent);
+}
+
+:global(.dark) .tag {
+  background: var(--ring);
+  color: var(--ring-foreground);
+}
+:global(.dark) .linkText {
+  color: var(--primary-foreground) !important;
+}
+:global(.dark) .secondaryCta {
+  background: color-mix(in srgb, var(--primary) 15%, transparent) !important;
+  border-color: color-mix(in srgb, var(--primary) 30%, transparent) !important;
+  color: var(--foreground) !important;
+}
+
+:global(.dark) .secondaryCta:hover {
+  background: color-mix(in srgb, var(--primary) 20%, transparent) !important;
+  border-color: var(--primary) !important;
+}
+
+@media (max-width: 640px) {
+  .banner {
+    padding: var(--space-2);
+  }
+  .downloadLink {
+    display: none;
+  }
+  .cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
