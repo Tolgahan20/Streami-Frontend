@@ -6,6 +6,7 @@ import styles from "./Hero.module.css";
 import { Button } from "@/components/ui/button/Button";
 import { H1, Text } from "@/components/ui/typography/Typography";
 import gsap from "gsap";
+import { ArrowRightIcon } from "lucide-react";
 
 export default function Hero() {
   const rootRef = useRef<HTMLElement>(null);
@@ -51,8 +52,8 @@ export default function Hero() {
 
         <div ref={titleRef}>
           <H1 className={styles.title}>
-            Empower Your<br />
-            Stream with AI
+            Your AI streamer<br />
+            Co-Pilot
           </H1>
         </div>
 
@@ -62,8 +63,7 @@ export default function Hero() {
             color="muted"
             variant="large"
           >
-            The ultimate AI companion for streamers, VTubers, and digital creators. 
-            Enhance engagement, build community, and grow your audience.
+            Stream smarter with real-time analytics and interactive overlays
           </Text>
         </div>
 
@@ -72,39 +72,10 @@ export default function Hero() {
             variant="primary" 
             size="lg" 
             className={styles.mainCta}
-            leftIcon={
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 2H9v20h6V2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M19 6h5l-9-4-9 4h5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            }
+            rightIcon={<ArrowRightIcon />}
           >
             <Link href="/get-started">
-              Download for macOS
-            </Link>
-          </Button>
-          
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className={styles.secondaryCta}
-          >
-            <Link href="/download/windows">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" fill="currentColor"/>
-              </svg>
-            </Link>
-          </Button>
-          
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className={styles.secondaryCta}
-          >
-            <Link href="/download/linux">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2a2 2 0 0 1 2 2v8l4 4v6h-4v-2H10v2H6v-6l4-4V4a2 2 0 0 1 2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              Get Started Now
             </Link>
           </Button>
         </div>

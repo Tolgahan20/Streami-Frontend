@@ -66,11 +66,13 @@
 }
 
 .mainCta {
-  min-width: 180px;
-  height: 44px !important;
-  font-size: 0.875rem !important;
-  letter-spacing: 0.05em !important;
-  font-weight: 600 !important;
+  min-width: 200px;
+  height: 48px !important;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0 var(--space-6) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: 0 8px 24px rgba(95, 79, 255, 0.25) !important;
 }
 
 /* Background */
@@ -129,3 +131,4 @@
     width: 100%;
   }
 }
+
