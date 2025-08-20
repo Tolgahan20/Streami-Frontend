@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
-import styles from "@/components/layout/Navbar/Navbar.module.css";
+import styles from "./layout/Navbar/Navbar.module.css";
 import { toggleTheme } from "@/app/providers/ThemeProvider";
 
 export default function ThemeToggle() {
