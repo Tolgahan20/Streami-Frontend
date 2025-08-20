@@ -1,8 +1,8 @@
 
 import Hero from "@/components/landing/hero/Hero";
 import Cta from "@/components/landing/cta/Cta";
-import Navbar from "@/components/layout/navbar/Navbar";
-import Footer from "@/components/layout/navbar/Footer";
+import Navbar from "@/components/layout/Navbar/Navbar";
+import Footer from "@/components/layout/Navbar/Footer";
 export default function Home() {
   return (
     <>
