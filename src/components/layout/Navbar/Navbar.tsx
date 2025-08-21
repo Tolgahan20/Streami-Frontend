@@ -8,6 +8,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { megaMenu, type MenuKey } from "@/components/layout/Navbar/data";
 import styles from "./Navbar.module.css";
 import gsap from "gsap";
+import { MoveUpRight } from "lucide-react";
 
 export default function Navbar() {
   const rootRef = useRef<HTMLElement | null>(null);
@@ -216,29 +217,10 @@ export default function Navbar() {
         onMouseLeave={() => setOpen(false)}
       >
         <div className={styles.dropdownInner}>
-          {megaMenu[activeMenu].map((group) => (
-            <div key={group.heading}>
-              <Text variant="small" weight="semibold" color="muted" className={styles.groupHeading}>
-                {group.heading}
-              </Text>
-              {group.items.map((item) => (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className={styles.item}
-                  onClick={() => setOpen(false)}
-                >
-                  <Text weight="medium" className={styles.itemTitle}>
-                    {item.title}
-                  </Text>
-                  {item.description && (
-                    <Text variant="small" color="muted" className={styles.itemDesc}>
-                      {item.description}
-                    </Text>
-                  )}
-                </Link>
-              ))}
-            </div>
+          {megaMenu[activeMenu].map((item) => (
+            <Link key={item.title} href={item.href} className={styles.dropdownLink}>
+              {item.title} {item.icon && <MoveUpRight size={18} />}
+            </Link>
           ))}
         </div>
       </div>

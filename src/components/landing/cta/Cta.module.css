@@ -2,9 +2,8 @@
   position: relative;
   margin: var(--space-32) 0;
   padding: var(--space-32) var(--space-6);
-  background: var(--background);
+  background: var(--foreground);
   overflow: hidden;
-  border-top: 1px solid var(--border);
 }
 
 .inner {
@@ -49,7 +48,7 @@
   font-weight: 800 !important;
   letter-spacing: -0.03em !important;
   margin: 0 0 var(--space-8) !important;
-  color: var(--foreground);
+  color: var(--card);
 }
 
 .subtitle {
@@ -113,8 +112,8 @@
 }
 
 :global(.dark) .dot {
-  background: var(--accent);
-  box-shadow: 0 0 12px var(--accent);
+  background: var(--primary);
+  box-shadow: 0 0 12px var(--primary);
 }
 
 @keyframes pulse {

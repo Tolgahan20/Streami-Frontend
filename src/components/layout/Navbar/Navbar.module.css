@@ -3,7 +3,7 @@
   top: 0;
   z-index: 50;
   backdrop-filter: saturate(180%) blur(10px);
-  background: var(--background);
+  background: var(--foreground);
 }
 
 .inner {
@@ -14,7 +14,6 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: var(--space-4) var(--space-12);
-  border-bottom: 1px solid var(--border);
 
 }
 
@@ -22,7 +21,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  color: var(--foreground);
+  color: var(--card);
   text-decoration: none;
 }
 
@@ -56,7 +55,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
-  color: var(--muted-foreground);
+  color: var(--card);
   text-decoration: none;
   font-size: 0.9rem;
   text-transform: capitalize;
@@ -70,7 +69,7 @@
 }
 
 .link:hover {
-  color: var(--foreground);
+  color: var(--muted-foreground);
 }
 
 .cta {
@@ -80,7 +79,7 @@
 }
 
 .signInBtn {
-  color: var(--foreground) !important;
+  color: var(--card);
   background: transparent !important;
   border: none !important;
   font-weight: 500 !important;
@@ -89,6 +88,7 @@
 
 .signInBtn:hover {
   background: var(--secondary) !important;
+  color: var(--foreground) !important;
 }
 
 .signUpBtn {
@@ -108,7 +108,7 @@
   justify-content: center;
   border: 1px solid var(--border);
   border-radius: 10px;
-  background: var(--card);
+  background: var(---foreground);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -116,6 +116,7 @@
 .toggle:hover {
   background: var(--secondary);
   border-color: var(--border);
+  color: var(--foreground) !important;
 }
 
 .menuBtn {
@@ -139,7 +140,7 @@
   inset: 0 0 auto 0;
   top: 64px;
   background: var(--card);
-  border-bottom: 1px solid var(--border);
+
   display: grid;
   gap: var(--space-2);
   padding: var(--space-4) var(--space-5);
@@ -153,104 +154,47 @@
 }
 
 .dropdown {
-  position: absolute;
-  left: 0; right: 0;
-  top: 100%;
-  background: var(--card);
-  border-bottom: 1px solid var(--border);
-  display: none;
+  position: relative;
+  left: 0; 
+  right: 0;
+  background: var(--foreground);
   pointer-events: none;
+  height: 0;
+  overflow: hidden;
+  transition: height .7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dropdownOpen { 
-  display: block; 
   pointer-events: auto; 
+  height: 300px;
 }
 
 .dropdownInner { 
   max-width: 100%; 
   margin: 0 auto; 
   padding: var(--space-6) var(--space-12); 
-  background: var(--background);
-  display: grid; 
-  grid-template-columns: repeat(4, minmax(220px, 1fr)); 
-  gap: var(--space-8); 
+  background: var(--foreground);
+  display: flex; 
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: flex-start;
 }
 
-.groupHeading { 
-  margin: 0 0 var(--space-2) 0; 
-  color: var(--muted-foreground);
-  text-transform: uppercase;
-  font-size: 0.78rem;
-  letter-spacing: 0.05em;
-}
-
-.item { 
-  display: block; 
-
-  text-decoration: none; 
+.dropdownLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  color: var(--background);
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
   border-radius: var(--radius-md);
   transition: all 0.2s ease;
-  color: var(--foreground);
-  background: transparent;
 }
 
-.itemTitle { 
-  color: var(--foreground);
-  font-weight: 600;
-  margin-bottom: var(--space-1);
-  transition: color 0.2s ease;
-}
-
-.itemDesc { 
+.dropdownLink:hover {
   color: var(--muted-foreground);
-  font-size: 0.9rem;
-  margin: 0;
-  transition: color 0.2s ease;
-}
-
-.item:hover .itemTitle {
-  color: var(--primary);
-}
-
-.item:hover .itemDesc {
-  color: var(--muted-foreground);
-}
-
-.chev { 
-  transition: transform 180ms ease; 
-}
-
-.chevOpen { 
-  transform: rotate(180deg); 
-}
-
-:global(.dark) .item {
-  color: var(--foreground);
-}
-
-:global(.dark) .itemTitle {
-  color: var(--foreground);
-}
-
-:global(.dark) .itemDesc {
-  color: var(--muted-foreground);
-}
-
-:global(.dark) .item:hover .itemTitle {
-  color: var(--ring);
-}
-
-:global(.dark) .item:hover .itemDesc {
-  color: var(--muted-foreground);
-}
-
-:global(.dark) .dropdownInner {
-  background: var(--background);
-}
-
-:global(.dark) .dropdown {
-  background: var(--background);
 }
 
 @media (max-width: 640px) {
