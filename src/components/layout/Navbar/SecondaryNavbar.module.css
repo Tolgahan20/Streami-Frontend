@@ -1,0 +1,226 @@
+.root {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-160%);
+  z-index: 60;
+  background: var(--foreground);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  backdrop-filter: saturate(180%) blur(10px);
+  transition: transform 0.3s ease;
+  height: 60px;
+  width: 90%;
+  max-width: 1000px;
+}
+
+.root.visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+.root.dropdownOpen {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding:  var(--space-4)  var(--space-4);
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  color: var(--card);
+}
+
+.logo {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-600) 100%);
+}
+
+.name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  position: relative;
+}
+
+.link {
+  color: var(--card);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+}
+
+.link:hover {
+  color: var(--primary) !important;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--foreground);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  z-index: 70;
+  padding: var(--space-4);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.dropdownInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+.dropdownItem {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dropdownItem:hover {
+  background: transparent;
+}
+
+
+.dropdownTitle {
+  color: var(--card);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.dropdownIcon {
+  color: var(--muted-foreground);
+  transition: color 0.2s ease;
+}
+
+.dropdownItem:hover .dropdownIcon {
+  color: var(--ring);
+}
+.dropdownItem:hover .dropdownTitle {
+  color: var(--ring);
+}
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.signInBtn {
+  color: var(--card);
+  background: transparent !important;
+  border: none !important;
+  font-weight: 500 !important;
+  padding: var(--space-2) var(--space-3) !important;
+}
+
+.signInBtn:hover {
+  background: var(--secondary) !important;
+  color: var(--foreground) !important;
+}
+
+.signUpBtn {
+  background: var(--primary) !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 600 !important;
+  padding: var(--space-2) var(--space-4) !important;
+  box-shadow: 0 4px 12px rgba(95, 79, 255, 0.25) !important;
+}
+
+.toggle {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--card);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle:hover {
+  background: var(--secondary);
+  border-color: var(--primary);
+  color: var(--foreground);
+}
+
+.toggle svg {
+  width: 16px;
+  height: 16px;
+  color: inherit;
+}
+
+
+@media (max-width: 1024px) {
+  .links {
+    gap: var(--space-3);
+  }
+  
+  .link {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    width: 95%;
+  }
+  
+  .inner {
+    padding: 0 var(--space-3);
+  }
+  
+  .leftSection {
+    gap: var(--space-3);
+  }
+  
+  .links {
+    gap: var(--space-2);
+  }
+  
+  .link {
+    font-size: 0.7rem;
+  }
+}
+
+
