@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar/Navbar";
 import Footer from "@/components/layout/Footer/Footer";
 import Features from "@/components/landing/Features/Features";
 import Customization from "@/components/landing/Customization/Customization";
+import StreamiFeatures from "@/components/landing/StreamiFeatures";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <Features />
         <Customization />
+        <StreamiFeatures />
         <Cta />
       </main>
       <Footer />

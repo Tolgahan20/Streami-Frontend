@@ -1,0 +1,341 @@
+.root {
+  position: relative;
+  padding: var(--space-12) 0;
+  background: var(--background);
+  border-radius: 0 0 3rem 3rem;
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--space-6);
+  box-shadow: 0 4px 12px rgba(95, 79, 255, 0.2);
+}
+
+.title {
+  color: var(--foreground);
+  margin-bottom: var(--space-6);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+.contentGrid {
+  display: grid;
+  margin-top: var(--space-12);
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.feature:hover::before {
+  transform: scaleX(1);
+}
+
+.feature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary);
+}
+
+.featureIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  border-radius: var(--radius-lg);
+  color: var(--primary-foreground);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(95, 79, 255, 0.2);
+}
+
+.featureContent {
+  flex: 1;
+}
+
+.featureTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+  color: var(--foreground);
+}
+
+.featureDescription {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+
+.rightColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.demoContainer {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.demoHeader {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border);
+  background: var(--muted);
+}
+
+.demoTabs {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.demoTab {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.demoTab.active {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.demoTab:hover:not(.active) {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.demoContent {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.demoSection {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.demoMetric {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--muted);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  flex: 1;
+}
+
+.demoVisual {
+  min-height: 120px;
+  background: var(--muted);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.overlayPreview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.overlayElement {
+  padding: var(--space-2) var(--space-3);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.demoActions {
+  display: flex;
+  justify-content: center;
+}
+
+.actionButton {
+  background: var(--primary) !important;
+  border: none !important;
+  color: var(--primary-foreground) !important;
+  padding: var(--space-3) var(--space-6) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.actionButton:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(95, 79, 255, 0.3) !important;
+}
+
+.backgroundElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.geometricShape {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 1px solid var(--border);
+  opacity: 0.03;
+}
+
+.geometricShape:nth-child(1) {
+  top: 10%;
+  right: 5%;
+  border-radius: 50%;
+}
+
+.geometricShape:nth-child(2) {
+  bottom: 20%;
+  left: 10%;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+  
+  .rightColumn {
+    order: -1;
+  }
+  
+  .demoContainer {
+    max-width: 100%;
+  }
+  
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    padding: var(--space-16) 0;
+  }
+  
+  .inner {
+    padding: 0 var(--space-4);
+  }
+  
+  .header {
+    margin-bottom: var(--space-12);
+  }
+  
+  .features {
+    gap: var(--space-4);
+  }
+  
+  .feature {
+    padding: var(--space-4);
+  }
+  
+  .stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .demoContainer {
+    max-width: 100%;
+  }
+}
