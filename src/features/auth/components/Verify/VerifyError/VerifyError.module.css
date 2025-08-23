@@ -1,0 +1,124 @@
+.content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-6);
+}
+
+.errorIcon {
+  width: 70px;
+  height: 70px;
+  background: var(--destructive);
+  color: var(--destructive-foreground);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-4);
+  animation: errorShake 0.6s ease-out;
+}
+
+@keyframes errorShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.title {
+  margin-bottom: var(--space-2);
+  color: var(--foreground);
+}
+
+.subtitle {
+  margin-bottom: var(--space-4);
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+.errorHelp {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.helpItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: left;
+}
+
+.helpItem svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.helpItem span {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.support {
+  text-align: center;
+}
+
+.supportText {
+  margin-bottom: var(--space-2);
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.supportLink {
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+  background: var(--muted);
+  color: var(--primary);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border);
+}
+
+.supportLink:hover {
+  background: var(--accent);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: var(--space-4);
+  }
+  
+  .actions {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .helpItem {
+    padding: var(--space-2);
+    gap: var(--space-2);
+  }
+  
+  .helpItem span {
+    font-size: 0.8rem;
+  }
+}

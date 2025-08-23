@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'large' | 'base' | 'small' | 'tiny';
 type TypographyWeight = 'regular' | 'medium' | 'semibold' | 'bold';
-type TypographyColor = 'primary' | 'secondary' | 'muted' | 'accent' | 'destructive' | 'foreground';
+type TypographyColor = 'primary' | 'secondary' | 'muted' | 'accent' | 'destructive' | 'foreground' | 'background';
 
 interface BaseProps {
   variant?: TypographyVariant;

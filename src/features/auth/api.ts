@@ -22,3 +22,8 @@ export async function logoutUser(): Promise<{ message: string }> {
   return data;
 }
 
+export const verifyEmail = async (token: string): Promise<{ message: string }> => {
+  const response = await api.get(`/auth/verify-email?token=${encodeURIComponent(token)}`);
+  return response.data;
+};
+

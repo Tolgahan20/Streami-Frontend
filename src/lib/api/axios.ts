@@ -1,4 +1,6 @@
 import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from "axios";
+import { API_BASE_URL } from "@/lib/constants/endpoints";
+
 let isRefreshing = false;
 let pendingRequestsQueue: Array<{
   resolve: (value: unknown) => void;
@@ -8,10 +10,8 @@ let pendingRequestsQueue: Array<{
 
 // With httpOnly cookies set by the backend, we do not read or write access tokens on the client.
 
-const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:3000/v1";
-
 const api: AxiosInstance = axios.create({
-  baseURL,
+  baseURL: API_BASE_URL,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
@@ -21,7 +21,7 @@ const api: AxiosInstance = axios.create({
 // No Authorization header injection; rely on server reading httpOnly cookies
 api.interceptors.request.use((config: InternalAxiosRequestConfig) => config);
 
-const plainClient = axios.create({ baseURL, withCredentials: true });
+const plainClient = axios.create({ baseURL: API_BASE_URL, withCredentials: true });
 
 async function refreshAccessToken(): Promise<string> {
   const response = await plainClient.post<{ accessToken: string }>("/auth/refresh");

@@ -1,0 +1,35 @@
+.layout {
+  display: flex;
+  width: 100%;
+  gap: var(--space-6); /* Added spacing between sidebars and content */
+}
+
+.content {
+  display: flex;
+  gap: var(--space-6); /* Added spacing between content and right sidebar */
+  flex: 1;
+}
+
+@media (max-width: 1200px) {
+  .layout {
+    width: 100%;
+    gap: var(--space-4); /* Slightly reduced spacing on smaller screens */
+  }
+  
+  .content {
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-3); /* Reduced spacing on mobile */
+  }
+  
+  .content {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+}

@@ -3,6 +3,7 @@ import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import QueryProvider from "./providers/QueryProvider";
 import ThemeProvider from "./providers/ThemeProvider";
+import ToastProvider from "./providers/ToastProvider";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -26,7 +27,10 @@ export default function RootLayout({
         className={`${notoSans.variable} antialiased`}
       >
         <ThemeProvider>
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+            {children}
+            <ToastProvider />
+          </QueryProvider>
         </ThemeProvider>
       </body>
     </html>

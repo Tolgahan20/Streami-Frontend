@@ -1,0 +1,121 @@
+.navigation {
+  width: 280px;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  height: calc(100vh - 80px);
+  position: sticky;
+  top: 80px;
+  overflow-y: auto;
+  flex-shrink: 0;
+  display: flex; /* Added for flexbox layout */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-between; /* Push content to top and bottom */
+}
+
+.navSection {
+  padding: var(--space-6);
+  flex: 1;
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-4);
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  color: var(--foreground);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.navLink:hover {
+  background: var(--muted);
+  color: var(--foreground);
+}
+
+.navLink svg {
+  color: var(--muted-foreground);
+}
+
+.userProfile {
+  padding: var(--space-4);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: auto; /* Push to bottom */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--muted);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-foreground);
+  flex-shrink: 0;
+}
+
+.userInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.userName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 var(--space-1) 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userHandle {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .navSection {
+    padding: var(--space-4);
+  }
+  
+  .userProfile {
+    padding: var(--space-3);
+  }
+}

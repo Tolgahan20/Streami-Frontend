@@ -1,23 +1,21 @@
 .label {
-  display: block;
   font-size: 0.875rem;
   font-weight: 500;
+  color: var(--foreground);
   line-height: 1.5;
-  color: var(--color-foreground);
-  margin-bottom: var(--space-1);
+  cursor: pointer;
 }
 
-.required::after {
-  content: "*";
-  color: var(--color-destructive);
-  margin-left: var(--space-1);
-}
-
-.error {
-  color: var(--color-destructive);
-}
-
-.disabled {
-  opacity: 0.5;
+.label:disabled {
   cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.label.error {
+  color: var(--destructive);
+}
+
+.label.required::after {
+  content: " *";
+  color: var(--destructive);
 }

@@ -68,23 +68,26 @@
   font-weight: 700;
 }
 
-/* Colors */
+/* Color variants */
 .primary {
-  color: var(--color-primary);
+  color: var(--primary);
 }
 
 .secondary {
-  color: var(--color-secondary-foreground);
+  color: var(--secondary-foreground);
 }
 
 .muted {
-  color: var(--color-muted-foreground);
+  color: var(--muted-foreground);
 }
 
+.background{
+  color: var(--background);
+}
 .accent {
-  color: var(--color-accent-foreground);
+  color: var(--secondary-foreground);
 }
 
 .destructive {
-  color: var(--color-destructive);
+  color: var(--destructive);
 }

@@ -1,0 +1,261 @@
+.content {
+  flex: 1;
+  min-width: 0;
+  max-width: 800px;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.post {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all 0.2s ease;
+}
+
+.post:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--muted);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-foreground);
+  flex-shrink: 0;
+}
+
+.userInfo {
+  flex: 1;
+}
+
+.username {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.postContent {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--foreground);
+  margin-bottom: var(--space-4);
+}
+
+.postStats {
+  display: flex;
+  gap: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.stat:hover {
+  color: var(--primary);
+}
+
+.stat svg {
+  transition: transform 0.2s ease;
+}
+
+.stat:hover svg {
+  transform: scale(1.1);
+}
+
+/* Reply styling */
+.reply {
+  background: var(--muted);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin: var(--space-4) 0;
+}
+
+.replyHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.replyHeader .avatar {
+  width: 24px;
+  height: 24px;
+}
+
+.replyHeader .username {
+  font-size: 0.8rem;
+}
+
+.replyContent {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--foreground);
+  margin: 0;
+}
+
+/* Video player styling */
+.videoPlayer {
+  background: var(--muted);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin: var(--space-4) 0;
+  position: relative;
+}
+
+.videoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.liveTag {
+  background: var(--destructive);
+  color: white;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.videoMenu {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease;
+}
+
+.videoMenu:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.videoContent {
+  height: 200px;
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.playButton {
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.playButton:hover {
+  background: var(--primary);
+  transform: scale(1.1);
+}
+
+.videoProgress {
+  height: 4px;
+  background: var(--muted);
+  position: relative;
+}
+
+.progressBar {
+  height: 100%;
+  background: var(--primary);
+  width: 30%;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Attachment styling */
+.attachment {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--muted);
+  border-radius: var(--radius-md);
+  margin: var(--space-4) 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.attachment:hover {
+  background: var(--accent);
+}
+
+.attachmentIcon {
+  font-size: 1.25rem;
+}
+
+.attachment span {
+  font-size: 0.875rem;
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .post {
+    padding: var(--space-4);
+  }
+  
+  .postHeader {
+    margin-bottom: var(--space-3);
+  }
+  
+  .postContent {
+    margin-bottom: var(--space-3);
+  }
+  
+  .postStats {
+    padding-top: var(--space-3);
+  }
+  
+  .reply {
+    padding: var(--space-3);
+    margin: var(--space-3) 0;
+  }
+  
+  .videoContent {
+    height: 150px;
+  }
+  
+  .playButton {
+    width: 50px;
+    height: 50px;
+  }
+}

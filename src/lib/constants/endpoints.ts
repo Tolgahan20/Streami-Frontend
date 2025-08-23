@@ -1,4 +1,12 @@
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:3000/v1";
+// Debug: Log the API base URL to help troubleshoot
+const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:3000/v1";
+console.log("🔧 API Base URL:", {
+  fromEnv: process.env.NEXT_PUBLIC_API_BASE_URL,
+  final: apiBaseUrl,
+  hasProtocol: apiBaseUrl.startsWith("http"),
+});
+
+export const API_BASE_URL = apiBaseUrl;
 
 export const ENDPOINTS = {
   auth: {

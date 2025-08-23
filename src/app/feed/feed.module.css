@@ -1,0 +1,12 @@
+.root {
+  min-height: 100vh;
+  background: var(--background);
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.main {
+  padding-top: 80px; /* Space for fixed header */
+  width: 100%;
+  max-width: 100vw; /* Ensure full viewport width */
+}

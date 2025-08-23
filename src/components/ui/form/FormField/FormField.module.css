@@ -1,18 +1,27 @@
-.formField {
+.field {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
-  margin-bottom: var(--space-4);
+  gap: var(--space-2);
 }
 
-.error {
+.fieldLabel {
   font-size: 0.875rem;
-  color: var(--color-destructive);
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.fieldDescription {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.fieldError {
+  font-size: 0.75rem;
+  color: var(--destructive);
   margin-top: var(--space-1);
 }
 
-.hint {
-  font-size: 0.875rem;
-  color: var(--color-muted-foreground);
-  margin-top: var(--space-1);
+.fieldRequired {
+  color: var(--destructive);
+  margin-left: var(--space-1);
 }

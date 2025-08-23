@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { fetchMe, loginUser, logoutUser, registerUser } from "./api";
-import type { LoginDto, RegisterDto } from "./types";
+import { fetchMe, loginUser, logoutUser, registerUser } from "../api";
+import type { LoginDto, RegisterDto } from "../types";
 
 export function useRegister() {
   return useMutation({
