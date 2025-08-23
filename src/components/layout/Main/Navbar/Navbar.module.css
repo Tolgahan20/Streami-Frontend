@@ -1,0 +1,214 @@
+.root {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: saturate(180%) blur(10px);
+  background: var(--foreground);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: var(--space-7);
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-12);
+
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--card);
+  text-decoration: none;
+}
+
+.logo {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-600) 100%);
+  box-shadow: 0 6px 18px rgba(95, 79, 255, 0.35);
+}
+
+.name {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.links {
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    justify-self: start;
+  }
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--card);
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.link:hover {
+  color: var(--muted-foreground);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.signInBtn {
+  color: var(--card);
+  background: transparent !important;
+  border: none !important;
+  font-weight: 500 !important;
+  padding: var(--space-2) var(--space-3) !important;
+}
+
+.signInBtn:hover {
+  background: var(--secondary) !important;
+  color: var(--foreground) !important;
+}
+
+.signUpBtn {
+  background: var(--primary) !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 600 !important;
+  padding: var(--space-2) var(--space-4) !important;
+  box-shadow: 0 4px 12px rgba(95, 79, 255, 0.25) !important;
+}
+
+.toggle {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(---foreground);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle:hover {
+  background: var(--secondary);
+  border-color: var(--border);
+  color: var(--foreground) !important;
+}
+
+.menuBtn {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  cursor: pointer;
+}
+
+@media (min-width: 860px) {
+  .menuBtn { display: none; }
+}
+
+.mobile {
+  position: fixed;
+  inset: 0 0 auto 0;
+  top: 64px;
+  background: var(--card);
+
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+}
+
+.mobileCollapsed { 
+  height: 0; 
+  overflow: hidden; 
+  padding-top: 0; 
+  padding-bottom: 0; 
+}
+
+.dropdown {
+  position: relative;
+  left: 0; 
+  right: 0;
+  background: var(--foreground);
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+  transition: height .7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdownOpen { 
+  pointer-events: auto; 
+  height: 300px;
+}
+
+.dropdownInner { 
+  max-width: 100%; 
+  margin: 0 auto; 
+  padding: var(--space-6) var(--space-12); 
+  background: var(--foreground);
+  display: flex; 
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.dropdownLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  color: var(--background);
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.dropdownLink:hover {
+  color: var(--muted-foreground);
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: var(--space-4) var(--space-4);
+  }
+  
+  .dropdownInner {
+    grid-template-columns: 1fr;
+    padding: var(--space-4);
+  }
+}
+
+/* Secondary Navbar visible class */
+.visible {
+  transform: translateY(0);
+}
