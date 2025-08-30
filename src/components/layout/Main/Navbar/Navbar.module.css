@@ -1,6 +1,5 @@
 .root {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 50;
   backdrop-filter: saturate(180%) blur(10px);
   background: var(--foreground);
@@ -13,7 +12,7 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-2) var(--space-3);
+  padding: 0 var(--space-3);
   height: 48px;
 }
 
@@ -80,6 +79,7 @@
   align-items: center;
   gap: var(--space-1);
   height: 32px;
+  justify-self: end;
 }
 
 .signInBtn {
@@ -167,14 +167,14 @@
   right: 0;
   background: var(--foreground);
   pointer-events: none;
-  height: 0;
+  max-height: 0;
   overflow: hidden;
-  transition: height .7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dropdownOpen { 
   pointer-events: auto; 
-  height: 220px;
+  max-height: 300px;
 }
 
 .dropdownInner { 
@@ -187,6 +187,7 @@
   gap: var(--space-1);
   align-items: flex-start;
   padding-left: calc(var(--space-3) + 22px + var(--space-2) + 5ch + var(--space-6));
+  min-height: fit-content;
 }
 
 .dropdownLink {

@@ -96,8 +96,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-foreground text-background;
     font-family: var(--font-sans);
+    background: var(--background);
   }
 
   /* Custom scrollbar to match status.app */

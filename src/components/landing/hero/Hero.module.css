@@ -8,6 +8,8 @@
   background: var(--background);
   overflow: hidden;
   border-radius: 3rem 3rem 0 0;
+  border-bottom: 2px dashed var(--border);
+  margin-bottom: 0;
 }
 
 /* Background effects */
@@ -17,6 +19,265 @@
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
+}
+
+/* Illustration area */
+.illustration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.illustrationContent {
+  max-width: 800px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.streamingIllustration {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* AI Brain - Central element */
+.aiBrain {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(95, 79, 255, 0.4);
+  animation: aiPulse 3s ease-in-out infinite;
+  z-index: 3;
+}
+
+.brainCore {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  position: relative;
+}
+
+.brainCore::after {
+  content: '🤖';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+
+/* AI Brain waves */
+.brainWave1, .brainWave2, .brainWave3 {
+  position: absolute;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  opacity: 0;
+  animation: brainWave 3s ease-out infinite;
+}
+
+.brainWave1 {
+  width: 100px;
+  height: 100px;
+  top: -10px;
+  left: -10px;
+  animation-delay: 0s;
+}
+
+.brainWave2 {
+  width: 120px;
+  height: 120px;
+  top: -20px;
+  left: -20px;
+  animation-delay: 0.5s;
+}
+
+.brainWave3 {
+  width: 140px;
+  height: 140px;
+  top: -30px;
+  left: -30px;
+  animation-delay: 1s;
+}
+
+/* Streaming elements container */
+.streamElements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* Camera/Stream indicator */
+.camera {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 50px;
+  height: 35px;
+  background: linear-gradient(135deg, #374151, #1f2937);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 4s ease-in-out infinite;
+  z-index: 2;
+}
+
+.cameraLens {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #6b7280, #374151);
+  border-radius: 50%;
+  border: 2px solid #9ca3af;
+}
+
+.recordingLight {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: recordingBlink 1s ease-in-out infinite;
+}
+
+/* Chat bubbles */
+.chatBubble1, .chatBubble2, .chatBubble3 {
+  position: absolute;
+  width: 40px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px 15px 15px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: chatFloat 3s ease-in-out infinite;
+}
+
+.chatBubble1 {
+  top: 20%;
+  right: 15%;
+  animation-delay: 0s;
+}
+
+.chatBubble2 {
+  top: 50%;
+  right: 8%;
+  animation-delay: 1s;
+}
+
+.chatBubble3 {
+  bottom: 30%;
+  right: 12%;
+  animation-delay: 2s;
+}
+
+/* Viewer count */
+.viewerCount {
+  position: absolute;
+  bottom: 15%;
+  left: 15%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  animation: float 5s ease-in-out infinite reverse;
+}
+
+.viewerIcon {
+  font-size: 12px;
+}
+
+.countNumber {
+  color: var(--primary);
+}
+
+/* Data flow lines */
+.dataFlow1, .dataFlow2, .dataFlow3 {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  animation: dataFlowAnim 2s ease-in-out infinite;
+}
+
+.dataFlow1 {
+  width: 60px;
+  top: 25%;
+  left: 45%;
+  animation-delay: 0s;
+}
+
+.dataFlow2 {
+  width: 50px;
+  top: 55%;
+  right: 35%;
+  animation-delay: 0.7s;
+}
+
+.dataFlow3 {
+  width: 55px;
+  bottom: 35%;
+  left: 35%;
+  animation-delay: 1.4s;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes aiPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 8px 32px rgba(95, 79, 255, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 12px 40px rgba(95, 79, 255, 0.6); }
+}
+
+@keyframes brainWave {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 0.6; }
+  100% { opacity: 0; transform: scale(1.2); }
+}
+
+@keyframes recordingBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+@keyframes chatFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+  50% { transform: translateY(-10px) rotate(2deg); opacity: 1; }
+}
+
+@keyframes dataFlowAnim {
+  0% { opacity: 0; transform: scaleX(0); }
+  50% { opacity: 1; transform: scaleX(1); }
+  100% { opacity: 0; transform: scaleX(0); }
 }
 
 /* Content */
@@ -121,6 +382,12 @@
 
 
 @media (max-width: 640px) {
+  .illustration {
+    height: 30%;
+  }
+  .inner {
+    margin-top: 15%;
+  }
   .banner {
     padding: var(--space-2);
   }
@@ -130,5 +397,36 @@
   .cta {
     flex-direction: column;
     align-items: stretch;
+  }
+  .streamingIllustration {
+    max-width: 300px;
+  }
+  .aiBrain {
+    width: 60px;
+    height: 60px;
+  }
+  .brainCore {
+    width: 30px;
+    height: 30px;
+  }
+  .brainCore::after {
+    font-size: 16px;
+  }
+  .camera {
+    width: 40px;
+    height: 28px;
+  }
+  .cameraLens {
+    width: 16px;
+    height: 16px;
+  }
+  .chatBubble1, .chatBubble2, .chatBubble3 {
+    width: 32px;
+    height: 24px;
+    font-size: 14px;
+  }
+  .viewerCount {
+    padding: 6px 10px;
+    font-size: 12px;
   }
 }

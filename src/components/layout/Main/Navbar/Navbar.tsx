@@ -17,7 +17,7 @@ export default function Navbar() {
   const linksRef = useRef<HTMLDivElement | null>(null);
   const ctaRef = useRef<HTMLDivElement | null>(null);
   const [open, setOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState<MenuKey>("products");
+  const [activeMenu, setActiveMenu] = useState<MenuKey>("creatorhub");
   const [showSecondary, setShowSecondary] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement | null>(null);
@@ -109,14 +109,68 @@ export default function Navbar() {
             <button
               className={styles.link}
               onMouseEnter={() => {
-                setActiveMenu("products");
+                setActiveMenu("creatorhub");
                 setOpen(true);
               }}
             >
-              Products
+              Creator Hub
               <svg
                 className={`${styles.chev} ${
-                  open && activeMenu === "products" ? styles.chevOpen : ""
+                  open && activeMenu === "creatorhub" ? styles.chevOpen : ""
+                }`}
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 9l6 6 6-6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              className={styles.link}
+              onMouseEnter={() => {
+                setActiveMenu("community");
+                setOpen(true);
+              }}
+            >
+              Network Hub
+              <svg
+                className={`${styles.chev} ${
+                  open && activeMenu === "networkhub" ? styles.chevOpen : ""
+                }`}
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 9l6 6 6-6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              className={styles.link}
+              onMouseEnter={() => {
+                setActiveMenu("profiles");
+                setOpen(true);
+              }}
+            >
+              Profiles
+              <svg
+                className={`${styles.chev} ${
+                  open && activeMenu === "profiles" ? styles.chevOpen : ""
                 }`}
                 width="12"
                 height="12"
@@ -163,14 +217,14 @@ export default function Navbar() {
             <button
               className={styles.link}
               onMouseEnter={() => {
-                setActiveMenu("learn");
+                setActiveMenu("messaging");
                 setOpen(true);
               }}
             >
-              Learn
+              Messaging
               <svg
                 className={`${styles.chev} ${
-                  open && activeMenu === "learn" ? styles.chevOpen : ""
+                  open && activeMenu === "messaging" ? styles.chevOpen : ""
                 }`}
                 width="12"
                 height="12"
@@ -187,11 +241,36 @@ export default function Navbar() {
                 />
               </svg>
             </button>
-            <Link href="#pricing" className={styles.link}>
-              Pricing
-            </Link>
-            <Link href="#downloads" className={styles.link}>
-              Downloads
+            <button
+              className={styles.link}
+              onMouseEnter={() => {
+                setActiveMenu("about-us");
+                setOpen(true);
+              }}
+            >
+              About Us
+              <svg
+                className={`${styles.chev} ${
+                  open && activeMenu === "about-us" ? styles.chevOpen : ""
+                }`}
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 9l6 6 6-6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+                  
+            <Link href="/contact-us" className={styles.link}>
+              Contact Us
             </Link>
           </div>
           <div className={styles.cta} ref={ctaRef}>

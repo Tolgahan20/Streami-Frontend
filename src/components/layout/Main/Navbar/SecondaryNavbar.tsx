@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { MoveUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button/Button";
+import { megaMenu, type MenuKey } from "@/components/layout/Main/Navbar/data";
 
 import styles from "./SecondaryNavbar.module.css";
 
@@ -12,7 +13,7 @@ interface SecondaryNavbarProps {
 }
 
 export default function SecondaryNavbar({ visible }: SecondaryNavbarProps) {
-  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
 
   return (
     <nav className={`${styles.root} ${visible ? styles.visible : ''} ${activeMenu ? styles.dropdownOpen : ''}`}>
@@ -26,9 +27,21 @@ export default function SecondaryNavbar({ visible }: SecondaryNavbarProps) {
           <div className={styles.links}>
             <button
               className={styles.link}
-              onMouseEnter={() => setActiveMenu("products")}
+              onMouseEnter={() => setActiveMenu("creatorhub")}
             >
-              Products
+              Creator Hub
+            </button>
+            <button
+              className={styles.link}
+              onMouseEnter={() => setActiveMenu("networkhub")}
+            >
+              Network Hub
+            </button>
+            <button
+              className={styles.link}
+              onMouseEnter={() => setActiveMenu("profiles")}
+            >
+              Profiles
             </button>
             <button
               className={styles.link}
@@ -38,12 +51,17 @@ export default function SecondaryNavbar({ visible }: SecondaryNavbarProps) {
             </button>
             <button
               className={styles.link}
-              onMouseEnter={() => setActiveMenu("learn")}
+              onMouseEnter={() => setActiveMenu("messaging")}
             >
-              Learn
+              Messaging
             </button>
-            <Link href="#pricing" className={styles.link}>Pricing</Link>
-            <Link href="#downloads" className={styles.link}>Downloads</Link>
+            <button
+              className={styles.link}
+              onMouseEnter={() => setActiveMenu("about-us")}
+            >
+              About Us
+            </button>
+            <Link href="/contact" className={styles.link}>Contact Us</Link>
           </div>
         </div>
         
@@ -66,56 +84,12 @@ export default function SecondaryNavbar({ visible }: SecondaryNavbarProps) {
           onMouseLeave={() => setActiveMenu(null)}
         >
           <div className={styles.dropdownInner}>
-            {activeMenu === "products" && (
-              <>
-                <div className={styles.dropdownItem}>
-                  <span className={styles.dropdownTitle}>Editor</span>
-                </div>
-                <div className={styles.dropdownItem}>
-                  <span className={styles.dropdownTitle}>Format</span>
-                </div>
-                <div className={styles.dropdownItem}>
-                  <span className={styles.dropdownTitle}>Runtime</span>
-                </div>
-                <div className={styles.dropdownItem}>
-                  <span className={styles.dropdownTitle}>Renderer</span>
-                  <MoveUpRight size={14} className={styles.dropdownIcon} />
-                </div>
-              </>
-            )}
-            {activeMenu === "community" && (
-              <>
-                <div className={styles.dropdownItem}>
-                  <span className={styles.dropdownTitle}>Community</span>
-                </div>
-                <div className={styles.dropdownItem}>
-                  <span className={styles.dropdownTitle}>Marketplace</span>
-                </div>
-                <div className={styles.dropdownItem}>
-                  <span className={styles.dropdownTitle}>Experts</span>
-                </div>
-                <div className={styles.dropdownItem}>
-                  <span className={styles.dropdownTitle}>Merch</span>
-                </div>
-              </>
-            )}
-            {activeMenu === "learn" && (
-              <>
-                <div className={styles.dropdownItem}>
-                  <span className={styles.dropdownTitle}>Docs</span>
-                </div>
-                <div className={styles.dropdownItem}>
-                  <span className={styles.dropdownTitle}>Tutorials</span>
-                </div>
-                <div className={styles.dropdownItem}>
-                  <span className={styles.dropdownTitle}>Blog</span>
-                </div>
-                <div className={styles.dropdownItem}>
-                  <span className={styles.dropdownTitle}>Examples</span>
-                  <MoveUpRight size={14} className={styles.dropdownIcon} />
-                </div>
-              </>
-            )}
+            {activeMenu && megaMenu[activeMenu].map((item) => (
+              <Link key={item.title} href={item.href} className={styles.dropdownItem}>
+                <span className={styles.dropdownTitle}>{item.title}</span>
+                {item.icon && <MoveUpRight size={14} className={styles.dropdownIcon} />}
+              </Link>
+            ))}
           </div>
         </div>
       )}

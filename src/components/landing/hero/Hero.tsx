@@ -38,6 +38,7 @@ export default function Hero() {
   return (
     <section className={styles.root} ref={rootRef}>
 
+
       <div className={styles.inner}>
         <div className={styles.banner} ref={bannerRef}>
           <span className={styles.tag}>NEW</span>

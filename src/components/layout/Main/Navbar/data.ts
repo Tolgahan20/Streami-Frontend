@@ -1,4 +1,4 @@
-export type MenuKey = "products" | "community" | "learn";
+export type MenuKey = "creatorhub" | "networkhub" | "profiles" | "community" | "messaging" | "about-us";
 
 type MenuItem = {
   title: string;
@@ -7,23 +7,36 @@ type MenuItem = {
 };
 
 export const megaMenu: Record<MenuKey, MenuItem[]> = {
-  products: [
-    { title: "Editor", href: "/editor" },
-    { title: "Format", href: "/format"},
-    { title: "Runtime", href: "/runtime" },
-    { title: "Renderer", href: "/renderer", icon: "move-up-right" },
+  creatorhub: [
+    { title: "Creator Marketplace", href: "/creator-hub/creator-marketplace" },
+    { title: "Creator connect", href: "/creator-hub/creator-connect"},
+    
+  ],
+  networkhub: [
+    { title: "Sponsorships", href: "/network-hub/sponsorships"},
+    { title: "Brand deals", href: "/network-hub/brand-deals" },
+    { title: "Streami affiliate", href: "/network-hub/streami-affiliate" },
+    { title: "Ad Hub", href: "/network-hub/ad-hub" },
+  ],
+  profiles: [
+    { title: "Social links", href: "/profiles/social-links" },
+    { title: "Analytics", href: "/profiles/analytics" },
+    { title: "Dashboards", href: "/profiles/dashboards" },
   ],
   community: [
-    { title: "Community", href: "/community"},
-    { title: "Marketplace", href: "/community/marketplace" },
-    { title: "Experts", href: "/community/experts" },
-    { title: "Merch", href: "/community/merch" },
+    { title: "Social Feed", href: "social-feed/community" },
+    { title: "Streamers community", href: "streamers-community/community" },
+    { title: "Creators community", href: "creators-community/community" },
   ],
-  learn: [
-    { title: "Docs", href: "/learn/docs" },
-    { title: "Tutorials", href: "/learn/tutorials" },
-    { title: "Blog", href: "/learn/blog" },
-    { title: "Examples", href: "/learn/examples", icon: "move-up-right" },
+  messaging: [
+    { title: "General", href: "/messaging/general" },
+    { title: "Streamer groups", href: "/messaging/streamer-groups" },
+    { title: "Creator groups", href: "/messaging/creator-groups" },
+  ],
+  "about-us": [
+    { title: "What is streami", href: "/about-us/what-is-streami" },
+    { title: "FAQ", href: "/about-us/faq" },
+
   ],
 };
 
