@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { fetchMe, loginUser, logoutUser, registerUser } from "../api";
+import { fetchMe, loginUser, logoutUser, registerUser, refreshToken, resendVerification } from "../api";
 import type { LoginDto, RegisterDto } from "../types";
 
 export function useRegister() {
@@ -33,6 +33,18 @@ export function useLogout() {
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ["me"] });
     },
+  });
+}
+
+export function useRefreshToken() {
+  return useMutation({
+    mutationFn: refreshToken,
+  });
+}
+
+export function useResendVerification() {
+  return useMutation({
+    mutationFn: resendVerification,
   });
 }
 

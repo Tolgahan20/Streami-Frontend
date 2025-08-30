@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { MoveUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button/Button";
-import ThemeToggle from "@/components/ThemeToggle";
+
 import styles from "./SecondaryNavbar.module.css";
 
 interface SecondaryNavbarProps {
@@ -54,7 +54,7 @@ export default function SecondaryNavbar({ visible }: SecondaryNavbarProps) {
           <Button variant="primary" size="sm" className={styles.signUpBtn}>
             <Link href="/register">Sign up</Link>
           </Button>
-          <ThemeToggle />
+          
         </div>
       </div>
       

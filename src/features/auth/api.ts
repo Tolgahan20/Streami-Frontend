@@ -22,8 +22,18 @@ export async function logoutUser(): Promise<{ message: string }> {
   return data;
 }
 
+export async function refreshToken(): Promise<{ accessToken: string }> {
+  const { data } = await api.post(ENDPOINTS.auth.refresh);
+  return data;
+}
+
+export async function resendVerification(email: string): Promise<{ message: string }> {
+  const { data } = await api.post(ENDPOINTS.auth.resendVerification, { email });
+  return data;
+}
+
 export const verifyEmail = async (token: string): Promise<{ message: string }> => {
-  const response = await api.get(`/auth/verify-email?token=${encodeURIComponent(token)}`);
+  const response = await api.get(ENDPOINTS.auth.verifyEmail(token));
   return response.data;
 };
 

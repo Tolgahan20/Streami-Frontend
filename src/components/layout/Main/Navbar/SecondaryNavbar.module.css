@@ -9,9 +9,9 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   backdrop-filter: saturate(180%) blur(10px);
   transition: transform 0.3s ease;
-  height: 60px;
-  width: 90%;
-  max-width: 1000px;
+  height: 48px;
+  width: 85%;
+  max-width: 900px;
 }
 
 .root.visible {
@@ -28,13 +28,13 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  padding:  var(--space-4)  var(--space-4);
+  padding: var(--space-2) var(--space-4);
 }
 
 .leftSection {
   display: flex;
   align-items: center;
-  gap: var(--space-5);
+  gap: var(--space-4);
 }
 
 .brand {

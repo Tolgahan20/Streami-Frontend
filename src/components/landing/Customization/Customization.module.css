@@ -367,27 +367,7 @@
 }
 
 /* Dark mode adjustments */
-:global(.dark) .card {
-  background: var(--card);
-  border-color: var(--border);
-}
 
-:global(.dark) .browserMockup {
-  background: var(--card);
-  border-color: var(--border);
-}
-
-:global(.dark) .browserHeader {
-  background: var(--muted);
-}
-
-:global(.dark) .videoPlayer {
-  background: var(--muted);
-}
-
-:global(.dark) .chatMessage {
-  background: var(--muted);
-}
 
 /* Responsive design */
 @media (max-width: 1024px) {

@@ -14,8 +14,10 @@ export const ENDPOINTS = {
     verifyEmail: (token: string) => `/auth/verify-email?token=${encodeURIComponent(token)}`,
     login: "/auth/login",
     refresh: "/auth/refresh",
+    resendVerification: "/auth/resend-verification",
     logout: "/auth/logout",
     me: "/auth/me",
+    google: "/auth/google",
   },
   status: {
     health: "/health",

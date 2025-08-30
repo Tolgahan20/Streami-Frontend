@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { verifyEmail } from "../api";
+import { AUTH_MESSAGES } from "@/lib/constants/messages";
 import toast from "react-hot-toast";
 
 export type VerificationStatus = 'loading' | 'success' | 'error';
@@ -15,7 +16,7 @@ export function useEmailVerification() {
     const token = searchParams.get('token');
     
     if (!token) {
-      setErrorMessage('No verification token provided.');
+      setErrorMessage(AUTH_MESSAGES.BACKEND_ERRORS.token_not_found);
       setVerificationStatus('error');
       return;
     }
@@ -27,7 +28,7 @@ export function useEmailVerification() {
         await verifyEmail(token);
         setVerificationStatus('success');
         setVerificationTime(Date.now() - startTime);
-        toast.success('Email verified successfully! Welcome to Streami!');
+        toast.success(AUTH_MESSAGES.EMAIL_VERIFIED);
       } catch (error: unknown) {
         setVerificationStatus('error');
         
@@ -41,21 +42,11 @@ export function useEmailVerification() {
           }
         }
         
-        // Map backend error messages to user-friendly ones
-        const errorMessages: Record<string, string> = {
-          'invalid_or_expired_token': 'This verification link has expired or is invalid. Please request a new one.',
-          'token_not_found': 'Verification link not found. Please check your email and try again.',
-          'email_already_verified': 'This email has already been verified. You can sign in now.',
-          'user_not_found': 'User account not found. Please register again.',
-          'verification_failed': 'Email verification failed. Please try again or contact support.',
-          'email_in_use': 'This email is already associated with another account.',
-          'invalid_token': 'The verification link is invalid. Please check your email for the correct link.',
-          'token_expired': 'This verification link has expired. Please request a new one.',
-          'server_error': 'Something went wrong on our end. Please try again later.',
-        };
-        
-        const userFriendlyMessage = backendMessage ? errorMessages[backendMessage] : undefined;
-        const finalMessage = userFriendlyMessage || backendMessage || "Verification failed. Please try again.";
+        // Map backend error messages to user-friendly ones using centralized messages
+        const finalMessage = backendMessage ? 
+          AUTH_MESSAGES.BACKEND_ERRORS[backendMessage as keyof typeof AUTH_MESSAGES.BACKEND_ERRORS] || 
+          backendMessage : 
+          AUTH_MESSAGES.VERIFICATION_FAILED;
         
         setErrorMessage(finalMessage);
         toast.error(finalMessage);

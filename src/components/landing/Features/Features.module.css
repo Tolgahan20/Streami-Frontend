@@ -133,27 +133,7 @@
 }
 
 /* Dark mode specific styles */
-:global(.dark) .featureCard {
-  background: color-mix(in srgb, var(--card) 95%, var(--background));
-  border-color: color-mix(in srgb, var(--border) 80%, transparent);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
 
-:global(.dark) .featureCard:hover {
-  background: color-mix(in srgb, var(--card) 98%, var(--background));
-  border-color: var(--primary);
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.4),
-    0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-:global(.dark) .iconContainer {
-  background: color-mix(in srgb, var(--primary) 8%, transparent);
-}
-
-:global(.dark) .featureCard:hover .iconContainer {
-  background: color-mix(in srgb, var(--primary) 12%, transparent);
-}
 
 /* Responsive design */
 @media (max-width: 1200px) {

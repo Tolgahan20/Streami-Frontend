@@ -9,12 +9,12 @@
 .inner {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  column-gap: var(--space-7);
+  column-gap: var(--space-6);
   align-items: center;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-4) var(--space-12);
-
+  padding: var(--space-2) var(--space-3);
+  height: 48px;
 }
 
 .brand {
@@ -23,18 +23,20 @@
   gap: var(--space-2);
   color: var(--card);
   text-decoration: none;
+  height: 32px;
 }
 
 .logo {
-  width: 26px;
-  height: 26px;
-  border-radius: 7px;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-600) 100%);
-  box-shadow: 0 6px 18px rgba(95, 79, 255, 0.35);
+  box-shadow: 0 4px 12px rgba(95, 79, 255, 0.25);
 }
 
 .name {
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 0.95rem;
   letter-spacing: -0.01em;
 }
 
@@ -46,7 +48,7 @@
   .links {
     display: flex;
     align-items: center;
-    gap: var(--space-5);
+    gap: var(--space-4);
     justify-self: start;
   }
 }
@@ -57,15 +59,16 @@
   gap: var(--space-1);
   color: var(--card);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-transform: capitalize;
-  letter-spacing: 0.04em;
-  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-weight: 500;
   transition: color 0.2s ease;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: var(--space-1) var(--space-2);
+  height: 28px;
 }
 
 .link:hover {
@@ -75,7 +78,8 @@
 .cta {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-1);
+  height: 32px;
 }
 
 .signInBtn {
@@ -83,7 +87,9 @@
   background: transparent !important;
   border: none !important;
   font-weight: 500 !important;
-  padding: var(--space-2) var(--space-3) !important;
+  font-size: 0.85rem !important;
+  padding: var(--space-1) var(--space-3) !important;
+  height: 28px !important;
 }
 
 .signInBtn:hover {
@@ -95,9 +101,11 @@
   background: var(--primary) !important;
   color: white !important;
   border: none !important;
-  font-weight: 600 !important;
-  padding: var(--space-2) var(--space-4) !important;
-  box-shadow: 0 4px 12px rgba(95, 79, 255, 0.25) !important;
+  font-weight: 500 !important;
+  font-size: 0.85rem !important;
+  padding: var(--space-1) var(--space-3) !important;
+  height: 28px !important;
+  box-shadow: 0 2px 8px rgba(95, 79, 255, 0.2) !important;
 }
 
 .toggle {
@@ -121,10 +129,10 @@
 
 .menuBtn {
   display: inline-flex;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 8px;
   align-items: center;
   justify-content: center;
   background: var(--card);
@@ -166,28 +174,29 @@
 
 .dropdownOpen { 
   pointer-events: auto; 
-  height: 300px;
+  height: 220px;
 }
 
 .dropdownInner { 
-  max-width: 100%; 
+  max-width: 1200px; 
   margin: 0 auto; 
-  padding: var(--space-6) var(--space-12); 
+  padding: var(--space-4); 
   background: var(--foreground);
   display: flex; 
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-1);
   align-items: flex-start;
+  padding-left: calc(var(--space-3) + 22px + var(--space-2) + 5ch + var(--space-6));
 }
 
 .dropdownLink {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-3) var(--space-4);
+  padding: var(--space-2) var(--space-3);
   color: var(--background);
   text-decoration: none;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 600;
   border-radius: var(--radius-md);
   transition: all 0.2s ease;
@@ -199,12 +208,13 @@
 
 @media (max-width: 640px) {
   .inner {
-    padding: var(--space-4) var(--space-4);
+    padding: var(--space-2) var(--space-3);
+    height: 44px;
   }
   
   .dropdownInner {
     grid-template-columns: 1fr;
-    padding: var(--space-4);
+    padding: var(--space-3);
   }
 }
 

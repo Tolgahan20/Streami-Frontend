@@ -67,6 +67,69 @@
   line-height: 1.4;
 }
 
+/* Resend Verification Section */
+.resendSection {
+  margin-bottom: var(--space-6);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resendButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 auto;
+  transition: all 0.2s ease;
+}
+
+.resendButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.resendForm {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  text-align: left;
+}
+
+.formGroup {
+  margin-bottom: var(--space-4);
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.formGroup input {
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-foreground);
+}
+
+.formActions {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: flex-end;
+}
+
 .actions {
   display: flex;
   justify-content: center;
@@ -120,5 +183,22 @@
   
   .helpItem span {
     font-size: 0.8rem;
+  }
+  
+  .resendSection {
+    margin-bottom: var(--space-4);
+  }
+  
+  .resendForm {
+    padding: var(--space-3);
+  }
+  
+  .formActions {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .formActions button {
+    width: 100%;
   }
 }

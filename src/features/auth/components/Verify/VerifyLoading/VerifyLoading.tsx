@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text } from "@/components/ui/typography/Typography";
 import { Shield, Mail } from "lucide-react";
+import { AUTH_MESSAGES } from "@/lib/constants/messages";
 import styles from "./VerifyLoading.module.css";
 
 export const VerifyLoading: React.FC = () => {
@@ -8,7 +9,7 @@ export const VerifyLoading: React.FC = () => {
     <div className={styles.content}>
       <div className={styles.spinner}></div>
       <Text variant="h2" className={styles.title}>
-        Verifying your email...
+      {AUTH_MESSAGES.VERIFYING_EMAIL}
       </Text>
       <Text color="muted" className={styles.subtitle}>
         Please wait while we securely verify your email address.

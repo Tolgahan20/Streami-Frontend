@@ -3,6 +3,7 @@ import { Text } from "@/components/ui/typography/Typography";
 import { Button } from "@/components/ui/button/Button";
 import Link from "next/link";
 import { CheckCircle, Zap, Shield, Users } from "lucide-react";
+import { AUTH_MESSAGES } from "@/lib/constants/messages";
 import styles from "./VerifySuccess.module.css";
 
 interface VerifySuccessProps {
@@ -17,7 +18,7 @@ export const VerifySuccess: React.FC<VerifySuccessProps> = ({ verificationTime }
       </div>
       
       <Text variant="h2" className={styles.title}>
-        Email verified successfully!
+        {AUTH_MESSAGES.EMAIL_VERIFIED}
       </Text>
       
       <Text color="muted" className={styles.subtitle}>

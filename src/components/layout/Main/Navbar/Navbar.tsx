@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button/Button";
 import { Text } from "@/components/ui/typography/Typography";
-import ThemeToggle from "@/components/ThemeToggle";
+
 import { megaMenu, type MenuKey } from "@/components/layout/Main/Navbar/data";
 import styles from "./Navbar.module.css";
 import gsap from "gsap";
@@ -201,7 +201,7 @@ export default function Navbar() {
             <Button variant="primary" size="sm" className={styles.signUpBtn}>
               <Link href="/register">Sign up</Link>
             </Button>
-            <ThemeToggle />
+
 
             <button
               className={styles.menuBtn}
