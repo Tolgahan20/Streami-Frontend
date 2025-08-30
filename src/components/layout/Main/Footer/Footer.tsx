@@ -2,56 +2,33 @@
 
 import Link from "next/link";
 import styles from "./Footer.module.css";
+import { megaMenu } from "@/components/layout/Main/Navbar/data";
 
+// Transform navigation data for footer
 const footerLinks = {
-  apps: {
-    title: "Apps",
-    items: [
-      { label: "Web App", href: "/app" },
-      { label: "Desktop", href: "/download" },
-    ]
+  "creatorhub": {
+    title: "Creator Hub",
+    items: megaMenu.creatorhub.map(item => ({ label: item.title, href: item.href }))
   },
-  ecosystem: {
-    title: "Ecosystem",
-    items: [
-      { label: "Features", href: "/features" },
-      { label: "AI Integration", href: "/ai" },
-    ]
+  "networkhub": {
+    title: "Network Hub", 
+    items: megaMenu.networkhub.map(item => ({ label: item.title, href: item.href }))
   },
-  organization: {
-    title: "Organization",
-    items: [
-      { label: "About", href: "/about" },
-      { label: "Team", href: "/team" },
-      { label: "Brand", href: "/brand" },
-      { label: "Careers", href: "/careers" },
-    ]
+  "profiles": {
+    title: "Profiles",
+    items: megaMenu.profiles.map(item => ({ label: item.title, href: item.href }))
   },
-  help: {
-    title: "Help",
-    items: [
-      { label: "Overview", href: "/docs" },
-      { label: "Getting started", href: "/docs/getting-started" },
-      { label: "Support", href: "/support" },
-      { label: "FAQ", href: "/faq" },
-    ]
+  "community": {
+    title: "Community",
+    items: megaMenu.community.map(item => ({ label: item.title, href: item.href }))
   },
-  collaborate: {
-    title: "Collaborate",
-    items: [
-      { label: "Community", href: "/community" },
-      { label: "Request a feature", href: "/feature-request" },
-      { label: "Blog", href: "/blog" },
-      { label: "Translations", href: "/translations" },
-    ]
+  "messaging": {
+    title: "Messaging",
+    items: megaMenu.messaging.map(item => ({ label: item.title, href: item.href }))
   },
-  developers: {
-    title: "Developers",
-    items: [
-      { label: "API Docs", href: "/developers" },
-      { label: "Insights", href: "/insights" },
-      { label: "Documentation", href: "/docs" },
-    ]
+  "about-us": {
+    title: "About Us",
+    items: megaMenu["about-us"].map(item => ({ label: item.title, href: item.href }))
   },
 };
 

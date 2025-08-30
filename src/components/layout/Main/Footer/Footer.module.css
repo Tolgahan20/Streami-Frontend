@@ -1,5 +1,5 @@
 .root {
-    border-top: 1px dashed var(--border);
+    border-top: 1px solid var(--muted-foreground);
     padding: var(--space-5) var(--space-6);
     background: var(--foreground);
   }
@@ -29,7 +29,7 @@
     top: 0;
     bottom: 0;
     width: 0;
-    border-right: 1px dashed var(--border);
+    border-right: .2px solid var(--muted-foreground);
   }
   
   .brand {
@@ -104,7 +104,7 @@
     align-items: center;
     justify-content: space-between;
     padding-top: var(--space-8);
-    border-top: 0.5px dashed var(--border);
+    border-top: 0.5px solid var(--muted-foreground);
   }
   
   .legal {

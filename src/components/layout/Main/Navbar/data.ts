@@ -34,7 +34,7 @@ export const megaMenu: Record<MenuKey, MenuItem[]> = {
     { title: "Creator groups", href: "/messaging/creator-groups" },
   ],
   "about-us": [
-    { title: "What is streami", href: "/about-us/what-is-streami" },
+    { title: "What is Streami?", href: "/about-us/what-is-streami" },
     { title: "FAQ", href: "/about-us/faq" },
 
   ],
