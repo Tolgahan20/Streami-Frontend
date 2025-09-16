@@ -1,0 +1,236 @@
+.connect {
+  background: var(--background);
+  padding: var(--space-20) 0;
+  position: relative;
+  border-radius: 0 0 3rem 3rem;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Header Section - Inspired by Hero */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-24);
+  position: relative;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  margin-bottom: var(--space-8);
+  backdrop-filter: blur(10px);
+}
+
+.tag {
+  padding: 2px var(--space-2);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.badgeText {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 2.5rem) !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 0 var(--space-6) !important;
+  color: var(--foreground);
+}
+
+.subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.5rem) !important;
+  max-width: 600px;
+  margin: 0 auto var(--space-12) !important;
+  color: var(--muted-foreground);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.sectionLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-8);
+  text-align: center;
+  position: relative;
+}
+
+.sectionLabel::after {
+  content: '';
+  position: absolute;
+  bottom: -var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* Features Section - Flow Design */
+.featuresSection {
+  margin-bottom: var(--space-24);
+}
+
+.featuresFlow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.flowContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.featureStep {
+  text-align: center;
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--card) 50%, transparent);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  position: relative;
+  min-width: 250px;
+  max-width: 280px;
+}
+
+.featureStep:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  border-color: color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+.stepNumber {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(95, 79, 255, 0.3);
+}
+
+.featureIconWrapper {
+  width: 56px;
+  height: 56px;
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-4) auto var(--space-6);
+}
+
+.featureIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--primary);
+}
+
+.featureTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: var(--space-3);
+}
+
+.featureDescription {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+.flowArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-foreground);
+  margin: 0 var(--space-2);
+}
+
+.arrowIcon {
+  width: 24px;
+  height: 24px;
+  opacity: 0.6;
+}
+
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--foreground);
+  text-align: center;
+  margin-bottom: var(--space-12);
+  letter-spacing: -0.02em;
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .connect {
+    padding: var(--space-16) 0;
+  }
+  
+  .featuresFlow {
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  
+  .flowContainer {
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  
+  .flowArrow {
+    transform: rotate(90deg);
+  }
+  
+  .featureStep {
+    min-width: auto;
+    max-width: none;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  
+  .showcaseHeader {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+}

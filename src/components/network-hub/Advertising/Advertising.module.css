@@ -1,0 +1,209 @@
+/* Same base structure as other sections */
+.advertising {
+  background: var(--background);
+  padding: var(--space-12) 0 var(--space-20) 0;
+  position: relative;
+  border-radius: 0 0 3rem 3rem;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+  position: relative;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  margin-bottom: var(--space-8);
+  backdrop-filter: blur(10px);
+}
+
+.tag {
+  padding: 2px var(--space-2);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.badgeText {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 2.5rem) !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 0 var(--space-6) !important;
+  color: var(--foreground);
+}
+
+.subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.5rem) !important;
+  max-width: 600px;
+  margin: 0 auto !important;
+  color: var(--muted-foreground);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Description Section */
+.descriptionSection {
+  text-align: center;
+  margin-bottom: var(--space-20);
+}
+
+.description {
+  font-size: 1.1rem !important;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+/* Features Section */
+.featuresSection {
+  margin-bottom: var(--space-12);
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--foreground);
+  text-align: center;
+  margin-bottom: var(--space-16);
+  letter-spacing: -0.02em;
+}
+
+/* Minimalist Grid Layout */
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.principleItem {
+  text-align: center;
+  padding: var(--space-8);
+  transition: all 0.3s ease;
+}
+
+.principleItem:hover {
+  transform: translateY(-6px);
+}
+
+.principleHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.principleIcon {
+  width: 90px;
+  height: 90px;
+  background: color-mix(in srgb, var(--background) 95%, transparent);
+  border: 2px solid color-mix(in srgb, var(--border) 60%, transparent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.principleItem:hover .principleIcon {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 5%, transparent);
+  box-shadow: 0 8px 32px rgba(95, 79, 255, 0.15);
+}
+
+.principleIcon::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.principleItem:hover .principleIcon::before {
+  opacity: 1;
+}
+
+.featureIcon {
+  width: 36px;
+  height: 36px;
+  color: var(--primary);
+}
+
+.featureTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: var(--space-4);
+  line-height: 1.3;
+}
+
+.featureDescription {
+  font-size: 0.95rem;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .principlesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-10);
+  }
+}
+
+@media (max-width: 768px) {
+  .advertising {
+    padding: var(--space-8) 0 var(--space-16) 0;
+  }
+  
+  .principlesGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+  
+  .principleItem {
+    padding: var(--space-6);
+  }
+  
+  .principleIcon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .featureIcon {
+    width: 32px;
+    height: 32px;
+  }
+}

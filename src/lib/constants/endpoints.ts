@@ -18,6 +18,8 @@ export const ENDPOINTS = {
     logout: "/auth/logout",
     me: "/auth/me",
     google: "/auth/google",
+    checkUsername: "/auth/check-username",
+    setUsername: "/auth/set-username",
   },
   status: {
     health: "/health",

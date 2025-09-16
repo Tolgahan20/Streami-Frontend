@@ -69,6 +69,13 @@
   --space-10: 3.5rem;
   --space-11: 4rem;
   --space-12: 5rem;
+  --space-14: 6rem;
+  --space-16: 7rem;
+  --space-20: 8rem;
+  --space-24: 10rem;
+  
+  /* Additional colors */
+  --accent: #ff6b6b;
 }
 
 .dark {

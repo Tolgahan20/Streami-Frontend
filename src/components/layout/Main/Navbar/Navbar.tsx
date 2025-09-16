@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button/Button";
 import { Text } from "@/components/ui/typography/Typography";
 
@@ -12,6 +13,7 @@ import { MoveUpRight } from "lucide-react";
 import SecondaryNavbar from "./SecondaryNavbar";
 
 export default function Navbar() {
+  const router = useRouter();
   const rootRef = useRef<HTMLElement | null>(null);
   const brandRef = useRef<HTMLAnchorElement | null>(null);
   const linksRef = useRef<HTMLDivElement | null>(null);
@@ -21,6 +23,24 @@ export default function Navbar() {
   const [showSecondary, setShowSecondary] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  // Handle navigation with optional auto-scroll
+  const handleNavigation = (href: string, section?: string) => {
+    if (section) {
+      // Navigate to page with hash for auto-scroll
+      router.push(`${href}#${section}`);
+    } else {
+      // Navigate to main page
+      router.push(href);
+    }
+    setOpen(false); // Close dropdown after navigation
+  };
+
+  // Handle main dropdown trigger click
+  const handleMainNavClick = (menuKey: MenuKey) => {
+    const mainHref = megaMenu[menuKey].mainHref;
+    handleNavigation(mainHref);
+  };
 
   useEffect(() => {
     if (!rootRef.current) return;
@@ -112,6 +132,7 @@ export default function Navbar() {
                 setActiveMenu("creatorhub");
                 setOpen(true);
               }}
+              onClick={() => handleMainNavClick("creatorhub")}
             >
               Creator Hub
               <svg
@@ -136,9 +157,10 @@ export default function Navbar() {
             <button
               className={styles.link}
               onMouseEnter={() => {
-                setActiveMenu("community");
+                setActiveMenu("networkhub");
                 setOpen(true);
               }}
+              onClick={() => handleMainNavClick("networkhub")}
             >
               Network Hub
               <svg
@@ -166,6 +188,7 @@ export default function Navbar() {
                 setActiveMenu("profiles");
                 setOpen(true);
               }}
+              onClick={() => handleMainNavClick("profiles")}
             >
               Profiles
               <svg
@@ -193,6 +216,7 @@ export default function Navbar() {
                 setActiveMenu("community");
                 setOpen(true);
               }}
+              onClick={() => handleMainNavClick("community")}
             >
               Community
               <svg
@@ -220,6 +244,7 @@ export default function Navbar() {
                 setActiveMenu("messaging");
                 setOpen(true);
               }}
+              onClick={() => handleMainNavClick("messaging")}
             >
               Messaging
               <svg
@@ -247,6 +272,7 @@ export default function Navbar() {
                 setActiveMenu("about-us");
                 setOpen(true);
               }}
+              onClick={() => handleMainNavClick("about-us")}
             >
               About Us
               <svg
@@ -313,10 +339,14 @@ export default function Navbar() {
           onMouseLeave={() => setOpen(false)}
         >
           <div className={styles.dropdownInner}>
-            {megaMenu[activeMenu].map((item) => (
-              <Link key={item.title} href={item.href} className={styles.dropdownLink}>
+            {megaMenu[activeMenu].items.map((item) => (
+              <button
+                key={item.title}
+                onClick={() => handleNavigation(item.href, item.section)}
+                className={styles.dropdownLink}
+              >
                 {item.title} {item.icon && <MoveUpRight size={18} />}
-              </Link>
+              </button>
             ))}
           </div>
         </div>

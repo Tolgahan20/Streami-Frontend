@@ -4,40 +4,62 @@ type MenuItem = {
   title: string;
   href: string;
   icon?: string;
+  section?: string; // For auto-scroll to specific sections
 };
 
-export const megaMenu: Record<MenuKey, MenuItem[]> = {
-  creatorhub: [
-    { title: "Creator Marketplace", href: "/creator-hub/creator-marketplace" },
-    { title: "Creator connect", href: "/creator-hub/creator-connect"},
-    
-  ],
-  networkhub: [
-    { title: "Sponsorships", href: "/network-hub/sponsorships"},
-    { title: "Brand deals", href: "/network-hub/brand-deals" },
-    { title: "Streami affiliate", href: "/network-hub/streami-affiliate" },
-    { title: "Ad Hub", href: "/network-hub/ad-hub" },
-  ],
-  profiles: [
-    { title: "Social links", href: "/profiles/social-links" },
-    { title: "Analytics", href: "/profiles/analytics" },
-    { title: "Dashboards", href: "/profiles/dashboards" },
-  ],
-  community: [
-    { title: "Social Feed", href: "social-feed/community" },
-    { title: "Streamers community", href: "streamers-community/community" },
-    { title: "Creators community", href: "creators-community/community" },
-  ],
-  messaging: [
-    { title: "General", href: "/messaging/general" },
-    { title: "Streamer groups", href: "/messaging/streamer-groups" },
-    { title: "Creator groups", href: "/messaging/creator-groups" },
-  ],
-  "about-us": [
-    { title: "What is Streami?", href: "/about-us/what-is-streami" },
-    { title: "FAQ", href: "/about-us/faq" },
+type MenuConfig = {
+  mainHref: string; // Main page URL for the dropdown trigger
+  items: MenuItem[];
+};
 
-  ],
+export const megaMenu: Record<MenuKey, MenuConfig> = {
+  creatorhub: {
+    mainHref: "/creator-hub",
+    items: [
+      { title: "Creator Marketplace", href: "/creator-hub", section: "creator-marketplace" },
+      { title: "Creator connect", href: "/creator-hub", section: "creator-connect" },
+    ]
+  },
+  networkhub: {
+    mainHref: "/network-hub",
+    items: [
+      { title: "Sponsorships", href: "/network-hub", section: "sponsorships" },
+      { title: "Brand deals", href: "/network-hub", section: "brand-deals" },
+      { title: "Streami affiliate", href: "/network-hub", section: "streami-affiliate" },
+      { title: "Ad Hub", href: "/network-hub", section: "ad-hub" },
+    ]
+  },
+  profiles: {
+    mainHref: "/profiles",
+    items: [
+      { title: "Social links", href: "/profiles", section: "social-links" },
+      { title: "Analytics", href: "/profiles", section: "analytics" },
+      { title: "Dashboards", href: "/profiles", section: "dashboards" },
+    ]
+  },
+  community: {
+    mainHref: "/community",
+    items: [
+      { title: "Social Feed", href: "/community", section: "social-feed" },
+      { title: "Streamers community", href: "/community", section: "streamers-community" },
+      { title: "Creators community", href: "/community", section: "creators-community" },
+    ]
+  },
+  messaging: {
+    mainHref: "/messaging",
+    items: [
+      { title: "General", href: "/messaging", section: "general" },
+      { title: "Streamer groups", href: "/messaging", section: "streamer-groups" },
+      { title: "Creator groups", href: "/messaging", section: "creator-groups" },
+    ]
+  },
+  "about-us": {
+    mainHref: "/about-us",
+    items: [
+      { title: "What is Streami?", href: "/about-us", section: "what-is-streami" },
+      { title: "FAQ", href: "/about-us", section: "faq" },
+    ]
+  },
 };
 
 

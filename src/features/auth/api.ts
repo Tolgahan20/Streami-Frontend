@@ -1,6 +1,6 @@
 import api from "@/lib/api/axios";
 import { ENDPOINTS } from "@/lib/constants/endpoints";
-import type { RegisterDto, LoginDto, LoginResponse, MeResponse } from "./types";
+import type { RegisterDto, LoginDto, LoginResponse, MeResponse, AuthUser } from "./types";
 
 export async function registerUser(payload: RegisterDto): Promise<{ message: string }> {
   const { data } = await api.post(ENDPOINTS.auth.register, payload);
@@ -36,4 +36,14 @@ export const verifyEmail = async (token: string): Promise<{ message: string }> =
   const response = await api.get(ENDPOINTS.auth.verifyEmail(token));
   return response.data;
 };
+
+export async function checkUsernameAvailability(username: string): Promise<{ available: boolean }> {
+  const { data } = await api.get(`${ENDPOINTS.auth.checkUsername}?username=${encodeURIComponent(username)}`);
+  return data;
+}
+
+export async function setUsername(username: string): Promise<{ message: string; user: AuthUser }> {
+  const { data } = await api.post(ENDPOINTS.auth.setUsername, { username });
+  return data;
+}
 

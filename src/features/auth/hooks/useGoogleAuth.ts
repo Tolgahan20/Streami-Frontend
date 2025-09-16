@@ -11,12 +11,15 @@ import { auth } from '@/lib/firebase/config';
 import { ENDPOINTS } from '@/lib/constants/endpoints';
 import { AUTH_MESSAGES } from '@/lib/constants/messages';
 import { useRouter } from 'next/navigation';
+import { useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
+import api from '@/lib/api/axios';
 
 export function useGoogleAuth() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -31,35 +34,34 @@ export function useGoogleAuth() {
     try {
       setLoading(true);
       const provider = new GoogleAuthProvider();
+      
+      // Force account selection every time
+      provider.setCustomParameters({
+        prompt: 'select_account'
+      });
+      
       const result = await signInWithPopup(auth, provider);
       
       // Get user info from Google
       const { user: googleUser } = result;
       const idToken = await googleUser.getIdToken();
       
-      // Send user data to your backend for registration
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}${ENDPOINTS.auth.google}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          idToken: idToken,
-          displayName: googleUser.displayName || ''
-        })
+      // Send user data to your backend using the configured axios instance
+      const response = await api.post(ENDPOINTS.auth.google, {
+        idToken: idToken,
+        displayName: googleUser.displayName || ''
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || AUTH_MESSAGES.BACKEND_ERRORS.backend_registration_failed);
-      }
-
-      const backendResponse = await response.json();
-      console.log('Backend registration successful:', backendResponse);
+      const backendResponse = response.data;
+      console.log('Backend Google auth successful:', backendResponse);
+      
+      // Invalidate auth queries to refresh user data
+      await queryClient.invalidateQueries({ queryKey: ["me"] });
       
       toast.success(AUTH_MESSAGES.GOOGLE_SIGNIN_SUCCESS);
       
-      // Redirect to dashboard/feed after successful backend registration
+      // Check if user has username, if not, we'll handle it in the feed layout
+      // For now, always redirect to feed and let the feed page handle username setup
       router.push('/feed');
       
       return result;
@@ -72,10 +74,16 @@ export function useGoogleAuth() {
         // Firebase error
         const firebaseCode = (error as AuthError).code;
         errorMessage = AUTH_MESSAGES.FIREBASE_ERRORS[firebaseCode as keyof typeof AUTH_MESSAGES.FIREBASE_ERRORS] || errorMessage;
+      } else if (error && typeof error === 'object' && 'response' in error) {
+        // Axios error - backend error
+        const axiosError = error as { response?: { data?: { message?: string } } };
+        const backendMessage = axiosError.response?.data?.message;
+        if (backendMessage) {
+          errorMessage = AUTH_MESSAGES.BACKEND_ERRORS[backendMessage as keyof typeof AUTH_MESSAGES.BACKEND_ERRORS] || backendMessage;
+        }
       } else if (error instanceof Error) {
-        // Backend error
-        const backendMessage = error.message;
-        errorMessage = AUTH_MESSAGES.BACKEND_ERRORS[backendMessage as keyof typeof AUTH_MESSAGES.BACKEND_ERRORS] || backendMessage;
+        // Generic error
+        errorMessage = error.message;
       }
       
       toast.error(errorMessage);

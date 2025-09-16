@@ -26,12 +26,12 @@ export default function RootLayout({
       <body
         className={`${notoSans.variable} antialiased`}
       >
-        <AuthProvider>
-          <QueryProvider>
+        <QueryProvider>
+          <AuthProvider>
             {children}
-            <ToastProvider />
-          </QueryProvider>
-        </AuthProvider>
+          </AuthProvider>
+          <ToastProvider />
+        </QueryProvider>
       </body>
     </html>
   );

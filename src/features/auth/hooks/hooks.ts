@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { fetchMe, loginUser, logoutUser, registerUser, refreshToken, resendVerification } from "../api";
+import { fetchMe, loginUser, logoutUser, registerUser, refreshToken, resendVerification, checkUsernameAvailability, setUsername } from "../api";
 import type { LoginDto, RegisterDto } from "../types";
 
 export function useRegister() {
@@ -45,6 +45,22 @@ export function useRefreshToken() {
 export function useResendVerification() {
   return useMutation({
     mutationFn: resendVerification,
+  });
+}
+
+export function useCheckUsername() {
+  return useMutation({
+    mutationFn: checkUsernameAvailability,
+  });
+}
+
+export function useSetUsername() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: setUsername,
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ["me"] });
+    },
   });
 }
 

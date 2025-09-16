@@ -1,0 +1,422 @@
+/* Streamer Groups - Channel Interface Layout */
+.streamerGroups {
+  background: var(--background);
+  padding: var(--space-8) 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+  position: relative;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  margin-bottom: var(--space-8);
+  backdrop-filter: blur(10px);
+}
+
+.tag {
+  padding: 2px var(--space-2);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.badgeText {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 2.5rem) !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 0 var(--space-4) !important;
+  color: var(--foreground);
+}
+
+.subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.5rem) !important;
+  max-width: 600px;
+  margin: 0 auto var(--space-8) !important;
+  color: var(--muted-foreground);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Description Section */
+.descriptionSection {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.description {
+  font-size: 1.1rem !important;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+/* Channel Layout */
+.channelLayout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: var(--space-10);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.channelInterface {
+  background: color-mix(in srgb, var(--card) 40%, transparent);
+  border-radius: var(--radius-xl);
+  border: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
+  overflow: hidden;
+  height: 500px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+}
+
+/* Channel Sidebar */
+.channelSidebar {
+  background: color-mix(in srgb, var(--background) 90%, transparent);
+  border-right: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarHeader {
+  padding: var(--space-5);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+  background: color-mix(in srgb, var(--card) 60%, transparent);
+}
+
+.serverName {
+  font-size: 1.1rem !important;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.channelsList {
+  flex: 1;
+  padding: var(--space-4);
+  overflow-y: auto;
+}
+
+.channelCategory {
+  margin: var(--space-4) 0 var(--space-2) 0;
+}
+
+.categoryTitle {
+  font-size: 0.75rem !important;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.channel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: var(--space-1);
+}
+
+.channel:hover {
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+}
+
+.channel.active {
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  color: var(--primary);
+}
+
+.channelHash {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+.channel.active .channelHash {
+  color: var(--primary);
+}
+
+.channelName {
+  font-size: 0.9rem !important;
+  color: var(--muted-foreground);
+  font-weight: 500;
+  flex: 1;
+}
+
+.channel.active .channelName {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.unreadCount {
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Channel Content */
+.channelContent {
+  background: var(--background);
+  display: flex;
+  flex-direction: column;
+}
+
+.channelHeader {
+  background: color-mix(in srgb, var(--card) 60%, transparent);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+}
+
+.channelInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.activeChannelName {
+  font-size: 1.1rem !important;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.channelDescription {
+  font-size: 0.85rem !important;
+  color: var(--muted-foreground);
+  margin-left: var(--space-2);
+}
+
+/* Messages Area */
+.messagesArea {
+  flex: 1;
+  padding: var(--space-5);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.channelMessage {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.messageAvatar {
+  width: 35px;
+  height: 35px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.messageContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.messageHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-1);
+}
+
+.messageSender {
+  font-size: 0.95rem !important;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.messageTimestamp {
+  font-size: 0.8rem !important;
+  color: var(--muted-foreground);
+}
+
+.messageBody {
+  font-size: 0.95rem !important;
+  color: var(--foreground);
+  line-height: 1.5;
+}
+
+/* Features Panel */
+.featuresPanel {
+  background: color-mix(in srgb, var(--card) 20%, transparent);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  border: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+  height: fit-content;
+}
+
+.panelTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--foreground);
+  text-align: center;
+  margin-bottom: var(--space-6);
+  letter-spacing: -0.02em;
+}
+
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.featureCard {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--background);
+  border: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.featureIconContainer {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.featureIcon {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+.featureContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.featureTitle {
+  font-size: 1.1rem !important;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: var(--space-2);
+}
+
+.featureDescription {
+  font-size: 0.95rem !important;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .channelLayout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  
+  .featuresPanel {
+    order: -1;
+  }
+  
+  .featuresList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-4);
+  }
+  
+  .channelInterface {
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .streamerGroups {
+    padding: var(--space-6) 0;
+  }
+  
+  .channelInterface {
+    height: 400px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  
+  .channelSidebar {
+    border-right: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+    max-height: 150px;
+  }
+  
+  .channelsList {
+    display: flex;
+    gap: var(--space-2);
+    overflow-x: auto;
+    padding: var(--space-3);
+  }
+  
+  .channel {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  .channelCategory {
+    display: none;
+  }
+  
+  .featuresList {
+    grid-template-columns: 1fr;
+  }
+  
+  .featureCard {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-3);
+  }
+}

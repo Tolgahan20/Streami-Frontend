@@ -1,0 +1,352 @@
+/* Same structure as BrandDeals section */
+.analytics {
+  background: var(--background);
+  padding: var(--space-8) 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+  position: relative;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  margin-bottom: var(--space-8);
+  backdrop-filter: blur(10px);
+}
+
+.tag {
+  padding: 2px var(--space-2);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.badgeText {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 2.5rem) !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 0 var(--space-4) !important;
+  color: var(--foreground);
+}
+
+.subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.5rem) !important;
+  max-width: 600px;
+  margin: 0 auto var(--space-8) !important;
+  color: var(--muted-foreground);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Description Section */
+.descriptionSection {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.description {
+  font-size: 1.1rem !important;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+/* Features Section */
+.featuresSection {
+  margin-bottom: var(--space-12);
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--foreground);
+  text-align: center;
+  margin-bottom: var(--space-10);
+  letter-spacing: -0.02em;
+}
+
+/* Analytics Grid */
+.analyticsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.analyticsCard {
+  background: var(--card);
+  border: 2px solid color-mix(in srgb, var(--border) 40%, transparent);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.analyticsCard:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.metricIcon {
+  width: 50px;
+  height: 50px;
+  background: var(--primary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.featureIcon {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+/* Data Visualizations */
+.visualData {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-6);
+  background: color-mix(in srgb, var(--background) 60%, transparent);
+  border-radius: var(--radius-lg);
+  position: relative;
+}
+
+/* Chart Bars */
+.chartBars {
+  display: flex;
+  align-items: end;
+  gap: var(--space-2);
+  height: 80px;
+}
+
+.bar {
+  width: 20px;
+  background: var(--primary);
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.analyticsCard:hover .bar {
+  opacity: 1;
+  transform: scaleY(1.1);
+}
+
+/* Earnings Display */
+.earningsDisplay {
+  text-align: center;
+}
+
+.earningsAmount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.earningsChange {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--success);
+  background: color-mix(in srgb, var(--success) 10%, transparent);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-md);
+}
+
+/* Engagement Rings */
+.engagementRings {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 6px solid color-mix(in srgb, var(--border) 60%, transparent);
+}
+
+.ring:first-child {
+  width: 100px;
+  height: 100px;
+  border-top-color: var(--primary);
+  animation: spin 3s linear infinite;
+}
+
+.ring:last-child {
+  width: 70px;
+  height: 70px;
+  border-top-color: var(--success);
+  animation: spin 2s linear infinite reverse;
+}
+
+.engagementPercent {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  z-index: 2;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Performance Lines */
+.performanceLines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 150px;
+}
+
+.line {
+  height: 8px;
+  background: color-mix(in srgb, var(--border) 40%, transparent);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--primary);
+  border-radius: 4px;
+  animation: fillLine 2s ease-in-out infinite;
+}
+
+.line:nth-child(1)::after {
+  animation-delay: 0s;
+  width: 70%;
+}
+
+.line:nth-child(2)::after {
+  animation-delay: 0.5s;
+  width: 90%;
+}
+
+.line:nth-child(3)::after {
+  animation-delay: 1s;
+  width: 60%;
+}
+
+@keyframes fillLine {
+  0% { width: 0; }
+  50% { width: var(--target-width, 70%); }
+  100% { width: var(--target-width, 70%); }
+}
+
+.featureTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: var(--space-3);
+  line-height: 1.3;
+}
+
+.featureDescription {
+  font-size: 0.95rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .analytics {
+    padding: var(--space-6) 0;
+  }
+  
+  .analyticsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .analyticsCard {
+    padding: var(--space-6);
+  }
+  
+  .visualData {
+    height: 100px;
+  }
+  
+  .earningsAmount {
+    font-size: 2rem;
+  }
+  
+  .engagementRings {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .ring:first-child {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .ring:last-child {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .engagementPercent {
+    font-size: 1.2rem;
+  }
+  
+  .featureTitle {
+    font-size: 1.1rem;
+  }
+  
+  .featureDescription {
+    font-size: 0.9rem;
+  }
+}

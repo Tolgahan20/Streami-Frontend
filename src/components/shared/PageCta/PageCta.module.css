@@ -1,0 +1,148 @@
+.root {
+  position: relative;
+
+  padding: var(--space-12) var(--space-6);
+  background: var(--foreground);
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1;
+  padding: var(--space-12) 0;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: var(--space-6) 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-8);
+  backdrop-filter: blur(8px);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 12px var(--primary);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
+  line-height: 1.1 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 0 var(--space-6) !important;
+  color: var(--card);
+}
+
+.subtitle {
+  max-width: 600px;
+  margin: 0 auto var(--space-8) !important;
+  color: var(--muted-foreground);
+}
+
+.cta {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+
+.mainCta {
+  min-width: 180px;
+  height: 48px !important;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0 var(--space-6) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 6px 20px rgba(95, 79, 255, 0.25) !important;
+}
+
+.secondaryCta {
+  min-width: 140px;
+  height: 48px !important;
+  font-weight: 600;
+  color: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  background: transparent !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+.secondaryCta:hover {
+  background: var(--card) !important;
+  color: var(--foreground) !important;
+}
+
+/* Background */
+.bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.gradientLeft {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 40%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle at center, var(--primary) 0%, transparent 70%);
+  opacity: 0.1;
+  transform: translate(-30%, -50%);
+  filter: blur(80px);
+}
+
+.gradientRight {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 40%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle at center, var(--primary) 0%, transparent 70%);
+  opacity: 0.1;
+  transform: translate(30%, -50%);
+  filter: blur(80px);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@media (max-width: 768px) {
+  .cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mainCta,
+  .secondaryCta {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .root {
+    padding: var(--space-8) var(--space-4);
+  }
+  
+  .inner {
+    padding: var(--space-8) 0;
+  }
+}

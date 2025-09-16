@@ -73,18 +73,18 @@ export const Login: React.FC<LoginProps> = ({
 
         <form onSubmit={handleFormSubmit} className={styles.form}>
           <div className={styles.formGroup}>
-            <Label htmlFor="email">Email Address</Label>
+            <Label htmlFor="emailOrUsername">Email or Username</Label>
             <Input
-              id="email"
-              type="email"
-              placeholder="Enter your email"
-              value={formData.email}
-              onChange={(e) => onInputChange('email', e.target.value)}
-              error={!!errors.email}
+              id="emailOrUsername"
+              type="text"
+              placeholder="Enter your email or username"
+              value={formData.emailOrUsername}
+              onChange={(e) => onInputChange('emailOrUsername', e.target.value)}
+              error={!!errors.emailOrUsername}
               disabled={isLoading || googleLoading}
             />
-            {errors.email && (
-              <span className={styles.error}>{errors.email}</span>
+            {errors.emailOrUsername && (
+              <span className={styles.error}>{errors.emailOrUsername}</span>
             )}
           </div>
 

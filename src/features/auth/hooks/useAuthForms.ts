@@ -10,6 +10,7 @@ export function useRegisterForm() {
     email: "",
     password: "",
     displayName: "",
+    username: "",
   });
   const [errors, setErrors] = useState<Partial<RegisterDto>>({});
   
@@ -43,6 +44,14 @@ export function useRegisterForm() {
       newErrors.displayName = AUTH_MESSAGES.VALIDATION.REQUIRED_FIELD;
     } else if (formData.displayName.length < 2) {
       newErrors.displayName = "Display name must be at least 2 characters";
+    }
+
+    if (!formData.username) {
+      newErrors.username = AUTH_MESSAGES.VALIDATION.REQUIRED_FIELD;
+    } else if (formData.username.length < 3) {
+      newErrors.username = "Username must be at least 3 characters";
+    } else if (!/^[a-zA-Z0-9_]+$/.test(formData.username)) {
+      newErrors.username = "Username can only contain letters, numbers, and underscores";
     }
 
     setErrors(newErrors);
@@ -90,7 +99,7 @@ export function useRegisterForm() {
 
 export function useLoginForm() {
   const [formData, setFormData] = useState<LoginDto>({
-    email: "",
+    emailOrUsername: "",
     password: "",
   });
   const [errors, setErrors] = useState<Partial<LoginDto>>({});
@@ -109,10 +118,8 @@ export function useLoginForm() {
   const validateForm = (): boolean => {
     const newErrors: Partial<LoginDto> = {};
 
-    if (!formData.email) {
-      newErrors.email = AUTH_MESSAGES.VALIDATION.REQUIRED_FIELD;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = AUTH_MESSAGES.VALIDATION.INVALID_EMAIL;
+    if (!formData.emailOrUsername) {
+      newErrors.emailOrUsername = AUTH_MESSAGES.VALIDATION.REQUIRED_FIELD;
     }
 
     if (!formData.password) {

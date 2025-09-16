@@ -1,0 +1,114 @@
+/* Same styles as NetworkHubHero */
+.root {
+  background: var(--background);
+  padding: var(--space-16) 0 var(--space-16);
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px dashed var(--border);
+  border-radius: 3rem 3rem 0 0;
+  margin-bottom: 0;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.banner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-12);
+  padding: var(--space-3) var(--space-6);
+  background: color-mix(in srgb, var(--card) 80%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(12px);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tag {
+  padding: var(--space-1) var(--space-3);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.link,
+.downloadLink {
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+}
+
+.link:hover,
+.downloadLink:hover {
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+.linkText {
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: clamp(3rem, 8vw, 4.5rem) !important;
+  line-height: 1.1 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 0 var(--space-8) !important;
+  background: linear-gradient(135deg, var(--foreground) 0%, color-mix(in srgb, var(--foreground) 70%, var(--primary)) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.5rem) !important;
+  max-width: 600px;
+  margin: 0 auto var(--space-12) !important;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.mainCta {
+  min-width: 200px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .root {
+    padding: var(--space-20) 0 var(--space-12);
+    min-height: 80vh;
+  }
+  
+  .banner {
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-8);
+  }
+  
+  .cta {
+    flex-direction: column;
+    align-items: center;
+  }
+}

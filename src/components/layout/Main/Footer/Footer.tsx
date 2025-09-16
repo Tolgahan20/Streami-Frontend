@@ -8,27 +8,45 @@ import { megaMenu } from "@/components/layout/Main/Navbar/data";
 const footerLinks = {
   "creatorhub": {
     title: "Creator Hub",
-    items: megaMenu.creatorhub.map(item => ({ label: item.title, href: item.href }))
+    items: megaMenu.creatorhub.items.map(item => ({ 
+      label: item.title, 
+      href: item.section ? `${item.href}#${item.section}` : item.href 
+    }))
   },
   "networkhub": {
     title: "Network Hub", 
-    items: megaMenu.networkhub.map(item => ({ label: item.title, href: item.href }))
+    items: megaMenu.networkhub.items.map(item => ({ 
+      label: item.title, 
+      href: item.section ? `${item.href}#${item.section}` : item.href 
+    }))
   },
   "profiles": {
     title: "Profiles",
-    items: megaMenu.profiles.map(item => ({ label: item.title, href: item.href }))
+    items: megaMenu.profiles.items.map(item => ({ 
+      label: item.title, 
+      href: item.section ? `${item.href}#${item.section}` : item.href 
+    }))
   },
   "community": {
     title: "Community",
-    items: megaMenu.community.map(item => ({ label: item.title, href: item.href }))
+    items: megaMenu.community.items.map(item => ({ 
+      label: item.title, 
+      href: item.section ? `${item.href}#${item.section}` : item.href 
+    }))
   },
   "messaging": {
     title: "Messaging",
-    items: megaMenu.messaging.map(item => ({ label: item.title, href: item.href }))
+    items: megaMenu.messaging.items.map(item => ({ 
+      label: item.title, 
+      href: item.section ? `${item.href}#${item.section}` : item.href 
+    }))
   },
   "about-us": {
     title: "About Us",
-    items: megaMenu["about-us"].map(item => ({ label: item.title, href: item.href }))
+    items: megaMenu["about-us"].items.map(item => ({ 
+      label: item.title, 
+      href: item.section ? `${item.href}#${item.section}` : item.href 
+    }))
   },
 };
 

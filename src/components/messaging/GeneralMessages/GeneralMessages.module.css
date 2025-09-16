@@ -1,0 +1,407 @@
+/* General Messages - DM Interface Layout */
+.generalMessages {
+  background: var(--background);
+  padding: var(--space-12) 0 var(--space-8) 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+  position: relative;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  margin-bottom: var(--space-8);
+  backdrop-filter: blur(10px);
+}
+
+.tag {
+  padding: 2px var(--space-2);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.badgeText {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 2.5rem) !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 0 var(--space-4) !important;
+  color: var(--foreground);
+}
+
+.subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.5rem) !important;
+  max-width: 600px;
+  margin: 0 auto var(--space-8) !important;
+  color: var(--muted-foreground);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Description Section */
+.descriptionSection {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.description {
+  font-size: 1.1rem !important;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+/* DM Layout */
+.dmLayout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: var(--space-10);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dmInterface {
+  background: color-mix(in srgb, var(--card) 40%, transparent);
+  border-radius: var(--radius-xl);
+  border: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
+  overflow: hidden;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dmHeader {
+  background: color-mix(in srgb, var(--background) 80%, transparent);
+  padding: var(--space-5);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contactInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.contactName {
+  font-size: 1.1rem !important;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.contactStatus {
+  font-size: 0.85rem !important;
+  color: var(--success);
+}
+
+.dmActions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.actionIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.actionIcon:hover {
+  color: var(--primary);
+}
+
+/* Message Thread */
+.messageThread {
+  flex: 1;
+  padding: var(--space-6);
+  overflow-y: auto;
+  background: var(--background);
+}
+
+.messageGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.message {
+  max-width: 70%;
+  position: relative;
+}
+
+.received {
+  align-self: flex-start;
+}
+
+.sent {
+  align-self: flex-end;
+}
+
+.messageText {
+  background: color-mix(in srgb, var(--card) 80%, transparent);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: 0.95rem !important;
+  color: var(--foreground);
+  line-height: 1.5;
+  border: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
+}
+
+.sent .messageText {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.messageTime {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  margin-top: var(--space-1);
+  text-align: right;
+}
+
+.received .messageTime {
+  text-align: left;
+}
+
+.readReceipt {
+  width: 16px;
+  height: 16px;
+  color: var(--success);
+  margin-top: var(--space-1);
+  margin-left: auto;
+  display: block;
+}
+
+/* File Message */
+.fileMessage {
+  background: color-mix(in srgb, var(--card) 80%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.fileIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--primary);
+}
+
+.fileInfo {
+  flex: 1;
+}
+
+.fileName {
+  font-size: 0.95rem !important;
+  font-weight: 500;
+  color: var(--foreground);
+  margin-bottom: var(--space-1);
+}
+
+.fileSize {
+  font-size: 0.8rem !important;
+  color: var(--muted-foreground);
+}
+
+/* Message Input */
+.messageInput {
+  background: color-mix(in srgb, var(--background) 80%, transparent);
+  padding: var(--space-4);
+  border-top: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.inputField {
+  flex: 1;
+  background: var(--background);
+  border: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+}
+
+.placeholder {
+  font-size: 0.95rem !important;
+  color: var(--muted-foreground);
+}
+
+.sendButton {
+  background: var(--primary);
+  color: white;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sendButton:hover {
+  background: color-mix(in srgb, var(--primary) 90%, black);
+}
+
+/* Features Panel */
+.featuresPanel {
+  background: color-mix(in srgb, var(--card) 20%, transparent);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  border: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+  height: fit-content;
+}
+
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.featureCard {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--background);
+  border: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.featureIconContainer {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.featureIcon {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+.featureContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.featureTitle {
+  font-size: 1.1rem !important;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: var(--space-2);
+}
+
+.featureDescription {
+  font-size: 0.95rem !important;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .dmLayout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  
+  .featuresPanel {
+    order: -1;
+  }
+  
+  .featuresList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 768px) {
+  .generalMessages {
+    padding: var(--space-8) 0 var(--space-6) 0;
+  }
+  
+  .dmInterface {
+    height: 400px;
+  }
+  
+  .dmLayout {
+    gap: var(--space-6);
+  }
+  
+  .featuresPanel {
+    padding: var(--space-5);
+  }
+  
+  .featuresList {
+    grid-template-columns: 1fr;
+  }
+  
+  .featureCard {
+    padding: var(--space-3);
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-3);
+  }
+}

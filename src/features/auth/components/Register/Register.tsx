@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button/Button";
 import { Input } from "@/components/ui/input/Input";
+import { UsernameInput } from "@/components/ui/input/UsernameInput";
 import { Label } from "@/components/ui/form/Label/Label";
 import { Text } from "@/components/ui/typography/Typography";
 import Link from "next/link";
@@ -128,6 +129,21 @@ export const Register: React.FC<RegisterProps> = ({
             />
             {errors.email && (
               <span className={styles.error}>{errors.email}</span>
+            )}
+          </div>
+
+          <div className={styles.formGroup}>
+            <Label htmlFor="username">Username</Label>
+            <UsernameInput
+              id="username"
+              value={formData.username}
+              onChange={(value) => onInputChange("username", value)}
+              placeholder="Choose a unique username"
+              error={!!errors.username}
+              disabled={isLoading || googleLoading}
+            />
+            {errors.username && (
+              <span className={styles.error}>{errors.username}</span>
             )}
           </div>
 
