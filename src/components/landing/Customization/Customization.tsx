@@ -32,10 +32,10 @@ export default function Customization() {
       tl.to(titleRef.current, { opacity: 1, y: 0, duration: 0.8 })
         .to(gridRef.current, { opacity: 1, y: 0, duration: 0.8 }, "-=0.4");
 
-      // Animate grid cards individually
-      const cards = gridRef.current?.querySelectorAll(`.${styles.card}`);
-      if (cards) {
-        gsap.fromTo(cards, 
+      // Animate features individually
+      const features = gridRef.current?.querySelectorAll(`.${styles.feature}`);
+      if (features) {
+        gsap.fromTo(features, 
           { opacity: 0, y: 20, scale: 0.95 },
           { 
             opacity: 1, 
@@ -69,139 +69,134 @@ export default function Customization() {
           </Text>
         </div>
 
-        <div className={styles.bentoGrid} ref={gridRef}>
-          {/* Top left card - Customize your stream */}
-          <div className={`${styles.card} ${styles.topLeftCard}`}>
-            <div className={styles.cardContent}>
-              <div className={styles.textSection}>
-                <H3 className={styles.cardTitle}>Customize your stream</H3>
-                <Text className={styles.cardDescription}>
-                  Personalize your stream with AI-generated overlays, themes, and alerts.
-                </Text>
+        <div className={styles.featuresGrid} ref={gridRef}>
+          {/* Feature 1 - Customize your stream */}
+          <div className={styles.feature}>
+            <div className={styles.featureIconWrapper}>
+              <div className={styles.featureIcon}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z" stroke="currentColor" strokeWidth="2"/>
+                </svg>
               </div>
-              <div className={styles.imageSection}>
-                <div className={styles.browserMockup}>
-                  <div className={styles.browserHeader}>
-                    <div className={styles.browserDots}>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
-                  <div className={styles.browserContent}>
-                    <div className={styles.videoPlayer}>
-                      <div className={styles.playButton}>▶</div>
-                      <div className={styles.goLiveButton}>Go Live</div>
-                    </div>
-                  </div>
+            </div>
+            <div className={styles.featureContent}>
+              <H3 className={styles.featureTitle}>Customize your stream</H3>
+              <Text className={styles.featureDescription}>
+                Personalize your stream with AI-generated overlays, themes, and alerts.
+              </Text>
+              <div className={styles.featureTags}>
+                <span className={styles.tag}>AI Overlays</span>
+                <span className={styles.tag}>Custom Themes</span>
+                <span className={styles.tag}>Smart Alerts</span>
+              </div>
+            </div>
+            <div className={styles.featureVisual}>
+              <div className={styles.streamPreview}>
+                <div className={styles.streamElement}>Go Live</div>
+                <div className={styles.streamOverlay}></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 2 - Optimize your performance */}
+          <div className={styles.feature}>
+            <div className={styles.featureIconWrapper}>
+              <div className={styles.featureIcon}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
+                </svg>
+              </div>
+            </div>
+            <div className={styles.featureContent}>
+              <H3 className={styles.featureTitle}>Optimize your performance</H3>
+              <Text className={styles.featureDescription}>
+                Improve stream quality with real-time AI-driven recommendations.
+              </Text>
+              <div className={styles.featureTags}>
+                <span className={styles.tag}>Quality Boost</span>
+                <span className={styles.tag}>AI Insights</span>
+                <span className={styles.tag}>Real-time</span>
+              </div>
+            </div>
+            <div className={styles.featureVisual}>
+              <div className={styles.performanceChart}>
+                <div className={styles.chartBar} style={{height: '60%'}}></div>
+                <div className={styles.chartBar} style={{height: '80%'}}></div>
+                <div className={styles.chartBar} style={{height: '95%'}}></div>
+                <div className={styles.chartBar} style={{height: '70%'}}></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 3 - Boost viewer interaction */}
+          <div className={styles.feature}>
+            <div className={styles.featureIconWrapper}>
+              <div className={styles.featureIcon}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" strokeWidth="2"/>
+                </svg>
+              </div>
+            </div>
+            <div className={styles.featureContent}>
+              <H3 className={styles.featureTitle}>Boost viewer interaction</H3>
+              <Text className={styles.featureDescription}>
+                Utilize smart chat tools and interactive features to grow your audience.
+              </Text>
+              <div className={styles.featureTags}>
+                <span className={styles.tag}>Smart Chat</span>
+                <span className={styles.tag}>Engagement</span>
+                <span className={styles.tag}>Growth Tools</span>
+              </div>
+            </div>
+            <div className={styles.featureVisual}>
+              <div className={styles.chatDemo}>
+                <div className={styles.chatMessage}>
+                  <div className={styles.chatAvatar}></div>
+                  <div className={styles.chatText}>Amazing stream! 🔥</div>
                 </div>
-                <div className={styles.gearIcon}>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" strokeWidth="2"/>
-                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z" stroke="currentColor" strokeWidth="2"/>
-                  </svg>
+                <div className={styles.chatMessage}>
+                  <div className={styles.chatAvatar}></div>
+                  <div className={styles.chatText}>Love this content!</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Top right card - Optimize your performance */}
-          <div className={`${styles.card} ${styles.topRightCard}`}>
-            <div className={styles.cardContent}>
-              <div className={styles.textSection}>
-                <H3 className={styles.cardTitle}>Optimize your performance</H3>
-                <Text className={styles.cardDescription}>
-                  Improve stream quality with real-time AI-driven recommendations.
-                </Text>
-              </div>
-              <div className={styles.imageSection}>
-                <div className={styles.browserMockup}>
-                  <div className={styles.browserHeader}>
-                    <div className={styles.browserDots}>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
-                  <div className={styles.browserContent}>
-                    <div className={styles.checkmarkIcon}>✓</div>
-                    <div className={styles.wavyLine}></div>
-                  </div>
-                </div>
-                <div className={styles.personIcon}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2"/>
-                    <circle cx="12" cy="7" r="4" stroke="currentColor" strokeWidth="2"/>
-                  </svg>
-                </div>
+          {/* Feature 4 - Gain valuable insights */}
+          <div className={styles.feature}>
+            <div className={styles.featureIconWrapper}>
+              <div className={styles.featureIcon}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                  <polyline points="12,6 12,12 16,14" stroke="currentColor" strokeWidth="2"/>
+                </svg>
               </div>
             </div>
-          </div>
-
-          {/* Bottom left card - Boost viewer interaction */}
-          <div className={`${styles.card} ${styles.bottomLeftCard}`}>
-            <div className={styles.cardContent}>
-              <div className={styles.textSection}>
-                <H3 className={styles.cardTitle}>Boost viewer interaction</H3>
-                <Text className={styles.cardDescription}>
-                  Utilize smart chat tools and interactive features to grow your audience.
-                </Text>
-              </div>
-              <div className={styles.imageSection}>
-                <div className={styles.chatBubbles}>
-                  <div className={styles.chatBubble}></div>
-                  <div className={styles.chatBubble}></div>
-                  <div className={styles.chatBubble}></div>
-                </div>
-                <div className={styles.browserMockup}>
-                  <div className={styles.browserHeader}>
-                    <div className={styles.browserDots}>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
-                  <div className={styles.browserContent}>
-                    <div className={styles.chatInterface}>
-                      <div className={styles.chatUser}>Jane</div>
-                      <div className={styles.chatMessage}>Hello!</div>
-                    </div>
-                  </div>
-                </div>
+            <div className={styles.featureContent}>
+              <H3 className={styles.featureTitle}>Gain valuable insights</H3>
+              <Text className={styles.featureDescription}>
+                Access analytics and viewer data to understand your stream&apos;s impact.
+              </Text>
+              <div className={styles.featureTags}>
+                <span className={styles.tag}>Analytics</span>
+                <span className={styles.tag}>Data Insights</span>
+                <span className={styles.tag}>Growth Metrics</span>
               </div>
             </div>
-          </div>
-
-          {/* Bottom right card - Gain valuable insights */}
-          <div className={`${styles.card} ${styles.bottomRightCard}`}>
-            <div className={styles.cardContent}>
-              <div className={styles.textSection}>
-                <H3 className={styles.cardTitle}>Gain valuable insights</H3>
-                <Text className={styles.cardDescription}>
-                  Access analytics and viewer data to understand your stream&apos;s impact.
-                </Text>
-              </div>
-              <div className={styles.imageSection}>
-                <div className={styles.browserMockup}>
-                  <div className={styles.browserHeader}>
-                    <div className={styles.browserDots}>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
+            <div className={styles.featureVisual}>
+              <div className={styles.analyticsPreview}>
+                <div className={styles.analyticsLine}></div>
+                <div className={styles.analyticsStats}>
+                  <div className={styles.stat}>
+                    <span className={styles.statValue}>89%</span>
+                    <span className={styles.statLabel}>Engagement</span>
                   </div>
-                  <div className={styles.browserContent}>
-                    <div className={styles.analyticsCharts}>
-                      <div className={styles.lineChart}></div>
-                      <div className={styles.pieChart}></div>
-                    </div>
+                  <div className={styles.stat}>
+                    <span className={styles.statValue}>1.2K</span>
+                    <span className={styles.statLabel}>Viewers</span>
                   </div>
-                </div>
-                <div className={styles.clockIcon}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-                    <polyline points="12,6 12,12 16,14" stroke="currentColor" strokeWidth="2"/>
-                  </svg>
                 </div>
               </div>
             </div>

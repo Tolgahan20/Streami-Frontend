@@ -129,14 +129,22 @@
 
 .menuBtn {
   display: inline-flex;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border: 1px solid var(--border);
   border-radius: 8px;
   align-items: center;
   justify-content: center;
   background: var(--card);
+  color: var(--foreground);
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menuBtn:hover {
+  background: var(--secondary);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 @media (min-width: 860px) {

@@ -1,4 +1,4 @@
-export type MenuKey = "creatorhub" | "networkhub" | "profiles" | "community" | "messaging" | "about-us";
+export type MenuKey = "creatorhub" | "networkhub" | "profiles" | "community" | "messaging" | "about-us" | "contact-us";
 
 type MenuItem = {
   title: string;
@@ -59,6 +59,10 @@ export const megaMenu: Record<MenuKey, MenuConfig> = {
       { title: "What is Streami?", href: "/about-us", section: "what-is-streami" },
       { title: "FAQ", href: "/about-us", section: "faq" },
     ]
+  },
+  "contact-us": {
+    mainHref: "/contact-us",
+    items: []
   },
 };
 

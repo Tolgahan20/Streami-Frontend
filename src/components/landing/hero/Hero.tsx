@@ -42,19 +42,19 @@ export default function Hero() {
       <div className={styles.inner}>
         <div className={styles.banner} ref={bannerRef}>
           <span className={styles.tag}>NEW</span>
-          <Text color="muted">AI-Powered Streaming Assistant</Text>
-          <Link href="/features" className={styles.link}>
-            <Text color="primary" className={styles.linkText} weight="medium">See Features</Text>
+          <Text color="muted">AI-powered Co-Pilot assistant</Text>
+          <Link href="/creator-hub" className={styles.link}>
+            <Text color="primary" className={styles.linkText} weight="medium">See Hub</Text>
           </Link>
-          <Link href="/waitlist" className={styles.downloadLink}>
-            <Text color="muted" weight="medium">Join Waitlist</Text>
+          <Link href="/register" className={styles.downloadLink}>
+            <Text color="muted" weight="medium">Watch Demo</Text>
           </Link>
         </div>
 
         <div ref={titleRef}>
           <H1 className={styles.title}>
-            Your AI streamer<br />
-            Co-Pilot
+            The First AI-Powered<br />
+            Hub for Creators
           </H1>
         </div>
 
@@ -64,7 +64,7 @@ export default function Hero() {
             color="muted"
             variant="large"
           >
-            Stream smarter with real-time analytics and interactive overlays
+            Our AI Co-Pilot gives you ideas, tips, and tools to boost your journey while you access everything you need - from marketplaces to sponsorships to community - in one powerful hub.
           </Text>
         </div>
 
@@ -75,8 +75,17 @@ export default function Hero() {
             className={styles.mainCta}
             rightIcon={<ArrowRightIcon />}
           >
-            <Link href="/get-started">
-              Get Started Now
+            <Link href="/register">
+              Start Creating
+            </Link>
+          </Button>
+          <Button 
+            variant="ghost" 
+            size="lg" 
+            className={styles.secondaryCta}
+          >
+            <Link href="#demo">
+              Watch Demo
             </Link>
           </Button>
         </div>

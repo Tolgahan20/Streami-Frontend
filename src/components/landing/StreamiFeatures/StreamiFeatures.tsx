@@ -74,94 +74,42 @@ export default function StreamiFeatures() {
           </Text>
         </div>
 
-        {/* Main Content Grid */}
-        <div className={styles.contentGrid}>
-          {/* Left Column - Features & Stats */}
-          <div className={styles.leftColumn}>
-            {/* Features */}
-            <div className={styles.features} ref={featuresRef}>
-              <div className={styles.feature}>
-                <div className={styles.featureIcon}>
-                  <Sparkles size={20} />
-                </div>
-                <div className={styles.featureContent}>
-                  <Text variant="h3" className={styles.featureTitle}>
-                    Intelligent Overlays
-                  </Text>
-                  <Text color="muted" className={styles.featureDescription}>
-                    AI-generated graphics that adapt to your content in real-time
-                  </Text>
-                </div>
-              </div>
-
-              <div className={styles.feature}>
-                <div className={styles.featureIcon}>
-                  <Calendar size={20} />
-                </div>
-                <div className={styles.featureContent}>
-                  <Text variant="h3" className={styles.featureTitle}>
-                    Smart Scheduling
-                  </Text>
-                  <Text color="muted" className={styles.featureDescription}>
-                    Data-driven insights to optimize your streaming schedule
-                  </Text>
-                </div>
-              </div>
-
-              <div className={styles.feature}>
-                <div className={styles.featureIcon}>
-                  <Globe size={20} />
-                </div>
-                <div className={styles.featureContent}>
-                  <Text variant="h3" className={styles.featureTitle}>
-                    Global Reach
-                  </Text>
-                  <Text color="muted" className={styles.featureDescription}>
-                    Multi-language support to connect with audiences worldwide
-                  </Text>
-                </div>
-              </div>
+        {/* Simple Features Grid */}
+        <div className={styles.simpleGrid} ref={featuresRef}>
+          <div className={styles.simpleFeature}>
+            <div className={styles.simpleFeatureIcon}>
+              <Sparkles size={32} />
             </div>
+            <Text variant="h3" className={styles.simpleFeatureTitle}>
+              Intelligent Overlays
+            </Text>
+            <Text color="muted" className={styles.simpleFeatureDescription}>
+              AI-generated graphics that adapt to your content in real-time
+            </Text>
           </div>
 
-          {/* Right Column - Interactive Demo */}
-          <div className={styles.rightColumn} ref={phoneRef}>
-            <div className={styles.demoContainer}>
-              <div className={styles.demoHeader}>
-                <div className={styles.demoTabs}>
-                  <div className={`${styles.demoTab} ${styles.active}`}>Live</div>
-                  <div className={styles.demoTab}>Analytics</div>
-                  <div className={styles.demoTab}>Settings</div>
-                </div>
-              </div>
-              
-              <div className={styles.demoContent}>
-                <div className={styles.demoSection}>
-                  <div className={styles.demoMetric}>
-                    <TrendingUp size={16} />
-                    <span>Viewers: 1,247</span>
-                  </div>
-                  <div className={styles.demoMetric}>
-                    <Users size={16} />
-                    <span>Engagement: 89%</span>
-                  </div>
-                </div>
-                
-                <div className={styles.demoVisual}>
-                  <div className={styles.overlayPreview}>
-                    <div className={styles.overlayElement}>Live Now</div>
-                    <div className={styles.overlayElement}>New Follower!</div>
-                  </div>
-                </div>
-                
-                <div className={styles.demoActions}>
-                  <Button variant="primary" size="sm" className={styles.actionButton}>
-                    <Upload size={16} />
-                    Customize
-                  </Button>
-                </div>
-              </div>
+          <div className={styles.simpleFeature}>
+            <div className={styles.simpleFeatureIcon}>
+              <Calendar size={32} />
             </div>
+            <Text variant="h3" className={styles.simpleFeatureTitle}>
+              Smart Scheduling
+            </Text>
+            <Text color="muted" className={styles.simpleFeatureDescription}>
+              Data-driven insights to optimize your streaming schedule
+            </Text>
+          </div>
+
+          <div className={styles.simpleFeature}>
+            <div className={styles.simpleFeatureIcon}>
+              <Globe size={32} />
+            </div>
+            <Text variant="h3" className={styles.simpleFeatureTitle}>
+              Global Reach
+            </Text>
+            <Text color="muted" className={styles.simpleFeatureDescription}>
+              Multi-language support to connect with audiences worldwide
+            </Text>
           </div>
         </div>
       </div>

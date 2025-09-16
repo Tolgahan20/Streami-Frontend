@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import styles from "./Features.module.css";
-import { H2, H3,  Text } from "@/components/ui/typography/Typography";
+import { H2, H3, Text } from "@/components/ui/typography/Typography";
+import { Activity, Monitor, Bot, ShoppingBag, CheckCircle, MessageSquare } from "lucide-react";
 import gsap from "gsap";
 
 export default function Features() {
@@ -32,17 +33,16 @@ export default function Features() {
       tl.to(titleRef.current, { opacity: 1, y: 0, duration: 0.8 })
         .to(featuresRef.current, { opacity: 1, y: 0, duration: 0.8 }, "-=0.4");
 
-      // Animate feature cards individually
-      const featureCards = featuresRef.current?.querySelectorAll(`.${styles.featureCard}`);
-      if (featureCards) {
-        gsap.fromTo(featureCards, 
-          { opacity: 0, y: 20, scale: 0.95 },
+      // Animate feature items individually
+      const featureItems = featuresRef.current?.querySelectorAll(`.${styles.featureItem}`);
+      if (featureItems) {
+        gsap.fromTo(featureItems, 
+          { opacity: 0, x: -20 },
           { 
             opacity: 1, 
-            y: 0, 
-            scale: 1, 
+            x: 0, 
             duration: 0.6, 
-            stagger: 0.1,
+            stagger: 0.15,
             ease: "power2.out",
             scrollTrigger: {
               trigger: featuresRef.current,
@@ -57,58 +57,95 @@ export default function Features() {
     return () => ctx.revert();
   }, []);
 
+  const hubCards = [
+    {
+      icon: <ShoppingBag size={24} />,
+      title: "Your Creative Marketplace",
+      blurb: "Sell assets or find creators for custom work with free listings",
+      description: "Your creative marketplace for selling overlays, emotes, avatars, and services - or finding talented creators for custom work. Get 50 free monthly listings with instant downloads where creativity turns into income.",
+      highlights: ["50 free monthly listings", "Instant downloads", "Creative marketplace", "Custom work connections"],
+      cta: "Explore Marketplace",
+      href: "/creator-hub"
+    },
+    {
+      icon: <Activity size={24} />,
+      title: "Your Path to Monetization", 
+      blurb: "Get discovered by sponsors and land brand deals that pay",
+      description: "Connect directly with opportunities to grow your income. Get discovered by sponsors, land brand deals, join the Streami Affiliate program, or promote through our advertising platform.",
+      highlights: ["Sponsor discovery", "Brand deal connections", "Streami affiliate program", "Advertisement opportunities"],
+      cta: "Start Networking",
+      href: "/network-hub"
+    },
+    {
+      icon: <Monitor size={24} />,
+      title: "Your All-in-One Creator Profile",
+      blurb: "Link socials, track growth, and showcase your brand professionally",
+      description: "Your complete creator profile that links all your socials, displays follower counts, and tracks growth with built-in analytics. Customize your profile to stand out and look professional.",
+      highlights: ["Social platform linking", "Growth tracking", "Built-in analytics", "Professional customization"],
+      cta: "Create Profile",
+      href: "/profiles"
+    },
+    {
+      icon: <Bot size={24} />,
+      title: "The Heartbeat of Streami",
+      blurb: "Connect with creators, share updates, and find collaboration opportunities",
+      description: "Join our social feed and community spaces to connect with other creators and streamers. Share updates, find collaboration opportunities, and grow together in dedicated community groups.",
+      highlights: ["Social feed interaction", "Collaboration opportunities", "Creator connections", "Community groups"],
+      cta: "Join Community",
+      href: "/community"
+    },
+    {
+      icon: <MessageSquare size={24} />,
+      title: "Stay in Sync",
+      blurb: "Quick DMs and group chats to collaborate faster with teams",
+      description: "From quick DMs to dedicated group chats, our messaging system helps streamers, creators, and teams collaborate faster. Share ideas, chat in real time, and keep projects moving forward.",
+      highlights: ["Quick direct messaging", "Group collaboration", "Real-time chat", "Project coordination"],
+      cta: "Start Messaging",
+      href: "/messaging"
+    }
+  ];
+
   return (
     <section className={styles.root} ref={sectionRef}>
       <div className={styles.container}>
-        <H2 className={styles.title} ref={titleRef}>
-          Powerful Features for Streamers
-        </H2>
+        <div className={styles.header}>
+          <H2 className={styles.title} ref={titleRef}>
+            Powerful Creator Solutions
+          </H2>
+          <Text className={styles.subtitle}>
+            Everything you need as a creator - all in one powerful platform
+          </Text>
+        </div>
         
-        <div className={styles.features} ref={featuresRef}>
-          <div className={styles.featureCard}>
-            <div className={styles.iconContainer}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M9 9l3 3m0 0l3-3m-3 3V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+        <div className={styles.featuresGrid} ref={featuresRef}>
+          {hubCards.map((card, index) => (
+            <div key={index} className={styles.hubCard}>
+              <div className={styles.cardHeader}>
+                <div className={styles.cardIcon}>
+                  {card.icon}
+                </div>
+                <div className={styles.cardHeaderText}>
+                  <H3 className={styles.cardTitle}>{card.title}</H3>
+                  <Text className={styles.cardBlurb}>{card.blurb}</Text>
+                </div>
+              </div>
+              <div className={styles.cardContent}>
+                <Text className={styles.cardDescription}>{card.description}</Text>
+                <div className={styles.cardHighlights}>
+                  {card.highlights.map((highlight, idx) => (
+                    <div key={idx} className={styles.highlight}>
+                      <CheckCircle size={14} />
+                      <Text className={styles.highlightText}>{highlight}</Text>
+                    </div>
+                  ))}
+                </div>
+                <div className={styles.cardCta}>
+                  <Text className={styles.ctaText}>{card.cta}</Text>
+                  <div className={styles.ctaIcon}>→</div>
+                </div>
+              </div>
             </div>
-            <H3>Live Insights</H3>
-            <Text color="muted">Access realtime analytics during your streams</Text>
-          </div>
-
-          <div className={styles.featureCard}>
-            <div className={styles.iconContainer}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
-                <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" strokeWidth="2"/>
-                <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" strokeWidth="2"/>
-              </svg>
-            </div>
-            <H3>Stream Overlays</H3>
-            <Text color="muted">Enhance your stream with custom overlays</Text>
-          </div>
-
-          <div className={styles.featureCard}>
-            <div className={styles.iconContainer}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <H3>AI Co-Pilot</H3>
-            <Text color="muted">Let our AI assist you with automated tips and prompts</Text>
-          </div>
-
-          <div className={styles.featureCard}>
-            <div className={styles.iconContainer}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" strokeWidth="2"/>
-                <path d="M16 10a4 4 0 01-8 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <H3>Creator Marketplace</H3>
-            <Text color="muted">Discover and sell stream assets</Text>
-          </div>
+          ))}
         </div>
       </div>
     </section>

@@ -11,6 +11,7 @@ import styles from "./Navbar.module.css";
 import gsap from "gsap";
 import { MoveUpRight } from "lucide-react";
 import SecondaryNavbar from "./SecondaryNavbar";
+import MobileNavbar from "./MobileNavbar";
 
 export default function Navbar() {
   const router = useRouter();
@@ -21,6 +22,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<MenuKey>("creatorhub");
   const [showSecondary, setShowSecondary] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
@@ -116,6 +118,10 @@ export default function Navbar() {
   return (
     <>
       <SecondaryNavbar visible={showSecondary} />
+      <MobileNavbar 
+        isOpen={mobileMenuOpen} 
+        onClose={() => setMobileMenuOpen(false)} 
+      />
       <nav
         className={styles.root}
         ref={rootRef as React.MutableRefObject<HTMLElement | null>}
@@ -311,7 +317,7 @@ export default function Navbar() {
             <button
               className={styles.menuBtn}
               aria-label="Menu"
-              onClick={() => setOpen((v) => !v)}
+              onClick={() => setMobileMenuOpen(true)}
             >
               <svg
                 width="18"

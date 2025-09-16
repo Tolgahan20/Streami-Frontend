@@ -147,6 +147,26 @@
   gap: var(--space-2);
 }
 
+.menuBtn {
+  display: none;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--card);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menuBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
 .signInBtn {
   color: var(--card);
   background: transparent !important;
@@ -220,11 +240,47 @@
   }
   
   .links {
-    gap: var(--space-2);
+    display: none;
   }
   
-  .link {
-    font-size: 0.7rem;
+  .menuBtn {
+    display: flex;
+  }
+  
+  .signInBtn,
+  .signUpBtn {
+    font-size: 0.8rem !important;
+    padding: var(--space-1) var(--space-2) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .root {
+    width: 98%;
+    height: 44px;
+  }
+  
+  .inner {
+    padding: 0 var(--space-2);
+  }
+  
+  .rightSection {
+    gap: var(--space-1);
+  }
+  
+  .signInBtn,
+  .signUpBtn {
+    font-size: 0.75rem !important;
+    padding: var(--space-1) !important;
+  }
+  
+  .menuBtn {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .name {
+    font-size: 0.8rem;
   }
 }
 
