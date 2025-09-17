@@ -41,7 +41,7 @@ export function useUnifiedAuth() {
       loading: stillLoading,
       backendUser: backendUser ? { id: backendUser.id, username: backendUser.username } : null
     });
-  }, [firebaseAuth.isAuthenticated, firebaseAuth.loading, backendUser, backendLoading]);
+  }, [firebaseAuth.isAuthenticated, firebaseAuth.loading, backendUser, backendLoading, backendError]);
 
   return {
     isAuthenticated,
