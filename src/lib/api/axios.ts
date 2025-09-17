@@ -58,7 +58,9 @@ api.interceptors.response.use(
       } catch (refreshError) {
         pendingRequestsQueue.forEach(({ reject }) => reject(refreshError));
         pendingRequestsQueue = [];
-        if (typeof window !== "undefined") {
+        // Only redirect to login if we're not already on a protected route
+        // This prevents redirect loops when the user is already authenticated via Firebase
+        if (typeof window !== "undefined" && !window.location.pathname.startsWith('/feed')) {
           window.location.href = "/login";
         }
         throw refreshError;
