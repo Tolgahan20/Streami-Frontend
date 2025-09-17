@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button/Button";
 import { H1, Text } from "@/components/ui/typography/Typography";
@@ -14,6 +14,17 @@ export default function CreatorHubHero() {
   const titleRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -40,12 +51,39 @@ export default function CreatorHubHero() {
       <div className={styles.inner}>
         <div className={styles.banner} ref={bannerRef}>
           <span className={styles.tag}>NEW</span>
-          <Text color="muted">Creator Hub Platform</Text>
+          <Text 
+            color="muted" 
+            style={{ 
+              fontSize: isMobile ? '0.8rem' : '1rem', 
+              lineHeight: '1.4' 
+            }}
+          >
+            Creator Hub Platform
+          </Text>
           <Link href="#creator-marketplace" className={styles.link}>
-            <Text color="primary" className={styles.linkText} weight="medium">Browse Marketplace</Text>
+            <Text 
+              color="primary" 
+              className={styles.linkText} 
+              weight="medium"
+              style={{ 
+                fontSize: isMobile ? '0.8rem' : '1rem', 
+                lineHeight: '1.4' 
+              }}
+            >
+              Browse Marketplace
+            </Text>
           </Link>
           <Link href="#creator-connect" className={styles.downloadLink}>
-            <Text color="muted" weight="medium">Find Collaborators</Text>
+            <Text 
+              color="muted" 
+              weight="medium"
+              style={{ 
+                fontSize: isMobile ? '0.8rem' : '1rem', 
+                lineHeight: '1.4' 
+              }}
+            >
+              Find Collaborators
+            </Text>
           </Link>
         </div>
 

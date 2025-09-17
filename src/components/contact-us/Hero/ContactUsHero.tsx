@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button/Button";
 import { H1, Text } from "@/components/ui/typography/Typography";
@@ -14,6 +14,17 @@ export default function ContactUsHero() {
   const titleRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -40,12 +51,12 @@ export default function ContactUsHero() {
       <div className={styles.inner}>
         <div className={styles.banner} ref={bannerRef}>
           <span className={styles.tag}>CONTACT</span>
-          <Text color="muted">Get in Touch</Text>
+          <Text color="muted" variant="small">Get in Touch</Text>
           <Link href="#general-contact" className={styles.link}>
-            <Text color="primary" className={styles.linkText} weight="medium">Contact Support</Text>
+            <Text color="primary" className={styles.linkText} weight="medium" variant="small">Contact Support</Text>
           </Link>
           <Link href="/register" className={styles.downloadLink}>
-            <Text color="muted" weight="medium">Start Creating</Text>
+            <Text color="muted" weight="medium" variant="small">Start Creating</Text>
           </Link>
         </div>
 

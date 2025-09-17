@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button/Button";
 import { H1, Text } from "@/components/ui/typography/Typography";
@@ -14,6 +14,17 @@ export default function MessagingHero() {
   const titleRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const [, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -40,12 +51,12 @@ export default function MessagingHero() {
       <div className={styles.inner}>
         <div className={styles.banner} ref={bannerRef}>
           <span className={styles.tag}>MESSAGING</span>
-          <Text color="muted">Communication Hub</Text>
+          <Text color="muted" variant="small">Communication Hub</Text>
           <Link href="#general-messages" className={styles.link}>
-            <Text color="primary" className={styles.linkText} weight="medium">Send Message</Text>
+            <Text color="primary" className={styles.linkText} weight="medium" variant="small">Send Message</Text>
           </Link>
           <Link href="#streamer-groups" className={styles.downloadLink}>
-            <Text color="muted" weight="medium">Join Groups</Text>
+            <Text color="muted" weight="medium" variant="small">Join Groups</Text>
           </Link>
         </div>
 

@@ -92,7 +92,49 @@
 }
 
 /* Responsive Design */
+@media (max-width: 768px) {
+  .banner {
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    margin-bottom: var(--space-6);
+  }
+  
+  .tag {
+    font-size: 0.65rem;
+    padding: 1px var(--space-1);
+  }
+  
+  .title {
+    font-size: clamp(2.5rem, 6vw, 3.5rem) !important;
+  }
+  
+  .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem) !important;
+  }
+}
+
 @media (max-width: 640px) {
+  .banner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-2);
+  }
+  
+  .tag {
+    font-size: 0.6rem;
+  }
+  
+  .downloadLink {
+    border-left: none;
+    margin-left: 0;
+    padding-left: 0;
+    order: 3;
+    width: 100%;
+    text-align: center;
+    margin-top: var(--space-2);
+  }
+  
   .cta {
     flex-direction: column;
     padding: 0 var(--space-4);

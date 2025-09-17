@@ -419,4 +419,54 @@
     text-align: center;
     gap: var(--space-3);
   }
+  
+  .featureIconContainer {
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .streamerGroups {
+    padding: var(--space-4) 0;
+  }
+  
+  .container {
+    padding: 0 var(--space-4);
+  }
+  
+  .channelInterface {
+    height: 350px;
+  }
+  
+  .channelSidebar {
+    max-height: 120px;
+  }
+  
+  .channelsList {
+    padding: var(--space-2);
+    gap: var(--space-1);
+  }
+  
+  .channel {
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.85rem;
+  }
+  
+  .channelContent {
+    padding: var(--space-3);
+  }
+  
+  .messageAvatar {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+  
+  .messageSender {
+    font-size: 0.9rem !important;
+  }
+  
+  .messageBody {
+    font-size: 0.85rem !important;
+  }
 }

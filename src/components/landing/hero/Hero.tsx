@@ -42,12 +42,12 @@ export default function Hero() {
       <div className={styles.inner}>
         <div className={styles.banner} ref={bannerRef}>
           <span className={styles.tag}>NEW</span>
-          <Text color="muted">AI-powered Co-Pilot assistant</Text>
+          <Text color="muted" variant="small">AI-powered Co-Pilot assistant</Text>
           <Link href="/creator-hub" className={styles.link}>
-            <Text color="primary" className={styles.linkText} weight="medium">See Hub</Text>
+            <Text color="primary" className={styles.linkText} weight="medium" variant="small">See Hub</Text>
           </Link>
           <Link href="/register" className={styles.downloadLink}>
-            <Text color="muted" weight="medium">Watch Demo</Text>
+            <Text color="muted" weight="medium" variant="small">Watch Demo</Text>
           </Link>
         </div>
 

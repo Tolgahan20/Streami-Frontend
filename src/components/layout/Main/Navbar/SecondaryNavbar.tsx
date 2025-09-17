@@ -7,6 +7,7 @@ import { MoveUpRight, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button/Button";
 import { megaMenu, type MenuKey } from "@/components/layout/Main/Navbar/data";
 import MobileNavbar from "./MobileNavbar";
+import { useAuthNavigation } from "@/lib/utils/authNavigation";
 
 import styles from "./SecondaryNavbar.module.css";
 
@@ -18,6 +19,7 @@ export default function SecondaryNavbar({ visible }: SecondaryNavbarProps) {
   const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const router = useRouter();
+  const { handleAuthNavigation } = useAuthNavigation();
 
   // Handle navigation with optional auto-scroll
   const handleNavigation = (href: string, section?: string) => {
@@ -100,11 +102,21 @@ export default function SecondaryNavbar({ visible }: SecondaryNavbarProps) {
           </div>
           
           <div className={styles.rightSection}>
-            <Button variant="ghost" size="sm" className={styles.signInBtn}>
-              <Link href="/login">Sign in</Link>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className={styles.signInBtn}
+              onClick={() => handleAuthNavigation('/login')}
+            >
+              Sign in
             </Button>
-            <Button variant="primary" size="sm" className={styles.signUpBtn}>
-              <Link href="/register">Sign up</Link>
+            <Button 
+              variant="primary" 
+              size="sm" 
+              className={styles.signUpBtn}
+              onClick={() => handleAuthNavigation('/register')}
+            >
+              Sign up
             </Button>
             
             <button

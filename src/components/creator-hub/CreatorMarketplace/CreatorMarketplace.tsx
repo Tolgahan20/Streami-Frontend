@@ -57,8 +57,8 @@ export default function CreatorMarketplace() {
           <H2 className={styles.sectionTitle}>Popular Categories</H2>
           <div className={styles.marqueeContainer}>
             <div className={styles.marqueeTrack}>
-              {/* Duplicate categories for seamless loop */}
-              {[...categories, ...categories].map((category, index) => (
+              {/* Triple categories for seamless loop and better visibility */}
+              {[...categories, ...categories, ...categories].map((category, index) => (
                 <div key={index} className={styles.categoryItem}>
                   <div className={styles.categoryIcon}>{category.icon}</div>
                   <div className={styles.categoryContent}>

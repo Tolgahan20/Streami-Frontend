@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button/Button";
 import { H1, Text } from "@/components/ui/typography/Typography";
@@ -14,6 +14,17 @@ export default function AboutUsHero() {
   const titleRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -40,12 +51,12 @@ export default function AboutUsHero() {
       <div className={styles.inner}>
         <div className={styles.banner} ref={bannerRef}>
           <span className={styles.tag}>ABOUT</span>
-          <Text color="muted">Our Story</Text>
+          <Text color="muted" variant="small">Our Story</Text>
           <Link href="#what-is-streami" className={styles.link}>
-            <Text color="primary" className={styles.linkText} weight="medium">Get Started</Text>
+            <Text color="primary" className={styles.linkText} weight="medium" variant="small">Get Started</Text>
           </Link>
           <Link href="#faq" className={styles.downloadLink}>
-            <Text color="muted" weight="medium">Read FAQ</Text>
+            <Text color="muted" weight="medium" variant="small">Read FAQ</Text>
           </Link>
         </div>
 

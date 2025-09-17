@@ -172,6 +172,10 @@
     gap: var(--space-3);
   }
   
+  .featureIconContainer {
+    align-self: center;
+  }
+  
   .featureContent {
     text-align: center;
   }

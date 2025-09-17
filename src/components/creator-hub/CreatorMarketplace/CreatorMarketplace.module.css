@@ -113,8 +113,9 @@
 
 .marqueeTrack {
   display: flex;
-  animation: marquee 5s linear infinite;
-  gap: var(--space-8);
+  animation: marquee 25s linear infinite;
+  gap: var(--space-6);
+  width: max-content;
 }
 
 .marqueeTrack:hover {
@@ -126,7 +127,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-33.333%);
   }
 }
 
@@ -139,7 +140,8 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   white-space: nowrap;
-  min-width: 200px;
+  min-width: 220px;
+  flex-shrink: 0;
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -302,6 +304,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  .marqueeTrack {
+    animation: marquee 20s linear infinite;
+    gap: var(--space-4);
+  }
+  
+  .categoryItem {
+    min-width: 180px;
+    padding: var(--space-3) var(--space-4);
+  }
+}
+
 @media (max-width: 480px) {
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -309,6 +323,12 @@
   }
   
   .marqueeTrack {
-    animation: marquee 20s linear infinite;
+    animation: marquee 15s linear infinite;
+    gap: var(--space-3);
+  }
+  
+  .categoryItem {
+    min-width: 160px;
+    padding: var(--space-3);
   }
 }

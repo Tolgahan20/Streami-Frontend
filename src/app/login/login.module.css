@@ -148,27 +148,11 @@
 }
 
 @media (max-width: 768px) {
-  .leftPanel {
-    padding: var(--space-4);
-    min-height: 35vh;
-  }
-  
-  .statsSection {
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
-    margin: var(--space-6) 0;
-  }
-  
-  .brandLogo {
+  .root {
     flex-direction: column;
-    gap: var(--space-2);
   }
   
-  .brandTitle {
-    font-size: 2rem;
-  }
-  
-  .brandDescription {
-    font-size: 1rem;
+  .leftPanel {
+    display: none;
   }
 }

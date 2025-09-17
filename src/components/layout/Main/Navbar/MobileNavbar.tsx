@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button/Button";
 import { Text } from "@/components/ui/typography/Typography";
 import { X, ChevronDown, ChevronRight } from "lucide-react";
 import { megaMenu, type MenuKey } from "./data";
+import { useAuthNavigation } from "@/lib/utils/authNavigation";
 import styles from "./MobileNavbar.module.css";
 
 interface MobileNavbarProps {
@@ -16,6 +17,7 @@ interface MobileNavbarProps {
 
 export default function MobileNavbar({ isOpen, onClose }: MobileNavbarProps) {
   const router = useRouter();
+  const { handleAuthNavigation } = useAuthNavigation();
   const [expandedMenu, setExpandedMenu] = useState<MenuKey | null>(null);
 
   // Handle navigation with optional auto-scroll
@@ -307,7 +309,7 @@ export default function MobileNavbar({ isOpen, onClose }: MobileNavbarProps) {
             variant="ghost" 
             size="lg" 
             className={styles.signInBtn}
-            onClick={() => handleNavigation("/login")}
+            onClick={() => handleAuthNavigation("/login")}
           >
             Sign in
           </Button>
@@ -315,7 +317,7 @@ export default function MobileNavbar({ isOpen, onClose }: MobileNavbarProps) {
             variant="primary" 
             size="lg" 
             className={styles.signUpBtn}
-            onClick={() => handleNavigation("/register")}
+            onClick={() => handleAuthNavigation("/register")}
           >
             Sign up
           </Button>

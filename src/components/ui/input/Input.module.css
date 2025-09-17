@@ -98,8 +98,15 @@
   align-items: center;
   justify-content: center;
   color: var(--muted-foreground);
-  pointer-events: none;
   z-index: 10;
+}
+
+.leftIcon {
+  pointer-events: none;
+}
+
+.rightIcon {
+  pointer-events: auto;
 }
 
 .leftIcon {

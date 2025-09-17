@@ -96,7 +96,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: visible;
+  overflow: hidden;
 }
 
 /* Platform Center */
@@ -319,8 +319,13 @@
     padding: var(--space-8) 0 var(--space-6) 0;
   }
   
+  .container {
+    padding: 0 var(--space-4);
+  }
+  
   .platformVisual {
-    height: 400px;
+    height: 200px;
+    margin: 0 var(--space-2);
   }
   
   .logoCircle {
@@ -332,37 +337,17 @@
     font-size: 2rem !important;
   }
   
+  .platformName {
+    font-size: 1.4rem !important;
+  }
+  
+  .platformTagline {
+    font-size: 1rem !important;
+  }
+  
+  /* Hide animation on mobile */
   .featuresOrbit {
-    width: 250px;
-    height: 250px;
-  }
-  
-  .orbitFeature {
-    width: 120px;
-    height: 120px;
-    transform: 
-      translate(-50%, -50%) 
-      rotate(var(--angle)) 
-      translateX(125px) 
-      rotate(calc(-1 * var(--angle)));
-  }
-  
-  .featureNode {
-    padding: var(--space-3);
-  }
-  
-  .featureIconContainer {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .featureIcon {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .featureTitle {
-    font-size: 0.8rem !important;
+    display: none;
   }
   
   .featuresList {
@@ -374,4 +359,34 @@
     text-align: center;
     gap: var(--space-3);
   }
+  
+  .featureIconContainer {
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .platformVisual {
+    height: 180px;
+    margin: 0 var(--space-1);
+  }
+  
+  .logoCircle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .logoText {
+    font-size: 1.5rem !important;
+  }
+  
+  .platformName {
+    font-size: 1.2rem !important;
+  }
+  
+  .platformTagline {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Animation already hidden at 768px */
 }

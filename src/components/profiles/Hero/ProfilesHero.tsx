@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button/Button";
 import { H1, Text } from "@/components/ui/typography/Typography";
@@ -14,6 +14,17 @@ export default function ProfilesHero() {
   const titleRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -40,12 +51,12 @@ export default function ProfilesHero() {
       <div className={styles.inner}>
         <div className={styles.banner} ref={bannerRef}>
           <span className={styles.tag}>NEW</span>
-          <Text color="muted">Creator Profiles</Text>
+          <Text color="muted" variant="small">Creator Profiles</Text>
           <Link href="#social-links" className={styles.link}>
-            <Text color="primary" className={styles.linkText} weight="medium">Link Platforms</Text>
+            <Text color="primary" className={styles.linkText} weight="medium" variant="small">Link Platforms</Text>
           </Link>
           <Link href="#analytics" className={styles.downloadLink}>
-            <Text color="muted" weight="medium">View Analytics</Text>
+            <Text color="muted" weight="medium" variant="small">View Analytics</Text>
           </Link>
         </div>
 

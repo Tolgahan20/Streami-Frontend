@@ -318,4 +318,8 @@
     text-align: center;
     gap: var(--space-3);
   }
+  
+  .featureIconContainer {
+    align-self: center;
+  }
 }

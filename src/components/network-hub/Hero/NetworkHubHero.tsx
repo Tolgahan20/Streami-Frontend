@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button/Button";
 import { H1, Text } from "@/components/ui/typography/Typography";
@@ -14,6 +14,17 @@ export default function NetworkHubHero() {
   const titleRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -40,12 +51,12 @@ export default function NetworkHubHero() {
       <div className={styles.inner}>
         <div className={styles.banner} ref={bannerRef}>
           <span className={styles.tag}>LIVE</span>
-          <Text color="muted">Network Hub Platform</Text>
+          <Text color="muted" variant="small">Network Hub Platform</Text>
           <Link href="#sponsorships" className={styles.link}>
-            <Text color="primary" className={styles.linkText} weight="medium">Find Sponsors</Text>
+            <Text color="primary" className={styles.linkText} weight="medium" variant="small">Find Sponsors</Text>
           </Link>
           <Link href="#streami-affiliate" className={styles.downloadLink}>
-            <Text color="muted" weight="medium">Join Affiliate</Text>
+            <Text color="muted" weight="medium" variant="small">Join Affiliate</Text>
           </Link>
         </div>
 

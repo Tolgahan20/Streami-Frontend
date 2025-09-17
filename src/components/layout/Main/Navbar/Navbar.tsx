@@ -12,9 +12,11 @@ import gsap from "gsap";
 import { MoveUpRight } from "lucide-react";
 import SecondaryNavbar from "./SecondaryNavbar";
 import MobileNavbar from "./MobileNavbar";
+import { useAuthNavigation } from "@/lib/utils/authNavigation";
 
 export default function Navbar() {
   const router = useRouter();
+  const { handleAuthNavigation } = useAuthNavigation();
   const rootRef = useRef<HTMLElement | null>(null);
   const brandRef = useRef<HTMLAnchorElement | null>(null);
   const linksRef = useRef<HTMLDivElement | null>(null);
@@ -306,11 +308,21 @@ export default function Navbar() {
             </Link>
           </div>
           <div className={styles.cta} ref={ctaRef}>
-            <Button variant="ghost" size="sm" className={styles.signInBtn}>
-              <Link href="/login">Sign in</Link>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className={styles.signInBtn}
+              onClick={() => handleAuthNavigation('/login')}
+            >
+              Sign in
             </Button>
-            <Button variant="primary" size="sm" className={styles.signUpBtn}>
-              <Link href="/register">Sign up</Link>
+            <Button 
+              variant="primary" 
+              size="sm" 
+              className={styles.signUpBtn}
+              onClick={() => handleAuthNavigation('/register')}
+            >
+              Sign up
             </Button>
 
 
