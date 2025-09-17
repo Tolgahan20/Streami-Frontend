@@ -4,6 +4,7 @@ console.log("🔧 API Base URL:", {
   fromEnv: process.env.NEXT_PUBLIC_API_BASE_URL,
   final: apiBaseUrl,
   hasProtocol: apiBaseUrl.startsWith("http"),
+  isHeroku: apiBaseUrl.includes("herokuapp.com"),
 });
 
 export const API_BASE_URL = apiBaseUrl;

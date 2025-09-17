@@ -10,6 +10,14 @@ let pendingRequestsQueue: Array<{
 
 // With httpOnly cookies set by the backend, we do not read or write access tokens on the client.
 
+// Debug function to check cookies
+export const debugCookies = () => {
+  if (typeof document !== 'undefined') {
+    console.log('🍪 Current cookies:', document.cookie);
+    console.log('🍪 All cookies:', document.cookie.split(';').map(c => c.trim()));
+  }
+};
+
 const api: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
   withCredentials: true,
@@ -19,7 +27,15 @@ const api: AxiosInstance = axios.create({
 });
 
 // No Authorization header injection; rely on server reading httpOnly cookies
-api.interceptors.request.use((config: InternalAxiosRequestConfig) => config);
+api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+  console.log('🍪 Making request with credentials:', {
+    url: config.url,
+    withCredentials: config.withCredentials,
+    method: config.method,
+    baseURL: config.baseURL
+  });
+  return config;
+});
 
 const plainClient = axios.create({ baseURL: API_BASE_URL, withCredentials: true });
 
@@ -29,7 +45,15 @@ async function refreshAccessToken(): Promise<string> {
 }
 
 api.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    console.log('🍪 Response received:', {
+      url: response.config.url,
+      status: response.status,
+      headers: response.headers,
+      setCookie: response.headers['set-cookie']
+    });
+    return response;
+  },
   async (error: AxiosError) => {
     const originalRequest = error.config as InternalAxiosRequestConfig & { _retry?: boolean };
 
@@ -37,6 +61,12 @@ api.interceptors.response.use(
 
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
+
+      // Check if this is a /me request - if so, don't retry to prevent infinite loops
+      if (originalRequest.url?.includes('/auth/me')) {
+        console.log('🚫 Skipping retry for /me request to prevent infinite loop');
+        throw error;
+      }
 
       if (isRefreshing) {
         return new Promise((resolve, reject) => {

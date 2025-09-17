@@ -13,7 +13,7 @@ import { AUTH_MESSAGES } from '@/lib/constants/messages';
 import { useRouter } from 'next/navigation';
 import { useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
-import api from '@/lib/api/axios';
+import api, { debugCookies } from '@/lib/api/axios';
 
 export function useGoogleAuth() {
   const [user, setUser] = useState<User | null>(null);
@@ -54,6 +54,10 @@ export function useGoogleAuth() {
 
       const backendResponse = response.data;
       console.log('Backend Google auth successful:', backendResponse);
+      
+      // Debug cookies after successful auth
+      console.log('🍪 Checking cookies after Google auth:');
+      debugCookies();
       
       // Invalidate auth queries to refresh user data
       await queryClient.invalidateQueries({ queryKey: ["me"] });
