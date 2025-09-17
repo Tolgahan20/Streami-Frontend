@@ -9,7 +9,8 @@ export function useRegisterForm() {
   const [formData, setFormData] = useState<RegisterDto>({
     email: "",
     password: "",
-    displayName: "",
+    firstName: "",
+    lastName: "",
     username: "",
   });
   const [errors, setErrors] = useState<Partial<RegisterDto>>({});
@@ -40,10 +41,16 @@ export function useRegisterForm() {
       newErrors.password = AUTH_MESSAGES.VALIDATION.PASSWORD_TOO_SHORT;
     }
 
-    if (!formData.displayName) {
-      newErrors.displayName = AUTH_MESSAGES.VALIDATION.REQUIRED_FIELD;
-    } else if (formData.displayName.length < 2) {
-      newErrors.displayName = "Display name must be at least 2 characters";
+    if (!formData.firstName) {
+      newErrors.firstName = AUTH_MESSAGES.VALIDATION.REQUIRED_FIELD;
+    } else if (formData.firstName.length < 2) {
+      newErrors.firstName = "First name must be at least 2 characters";
+    }
+
+    if (!formData.lastName) {
+      newErrors.lastName = AUTH_MESSAGES.VALIDATION.REQUIRED_FIELD;
+    } else if (formData.lastName.length < 2) {
+      newErrors.lastName = "Last name must be at least 2 characters";
     }
 
     if (!formData.username) {

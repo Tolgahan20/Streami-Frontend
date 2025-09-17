@@ -101,20 +101,38 @@ export const Register: React.FC<RegisterProps> = ({
         </div>
 
         <form onSubmit={handleFormSubmit} className={styles.form}>
-          <div className={styles.formGroup}>
-            <Label htmlFor="displayName">Full name</Label>
-            <Input
-              id="displayName"
-              type="text"
-              value={formData.displayName}
-              onChange={(e) => onInputChange("displayName", e.target.value)}
-              placeholder="Enter your full name"
-              error={!!errors.displayName}
-              disabled={isLoading || googleLoading}
-            />
-            {errors.displayName && (
-              <span className={styles.error}>{errors.displayName}</span>
-            )}
+          <div className={styles.formRow}>
+            <div className={styles.formGroup}>
+              <Label htmlFor="firstName">First name</Label>
+              <Input
+                id="firstName"
+                type="text"
+                value={formData.firstName}
+                onChange={(e) => onInputChange("firstName", e.target.value)}
+                placeholder="Enter your first name"
+                error={!!errors.firstName}
+                disabled={isLoading || googleLoading}
+              />
+              {errors.firstName && (
+                <span className={styles.error}>{errors.firstName}</span>
+              )}
+            </div>
+            
+            <div className={styles.formGroup}>
+              <Label htmlFor="lastName">Last name</Label>
+              <Input
+                id="lastName"
+                type="text"
+                value={formData.lastName}
+                onChange={(e) => onInputChange("lastName", e.target.value)}
+                placeholder="Enter your last name"
+                error={!!errors.lastName}
+                disabled={isLoading || googleLoading}
+              />
+              {errors.lastName && (
+                <span className={styles.error}>{errors.lastName}</span>
+              )}
+            </div>
           </div>
 
           <div className={styles.formGroup}>
