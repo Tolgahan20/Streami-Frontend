@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { MoveUpRight, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button/Button";
@@ -50,8 +51,7 @@ export default function SecondaryNavbar({ visible }: SecondaryNavbarProps) {
         <div className={styles.inner}>
           <div className={styles.leftSection}>
             <Link href="/" className={styles.brand}>
-              <span className={styles.logo} />
-              <span className={styles.name}>Streami</span>
+                <Image src="/logo.png" alt="Streami" width={40} height={40} />
             </Link>
             
             <div className={styles.links}>

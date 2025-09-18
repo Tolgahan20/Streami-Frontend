@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button/Button";
 import { Text } from "@/components/ui/typography/Typography";
@@ -72,8 +73,7 @@ export default function MobileNavbar({ isOpen, onClose }: MobileNavbarProps) {
         {/* Header */}
         <div className={styles.header}>
           <Link href="/" className={styles.brand} onClick={onClose}>
-            <span className={styles.logo} />
-            <Text as="span" className={styles.brandName}>Streami</Text>
+           <Image src="/logo-dark.png" alt="Streami" width={56} height={56} />
           </Link>
           <button 
             className={styles.closeButton}

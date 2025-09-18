@@ -26,6 +26,7 @@
   align-items: center;
   gap: var(--space-3);
   padding: var(--space-3) var(--space-5);
+  color: var(--background);
   background: color-mix(in srgb, var(--primary) 8%, transparent);
   border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
   border-radius: var(--radius-lg);

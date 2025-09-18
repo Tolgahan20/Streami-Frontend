@@ -95,28 +95,35 @@
 .featuresFlow {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-4);
   margin-top: var(--space-12);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: var(--space-4) 0;
 }
 
 .flowContainer {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-4);
 }
 
 .featureStep {
   text-align: center;
-  padding: var(--space-8);
+  padding: var(--space-6);
   border-radius: var(--radius-xl);
   background: color-mix(in srgb, var(--card) 50%, transparent);
   border: 1px solid var(--border);
   transition: all 0.3s ease;
   position: relative;
-  min-width: 250px;
-  max-width: 280px;
+  width: 240px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .featureStep:hover {
@@ -180,6 +187,9 @@
   justify-content: center;
   color: var(--muted-foreground);
   margin: 0 var(--space-2);
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 140px; /* Center vertically with the cards */
 }
 
 .arrowIcon {
@@ -222,10 +232,10 @@
   }
   
   .featureStep {
-    min-width: auto;
-    max-width: none;
     width: 100%;
     max-width: 400px;
+    height: auto;
+    min-height: 280px;
   }
   
   

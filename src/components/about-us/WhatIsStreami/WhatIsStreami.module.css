@@ -78,69 +78,97 @@
   line-height: 1.7;
 }
 
-/* Platform Layout */
-.platformLayout {
+/* Platform Highlights */
+.platformHighlights {
+  margin-top: var(--space-12);
+}
+
+.panelTitle {
+  font-size: 2rem !important;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.highlightsGrid {
   display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: var(--space-10);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--space-6);
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.platformVisual {
-  position: relative;
-  height: 600px;
-  background: color-mix(in srgb, var(--card) 20%, transparent);
+.highlightCard {
+  background: var(--card);
   border-radius: var(--radius-xl);
-  border: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+  border: 1px solid var(--border);
+  padding: var(--space-6);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
   overflow: hidden;
 }
 
-/* Platform Center */
-.platformCenter {
-  text-align: center;
-  position: relative;
-  z-index: 10;
+.highlightCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-600));
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.logoCircle {
-  width: 120px;
-  height: 120px;
-  background: var(--primary);
-  border-radius: 50%;
+.highlightCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  border-color: color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+.highlightCard:hover::before {
+  opacity: 1;
+}
+
+.highlightIconContainer {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-600));
+  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto var(--space-4);
-  box-shadow: 0 20px 60px rgba(95, 79, 255, 0.4);
-  animation: float 3s ease-in-out infinite;
+  margin-bottom: var(--space-4);
+  box-shadow: 0 8px 24px rgba(95, 79, 255, 0.3);
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-.logoText {
-  font-size: 3rem !important;
-  font-weight: 700;
+.featureIcon {
+  width: 28px;
+  height: 28px;
   color: white;
 }
 
-.platformName {
-  font-size: 1.5rem !important;
-  font-weight: 700;
-  color: var(--foreground);
-  margin-bottom: var(--space-2);
+.highlightContent {
+  flex: 1;
 }
 
-.platformTagline {
+.highlightTitle {
+  font-size: 1.25rem !important;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: var(--space-3);
+  line-height: 1.3;
+}
+
+.highlightDescription {
   font-size: 1rem !important;
   color: var(--muted-foreground);
-  font-weight: 500;
+  line-height: 1.6;
 }
 
 /* Features Orbit */
@@ -389,4 +417,95 @@
   }
   
   /* Animation already hidden at 768px */
+}
+
+/* Responsive Design for New Grid */
+@media (max-width: 1024px) {
+  .highlightsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-5);
+  }
+  
+  .highlightCard {
+    padding: var(--space-5);
+  }
+  
+  .highlightIconContainer {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .featureIcon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .panelTitle {
+    font-size: 1.75rem !important;
+    margin-bottom: var(--space-6);
+  }
+  
+  .highlightCard {
+    padding: var(--space-4);
+  }
+  
+  .highlightIconContainer {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .featureIcon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .highlightTitle {
+    font-size: 1.125rem !important;
+  }
+  
+  .highlightDescription {
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .platformHighlights {
+    margin-top: var(--space-8);
+  }
+  
+  .panelTitle {
+    font-size: 1.5rem !important;
+    margin-bottom: var(--space-5);
+  }
+  
+  .highlightCard {
+    padding: var(--space-3);
+  }
+  
+  .highlightIconContainer {
+    width: 40px;
+    height: 40px;
+    margin-bottom: var(--space-3);
+  }
+  
+  .featureIcon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .highlightTitle {
+    font-size: 1rem !important;
+    margin-bottom: var(--space-2);
+  }
+  
+  .highlightDescription {
+    font-size: 0.875rem !important;
+  }
 }

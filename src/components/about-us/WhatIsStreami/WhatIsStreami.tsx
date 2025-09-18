@@ -45,55 +45,21 @@ export default function WhatIsStreami() {
           </Text>
         </div>
 
-        {/* Platform Overview Layout */}
-        <div className={styles.platformLayout}>
-          <div className={styles.platformVisual}>
-            <div className={styles.platformCenter}>
-              <div className={styles.logoCircle}>
-                <Text className={styles.logoText}>S</Text>
+        {/* Platform Highlights Grid */}
+        <div className={styles.platformHighlights}>
+          <H2 className={styles.panelTitle}>Platform Highlights</H2>
+          <div className={styles.highlightsGrid}>
+            {features.map((feature, index) => (
+              <div key={index} className={styles.highlightCard}>
+                <div className={styles.highlightIconContainer}>
+                  {feature.icon}
+                </div>
+                <div className={styles.highlightContent}>
+                  <Text className={styles.highlightTitle}>{feature.title}</Text>
+                  <Text className={styles.highlightDescription}>{feature.description}</Text>
+                </div>
               </div>
-              <Text className={styles.platformName}>Streami</Text>
-              <Text className={styles.platformTagline}>AI-Powered Co-Pilot</Text>
-            </div>
-            
-            <div className={styles.featuresOrbit}>
-              {features.map((feature, index) => (
-                <div 
-                  key={index} 
-                  className={styles.orbitFeature}
-                  style={{
-                    '--angle': `${index * 120}deg`,
-                    '--delay': `${index * 0.2}s`
-                  } as React.CSSProperties}
-                >
-                  <div className={styles.featureNode}>
-                    <div className={styles.featureIconContainer}>
-                      {feature.icon}
-                    </div>
-                    <div className={styles.featureLabel}>
-                      <Text className={styles.featureTitle}>{feature.title}</Text>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className={styles.featuresPanel}>
-            <H2 className={styles.panelTitle}>Platform Highlights</H2>
-            <div className={styles.featuresList}>
-              {features.map((feature, index) => (
-                <div key={index} className={styles.featureCard}>
-                  <div className={styles.featureIconContainer}>
-                    {feature.icon}
-                  </div>
-                  <div className={styles.featureContent}>
-                    <Text className={styles.featureTitle}>{feature.title}</Text>
-                    <Text className={styles.featureDescription}>{feature.description}</Text>
-                  </div>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
 

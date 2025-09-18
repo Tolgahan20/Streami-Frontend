@@ -4,8 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button/Button";
-import { Text } from "@/components/ui/typography/Typography";
-
+import Image from "next/image";
 import { megaMenu, type MenuKey } from "@/components/layout/Main/Navbar/data";
 import styles from "./Navbar.module.css";
 import gsap from "gsap";
@@ -130,9 +129,8 @@ export default function Navbar() {
       >
         <div className={styles.inner}>
           <Link href="/" className={styles.brand} ref={brandRef}>
-            <span className={styles.logo} />
-            <Text as="span" className={styles.name}>Streami</Text>
-          </Link>
+            <Image src="/logo.png" alt="Streami" width={48} height={48} />
+          </Link> 
           <div className={styles.links} ref={linksRef}>
             <button
               className={styles.link}
