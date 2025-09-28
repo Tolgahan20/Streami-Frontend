@@ -26,6 +26,7 @@ export const ProfileSettings: React.FC = () => {
     formData,
     isLoading,
     hasChanges,
+    canSave,
     handleInputChange,
     handleSave,
   } = useProfileForm({
@@ -146,6 +147,9 @@ export const ProfileSettings: React.FC = () => {
               <Text color="muted" className={styles.sectionDescription}>
                 Update your basic profile information
               </Text>
+              <Text color="muted" className={styles.requiredNote}>
+                Fields marked with <span className={styles.required}>*</span> are required
+              </Text>
             </div>
             
             <div className={styles.formGrid}>
@@ -165,7 +169,9 @@ export const ProfileSettings: React.FC = () => {
               </div>
 
               <div className={styles.formGroup}>
-                <Label htmlFor="firstName">First Name</Label>
+                <Label htmlFor="firstName">
+                  First Name <span className={styles.required}>*</span>
+                </Label>
                 <Input
                   id="firstName"
                   type="text"
@@ -173,11 +179,14 @@ export const ProfileSettings: React.FC = () => {
                   onChange={(e) => handleInputChange('firstName', e.target.value)}
                   placeholder="Enter your first name"
                   tabIndex={2}
+                  required
                 />
               </div>
 
               <div className={styles.formGroup}>
-                <Label htmlFor="lastName">Last Name</Label>
+                <Label htmlFor="lastName">
+                  Last Name <span className={styles.required}>*</span>
+                </Label>
                 <Input
                   id="lastName"
                   type="text"
@@ -185,6 +194,7 @@ export const ProfileSettings: React.FC = () => {
                   onChange={(e) => handleInputChange('lastName', e.target.value)}
                   placeholder="Enter your last name"
                   tabIndex={3}
+                  required
                 />
               </div>
 
@@ -244,7 +254,7 @@ export const ProfileSettings: React.FC = () => {
       <div className={styles.actions}>
         <Button 
           onClick={handleSave} 
-          disabled={isLoading || !hasChanges}
+          disabled={isLoading || !canSave}
           className={styles.saveButton}
           tabIndex={7}
         >

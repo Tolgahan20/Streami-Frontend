@@ -19,6 +19,16 @@ export function useProfileForm({ profile, onSave }: UseProfileFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [hasChanges, setHasChanges] = useState(false);
 
+  // Check if required fields are filled
+  const isFormValid = () => {
+    return formData.firstName.trim() !== '' && formData.lastName.trim() !== '';
+  };
+
+  // Check if form can be saved (has changes AND is valid)
+  const canSave = () => {
+    return hasChanges && isFormValid();
+  };
+
   // Initialize form data when profile loads
   useEffect(() => {
     if (profile) {
@@ -47,7 +57,7 @@ export function useProfileForm({ profile, onSave }: UseProfileFormProps) {
   };
 
   const handleSave = async () => {
-    if (!hasChanges) {
+    if (!canSave()) {
       return;
     }
     
@@ -75,6 +85,8 @@ export function useProfileForm({ profile, onSave }: UseProfileFormProps) {
     formData,
     isLoading,
     hasChanges,
+    isFormValid: isFormValid(),
+    canSave: canSave(),
     handleInputChange,
     handleSave,
     resetForm,
