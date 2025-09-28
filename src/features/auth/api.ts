@@ -9,6 +9,7 @@ export async function registerUser(payload: RegisterDto): Promise<{ message: str
 
 export async function loginUser(payload: LoginDto): Promise<LoginResponse> {
   const { data } = await api.post(ENDPOINTS.auth.login, payload);
+  // With cookie-based auth, the backend sets cookies automatically
   return data;
 }
 
@@ -19,11 +20,13 @@ export async function fetchMe(): Promise<MeResponse> {
 
 export async function logoutUser(): Promise<{ message: string }> {
   const { data } = await api.post(ENDPOINTS.auth.logout);
+  // With cookie-based auth, the backend clears cookies automatically
   return data;
 }
 
 export async function refreshToken(): Promise<{ accessToken: string }> {
   const { data } = await api.post(ENDPOINTS.auth.refresh);
+  // With cookie-based auth, the backend sets new cookies automatically
   return data;
 }
 

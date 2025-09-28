@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/form/Label/Label";
 import { Typography } from "@/components/ui/typography/Typography";
 import { useSetUsername } from "@/features/auth/hooks/hooks";
 import styles from "./UsernameSetupModal.module.css";
-import toast from "react-hot-toast";
+import { toastSuccess } from "@/components/ui/toast";
 
 interface UsernameSetupModalProps {
   isOpen: boolean;
@@ -48,12 +48,10 @@ export const UsernameSetupModal: React.FC<UsernameSetupModalProps> = ({
     }
 
     try {
-      const result = await setUsernameMutation.mutateAsync(username);
-      console.log('Username set successfully:', result);
-      toast.success("Username set successfully!");
+      await setUsernameMutation.mutateAsync(username);
+      toastSuccess("Username set successfully!");
       onSuccess();
     } catch (error: unknown) {
-      console.error('Set username error:', error);
       setError(error instanceof Error ? error.message : "Failed to set username");
     }
   };

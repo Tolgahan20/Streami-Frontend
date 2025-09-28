@@ -2,59 +2,77 @@
   width: 320px;
   background: var(--card);
   border-left: 1px solid var(--border);
-  height: calc(100vh - 80px);
-  position: sticky;
-  top: 80px;
-  right: 0;
-  overflow-y: auto;
+  position: fixed; /* Use fixed positioning to stay in place */
+  top: 80px; /* Position below header */
+  right: 0; /* Position at right edge */
   flex-shrink: 0;
+  overflow-y: auto; /* Allow scrolling for content that exceeds height */
+  overflow-x: hidden;
+  height: calc(100vh - 80px); /* Set height to viewport minus header */
+  max-height: calc(100vh - 80px); /* Set max-height constraint */
+  z-index: 50; /* Increase z-index to ensure it's above content */
+  align-self: flex-start;
+}
+
+/* Hide desktop sidebar on mobile devices */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
 }
 
 .userProfile {
-  padding: var(--space-6);
+  padding: var(--space-3); /* Further reduce padding to save space */
   border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center all content horizontally */
 }
 
 .avatar {
-  width: 60px;
-  height: 60px;
+  width: 48px; /* Reduce avatar size to save space */
+  height: 48px; /* Reduce avatar size to save space */
   background: var(--muted);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--muted-foreground);
-  margin-bottom: var(--space-4);
+  margin: 0 auto var(--space-2) auto; /* Center horizontally with auto margins */
 }
 
 .userInfo {
   text-align: center;
+  width: 100%; /* Ensure full width for proper centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center all text content */
 }
 
 .userName {
-  font-size: 1.125rem;
+  font-size: 1rem; /* Reduce font size to save space */
   font-weight: 700;
   color: var(--foreground);
-  margin: 0 0 var(--space-2) 0;
+  margin: 0 0 var(--space-1) 0; /* Reduce margin to save space */
 }
 
 .userHandle {
   font-size: 0.875rem;
   color: var(--muted-foreground);
-  margin: 0 0 var(--space-3) 0;
+  margin: 0 0 var(--space-2) 0; /* Reduce margin to save space */
 }
 
 .userDescription {
-  font-size: 0.875rem;
-  line-height: 1.5;
+  font-size: 0.8rem; /* Reduce font size to save space */
+  line-height: 1.4; /* Reduce line height to save space */
   color: var(--foreground);
   margin: 0;
 }
 
 .metrics {
   display: flex;
-  gap: var(--space-4);
-  padding: var(--space-6);
+  gap: var(--space-3); /* Reduce gap to save space */
+  padding: var(--space-4); /* Reduce padding to save space */
   border-bottom: 1px solid var(--border);
 }
 
@@ -65,7 +83,7 @@
 
 .metricValue {
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* Reduce font size to save space */
   font-weight: 700;
   color: var(--foreground);
   margin-bottom: var(--space-1);
@@ -79,7 +97,7 @@
 }
 
 .platformStats {
-  padding: var(--space-6);
+  padding: var(--space-4); /* Reduce padding to save space */
   border-bottom: 1px solid var(--border);
 }
 
@@ -89,20 +107,20 @@
   color: var(--muted-foreground);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin: 0 0 var(--space-4) 0;
+  margin: 0 0 var(--space-2) 0; /* Reduce margin to save space */
 }
 
 .platforms {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-2); /* Reduce gap to save space */
 }
 
 .platform {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-3);
+  padding: var(--space-2); /* Reduce padding to save space */
   background: var(--muted);
   border-radius: var(--radius-md);
   transition: all 0.2s ease;
@@ -125,10 +143,11 @@
 }
 
 .summaryCards {
-  padding: var(--space-6);
+  padding: var(--space-4); /* Reduce padding to save space */
+  padding-bottom: var(--space-4); /* Remove extra bottom padding */
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-3); /* Reduce gap to save space */
 }
 
 .summaryCard {
@@ -152,7 +171,7 @@
 }
 
 .cardContent {
-  padding: var(--space-4);
+  padding: var(--space-3); /* Reduce padding to save space */
   text-align: center;
 }
 
@@ -168,7 +187,7 @@
 
 .cardValue {
   display: block;
-  font-size: 1.25rem;
+  font-size: 1.125rem; /* Reduce font size to save space */
   font-weight: 700;
 }
 
@@ -185,6 +204,8 @@
     position: static;
     border-left: none;
     border-top: 1px solid var(--border);
+    max-height: none;
+    overflow: visible;
   }
   
   .userProfile {

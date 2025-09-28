@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { useRegister, useLogin } from "./hooks";
 import type { RegisterDto, LoginDto } from "../types";
 import { AUTH_MESSAGES } from "@/lib/constants/messages";
-import toast from "react-hot-toast";
+import { toastSuccess, toastError } from "@/components/ui/toast";
 
 export function useRegisterForm() {
   const [formData, setFormData] = useState<RegisterDto>({
@@ -73,7 +73,7 @@ export function useRegisterForm() {
     try {
       await registerMutation.mutateAsync(formData);
       // Show success toast
-      toast.success(AUTH_MESSAGES.REGISTER_SUCCESS);
+      toastSuccess(AUTH_MESSAGES.REGISTER_SUCCESS);
       // Redirect to login page after successful registration
       router.push("/login?message=Registration successful! Please check your email for verification.");
     } catch (error: unknown) {
@@ -89,7 +89,7 @@ export function useRegisterForm() {
       
       // Map backend error messages to user-friendly ones
       const friendlyMessage = AUTH_MESSAGES.BACKEND_ERRORS[errorMessage as keyof typeof AUTH_MESSAGES.BACKEND_ERRORS] || errorMessage;
-      toast.error(friendlyMessage);
+      toastError(friendlyMessage);
       
       console.error("Registration failed:", error);
     }
@@ -145,7 +145,7 @@ export function useLoginForm() {
     try {
       await loginMutation.mutateAsync(formData);
       // Show success toast
-      toast.success(AUTH_MESSAGES.LOGIN_SUCCESS);
+      toastSuccess(AUTH_MESSAGES.LOGIN_SUCCESS);
       // Redirect to dashboard or home page
       router.push("/feed");
     } catch (error: unknown) {
@@ -161,7 +161,7 @@ export function useLoginForm() {
       
       // Map backend error messages to user-friendly ones
       const friendlyMessage = AUTH_MESSAGES.BACKEND_ERRORS[errorMessage as keyof typeof AUTH_MESSAGES.BACKEND_ERRORS] || errorMessage;
-      toast.error(friendlyMessage);
+      toastError(friendlyMessage);
       
       console.error("Login failed:", error);
     }

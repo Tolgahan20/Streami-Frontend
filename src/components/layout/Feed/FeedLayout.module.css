@@ -1,13 +1,19 @@
 .layout {
-  display: flex;
+  display: block; /* Change from flex to block since sidebars are now fixed */
   width: 100%;
-  gap: var(--space-6); /* Added spacing between sidebars and content */
+  flex: 1; /* Take up remaining space */
+  position: relative; /* Change from sticky to relative to prevent overlap */
+  height: auto; /* Change to auto to fit content */
+  max-height: none; /* Remove max-height constraint */
+  overflow-y: visible; /* Change to visible to prevent scrolling */
+  overflow-x: hidden;
+  align-self: flex-start;
+  padding-top: 0; /* Remove padding since main has it */
 }
 
 .content {
-  display: flex;
-  gap: var(--space-6); /* Added spacing between content and right sidebar */
-  flex: 1;
+  flex: 1; /* Take up remaining space in the layout */
+  transition: margin-left 0.3s ease;
 }
 
 @media (max-width: 1200px) {
@@ -21,15 +27,39 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .layout {
+    gap: var(--space-4);
+  }
+  
+  .content {
+    gap: var(--space-4);
+  }
+}
+
 @media (max-width: 768px) {
   .layout {
     flex-direction: column;
     width: 100%;
-    gap: var(--space-3); /* Reduced spacing on mobile */
+    gap: var(--space-3);
+    position: static;
+    height: auto;
+    max-height: none;
+    overflow: visible;
   }
   
   .content {
     flex-direction: column;
     gap: var(--space-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .layout {
+    gap: var(--space-2);
+  }
+  
+  .content {
+    gap: var(--space-2);
   }
 }

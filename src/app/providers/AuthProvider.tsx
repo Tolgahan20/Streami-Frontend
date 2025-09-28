@@ -3,6 +3,7 @@
 import { createContext, useContext, ReactNode } from 'react';
 import { User, UserCredential } from 'firebase/auth';
 import { useGoogleAuth } from '@/features/auth/hooks/useGoogleAuth';
+import { useTokenRefresh } from '@/lib/hooks/useTokenRefresh';
 
 interface AuthContextType {
   user: User | null;
@@ -16,6 +17,9 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const auth = useGoogleAuth();
+  
+  // Initialize token refresh mechanism
+  useTokenRefresh();
 
   return (
     <AuthContext.Provider value={auth}>

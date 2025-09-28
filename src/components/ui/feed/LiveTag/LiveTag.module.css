@@ -1,0 +1,48 @@
+.liveTag {
+  background: #ef4444;
+  color: white;
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  animation: pulse 2s infinite;
+}
+
+.sm {
+  font-size: 0.5rem;
+  padding: 1px 4px;
+}
+
+.md {
+  font-size: 0.625rem;
+  padding: 2px 6px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .liveTag {
+    font-size: 0.5rem;
+    padding: 1px 4px;
+  }
+  
+  .sm {
+    font-size: 0.45rem;
+    padding: 1px 3px;
+  }
+  
+  .md {
+    font-size: 0.5rem;
+    padding: 1px 4px;
+  }
+}

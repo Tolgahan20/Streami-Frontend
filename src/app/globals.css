@@ -105,6 +105,19 @@
   body {
     font-family: var(--font-sans);
     background: var(--background);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Change to min-height to allow content to grow */
+    overflow-x: hidden;
+    overflow-y: auto; /* Ensure vertical scrolling is enabled */
+  }
+
+  /* Hide development overlays and notifications */
+  [data-nextjs-dialog-overlay],
+  [data-nextjs-dialog],
+  .nextjs-container-build-error,
+  .nextjs-container-runtime-error {
+    display: none !important;
   }
 
   /* Custom scrollbar to match header styling - more visible on macOS */

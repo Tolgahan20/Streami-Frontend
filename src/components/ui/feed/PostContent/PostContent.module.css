@@ -1,0 +1,22 @@
+.content {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--foreground);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+}

@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+import { toastSuccess } from "@/components/ui/toast";
 
 export const useAuthNavigation = () => {
   const router = useRouter();
@@ -13,17 +13,9 @@ export const useAuthNavigation = () => {
       router.push(path);
     } else {
       // In production, show "Coming soon" toaster
-      toast.success("Coming soon! 🚀", {
+      toastSuccess("Coming soon! 🚀", {
         duration: 3000,
         position: "top-center",
-        style: {
-          background: "var(--primary)",
-          color: "var(--primary-foreground)",
-          borderRadius: "var(--radius-lg)",
-          padding: "12px 16px",
-          fontSize: "14px",
-          fontWeight: "500",
-        },
       });
     }
   };

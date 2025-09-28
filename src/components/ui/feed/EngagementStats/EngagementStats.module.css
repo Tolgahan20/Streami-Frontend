@@ -1,0 +1,59 @@
+.stats {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.stat:hover {
+  color: var(--foreground);
+}
+
+.sm .stat {
+  font-size: 0.7rem;
+  gap: var(--space-1);
+}
+
+.md .stat {
+  font-size: 0.75rem;
+  gap: var(--space-2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stats {
+    gap: var(--space-3);
+  }
+  
+  .stat {
+    font-size: 0.7rem;
+  }
+  
+  .sm .stat {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    gap: var(--space-2);
+  }
+  
+  .stat {
+    font-size: 0.65rem;
+  }
+  
+  .sm .stat {
+    font-size: 0.6rem;
+  }
+}

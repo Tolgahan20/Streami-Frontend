@@ -1,0 +1,228 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-8);
+}
+
+.header {
+  margin-bottom: var(--space-8);
+}
+
+.title {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: var(--foreground) !important;
+  margin-bottom: var(--space-2) !important;
+}
+
+.subtitle {
+  font-size: 1.125rem !important;
+  color: var(--muted-foreground) !important;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+/* Layout for avatar section - make it wider */
+.avatarSection {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+  width: 100%;
+}
+
+/* Layout for basic info and social links in same row */
+.infoRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+}
+
+@media (max-width: 1024px) {
+  .infoRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+}
+
+.sectionHeader {
+  margin-bottom: var(--space-8);
+}
+
+.sectionTitle {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: var(--foreground) !important;
+  margin-bottom: var(--space-2) !important;
+}
+
+.sectionDescription {
+  font-size: 1rem !important;
+  color: var(--muted-foreground) !important;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.textarea {
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.2s ease;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+.textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.textarea::placeholder {
+  color: var(--muted-foreground);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+}
+
+.saveButton {
+  min-width: 120px;
+}
+
+/* Loading and Error States */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12);
+  gap: var(--space-4);
+}
+
+.loadingSpinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border);
+  border-top: 3px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12);
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.successMessage {
+  background: color-mix(in srgb, var(--success) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--success) 30%, transparent);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.errorMessage {
+  background: color-mix(in srgb, var(--destructive) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--destructive) 30%, transparent);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--space-6);
+    max-width: 100%;
+  }
+  
+  .section {
+    padding: var(--space-8);
+  }
+  
+  .avatarSection {
+    padding: var(--space-8);
+  }
+  
+  .title {
+    font-size: 1.75rem !important;
+  }
+  
+  .sectionTitle {
+    font-size: 1.25rem !important;
+  }
+  
+  .content {
+    gap: var(--space-8);
+  }
+  
+  .infoRow {
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: var(--space-4);
+  }
+  
+  .section {
+    padding: var(--space-6);
+  }
+  
+  .avatarSection {
+    padding: var(--space-6);
+  }
+  
+  .formGrid {
+    gap: var(--space-6);
+  }
+  
+  .content {
+    gap: var(--space-6);
+  }
+}

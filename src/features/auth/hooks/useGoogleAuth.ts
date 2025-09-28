@@ -12,8 +12,9 @@ import { ENDPOINTS } from '@/lib/constants/endpoints';
 import { AUTH_MESSAGES } from '@/lib/constants/messages';
 import { useRouter } from 'next/navigation';
 import { useQueryClient } from '@tanstack/react-query';
-import toast from 'react-hot-toast';
-import api, { debugCookies } from '@/lib/api/axios';
+import { toastSuccess, toastError } from '@/components/ui/toast';
+import api from '@/lib/api/axios';
+import { AvatarManager } from '@/lib/utils/avatarManager';
 
 export function useGoogleAuth() {
   const [user, setUser] = useState<User | null>(null);
@@ -46,23 +47,38 @@ export function useGoogleAuth() {
       const { user: googleUser } = result;
       const idToken = await googleUser.getIdToken();
       
+      // Check if user already has a custom avatar before Google sign-in
+      let shouldPreserveAvatar = false;
+      try {
+        const currentProfile = await api.get('/profiles');
+        shouldPreserveAvatar = AvatarManager.shouldPreserveCustomAvatar(currentProfile.data);
+        console.log('Google Auth - Custom avatar detected:', shouldPreserveAvatar);
+      } catch {
+        console.log('Google Auth - No existing profile found, will use Google avatar');
+      }
+      
       // Send user data to your backend using the configured axios instance
-      const response = await api.post(ENDPOINTS.auth.google, {
+      await api.post(ENDPOINTS.auth.google, {
         idToken: idToken,
-        displayName: googleUser.displayName || ''
+        firstName: googleUser.displayName?.split(' ')[0] || '',
+        lastName: googleUser.displayName?.split(' ').slice(1).join(' ') || '',
+        preserveCustomAvatar: shouldPreserveAvatar
       });
 
-      const backendResponse = response.data;
-      console.log('Backend Google auth successful:', backendResponse);
+      // With cookie-based auth, the backend should set cookies automatically
       
-      // Debug cookies after successful auth
-      console.log('🍪 Checking cookies after Google auth:');
-      debugCookies();
+      try {
+        // Verify authentication by making a request to /me
+        await api.get(ENDPOINTS.auth.me);
+      } catch {
+        // Error handling for /me request
+      }
+      
       
       // Invalidate auth queries to refresh user data
       await queryClient.invalidateQueries({ queryKey: ["me"] });
       
-      toast.success(AUTH_MESSAGES.GOOGLE_SIGNIN_SUCCESS);
+      toastSuccess(AUTH_MESSAGES.GOOGLE_SIGNIN_SUCCESS);
       
       // Check if user has username, if not, we'll handle it in the feed layout
       // For now, always redirect to feed and let the feed page handle username setup
@@ -70,7 +86,6 @@ export function useGoogleAuth() {
       
       return result;
     } catch (error: unknown) {
-      console.error('Google sign-in error:', error);
       
       let errorMessage: string = AUTH_MESSAGES.GOOGLE_SIGNIN_FAILED;
       
@@ -90,7 +105,7 @@ export function useGoogleAuth() {
         errorMessage = error.message;
       }
       
-      toast.error(errorMessage);
+      toastError(errorMessage);
       throw error;
     } finally {
       setLoading(false);
@@ -100,11 +115,10 @@ export function useGoogleAuth() {
   const signOut = async () => {
     try {
       await firebaseSignOut(auth);
-      toast.success(AUTH_MESSAGES.LOGOUT_SUCCESS);
+      toastSuccess(AUTH_MESSAGES.LOGOUT_SUCCESS);
       router.push('/');
-    } catch (error) {
-      console.error('Sign-out error:', error);
-      toast.error(AUTH_MESSAGES.LOGOUT_FAILED);
+    } catch {
+      toastError(AUTH_MESSAGES.LOGOUT_FAILED);
     }
   };
 

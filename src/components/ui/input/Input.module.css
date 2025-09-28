@@ -27,6 +27,11 @@
   box-shadow: 0 0 0 2px var(--ring/10);
 }
 
+.input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
 .input:disabled {
   cursor: not-allowed;
   opacity: 0.5;

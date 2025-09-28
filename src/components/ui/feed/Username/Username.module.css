@@ -1,0 +1,37 @@
+.username {
+  font-weight: 600;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.username:hover {
+  color: var(--primary);
+}
+
+.sm {
+  font-size: 0.75rem;
+}
+
+.md {
+  font-size: 0.875rem;
+}
+
+.lg {
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sm {
+    font-size: 0.7rem;
+  }
+  
+  .md {
+    font-size: 0.8rem;
+  }
+  
+  .lg {
+    font-size: 0.9rem;
+  }
+}

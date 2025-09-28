@@ -1,0 +1,52 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.xs {
+  width: 16px;
+  height: 16px;
+}
+
+.sm {
+  width: 20px;
+  height: 20px;
+}
+
+.md {
+  width: 24px;
+  height: 24px;
+}
+
+.lg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .xs {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .sm {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .md {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .lg {
+    width: 28px;
+    height: 28px;
+  }
+}

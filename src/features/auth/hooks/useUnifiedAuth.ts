@@ -33,14 +33,7 @@ export function useUnifiedAuth() {
     const stillLoading = firebaseAuth.loading || backendLoading;
     setLoading(stillLoading);
     
-    console.log('Unified auth state:', {
-      firebaseAuth: firebaseAuthenticated,
-      backendAuth: backendAuthenticated,
-      backendError: hasBackendError,
-      unifiedAuth: authenticated,
-      loading: stillLoading,
-      backendUser: backendUser ? { id: backendUser.id, username: backendUser.username } : null
-    });
+  
   }, [firebaseAuth.isAuthenticated, firebaseAuth.loading, backendUser, backendLoading, backendError]);
 
   return {

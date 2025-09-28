@@ -7,7 +7,7 @@ import Link from "next/link";
 import { XCircle, Shield, Mail, RefreshCw } from "lucide-react";
 import { useResendVerification } from "@/features/auth/hooks/hooks";
 import { AUTH_MESSAGES } from "@/lib/constants/messages";
-import toast from "react-hot-toast";
+import { toastSuccess, toastError } from "@/components/ui/toast";
 import styles from "./VerifyError.module.css";
 
 interface VerifyErrorProps {
@@ -23,13 +23,13 @@ export const VerifyError: React.FC<VerifyErrorProps> = ({ errorMessage }) => {
     e.preventDefault();
     
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
-      toast.error("Please enter a valid email address");
+      toastError("Please enter a valid email address");
       return;
     }
 
     try {
       await resendVerification.mutateAsync(email);
-      toast.success(AUTH_MESSAGES.VERIFICATION_EMAIL_SENT);
+      toastSuccess(AUTH_MESSAGES.VERIFICATION_EMAIL_SENT);
       setShowResendForm(false);
     } catch (error: unknown) {
       let errorMessage = "Failed to resend verification email. Please try again.";
@@ -41,7 +41,7 @@ export const VerifyError: React.FC<VerifyErrorProps> = ({ errorMessage }) => {
         }
       }
       
-      toast.error(errorMessage);
+      toastError(errorMessage);
     }
   };
 

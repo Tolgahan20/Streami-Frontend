@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { verifyEmail } from "../api";
 import { AUTH_MESSAGES } from "@/lib/constants/messages";
-import toast from "react-hot-toast";
+import { toastSuccess, toastError } from "@/components/ui/toast";
 
 export type VerificationStatus = 'loading' | 'success' | 'error';
 
@@ -28,7 +28,7 @@ export function useEmailVerification() {
         await verifyEmail(token);
         setVerificationStatus('success');
         setVerificationTime(Date.now() - startTime);
-        toast.success(AUTH_MESSAGES.EMAIL_VERIFIED);
+        toastSuccess(AUTH_MESSAGES.EMAIL_VERIFIED);
       } catch (error: unknown) {
         setVerificationStatus('error');
         
@@ -49,7 +49,7 @@ export function useEmailVerification() {
           AUTH_MESSAGES.VERIFICATION_FAILED;
         
         setErrorMessage(finalMessage);
-        toast.error(finalMessage);
+        toastError(finalMessage);
       }
     };
 
