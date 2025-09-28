@@ -96,9 +96,20 @@ export const ProfileSettings: React.FC = () => {
     return <ProfileLoading />;
   }
 
-  // Show error state if profile failed to load
-  if (profileError) {
-    return <ProfileError error={profileError} onRetry={refetch} />;
+  // Note: No need to handle profileError anymore since backend auto-creates profiles
+  // Only show error for critical failures (network issues, etc.)
+  if (profileError && !profileLoading) {
+    // Only show error for non-404 errors (network, server errors, etc.)
+    const isNetworkError = profileError.includes('Network') || 
+                          profileError.includes('Failed to fetch') ||
+                          profileError.includes('timeout');
+    
+    if (isNetworkError) {
+      return <ProfileError error={profileError} onRetry={refetch} />;
+    }
+    
+    // For other errors, log them but don't block the UI
+    console.error('Profile error (non-critical):', profileError);
   }
 
   return (
