@@ -26,7 +26,7 @@ export const ProfileError: React.FC<ProfileErrorProps> = ({ error, onRetry }) =>
           {error}
         </Text>
         <Text color="muted" className={styles.errorDescription}>
-          We couldn't load your profile data. Please try again.
+          We couldn&apos;t load your profile data. Please try again.
         </Text>
         {onRetry && (
           <Button onClick={onRetry} className={styles.retryButton}>

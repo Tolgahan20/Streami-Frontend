@@ -45,9 +45,8 @@ export const checkAuthStatus = async () => {
     return { authenticated: true, user: response.data };
   } catch (error) {
     if (error && typeof error === "object" && "response" in error) {
-      const axiosError = error as {
-        response?: { data?: unknown; status?: number };
-      };
+      // Handle axios error if needed
+      console.log("Authentication check failed:", error);
     }
 
     return { authenticated: false, error };

@@ -4,7 +4,7 @@ import { socialLinksToFormData, hasSocialLinksChanged } from '../utils/profileUt
 
 interface UseSocialLinksProps {
   socialLinks: SocialLink[];
-  onSave: (data: SocialLinksFormData) => Promise<any>;
+  onSave: (data: SocialLinksFormData) => Promise<SocialLink[]>;
 }
 
 export function useSocialLinks({ socialLinks, onSave }: UseSocialLinksProps) {
