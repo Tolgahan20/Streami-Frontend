@@ -17,7 +17,6 @@ export default function ThemeToggle() {
     toggleTheme();
     if (typeof document !== "undefined") {
       setIsDark(document.documentElement.classList.contains("dark"));
-      console.log("Is Dark:", isDark);
     }
   }
 
