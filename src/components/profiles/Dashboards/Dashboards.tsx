@@ -44,10 +44,10 @@ export default function Dashboards() {
 
         {/* Description */}
         <div className={styles.descriptionSection}>
-          <Text className={styles.description}>
+          <p className={styles.description}>
             Streamline your creator journey with unified dashboards. Manage all activity from one place - 
             listings, messages, commissions, and more. Designed to make running your creator business simple.
-          </Text>
+          </p>
         </div>
 
         {/* Features Section */}

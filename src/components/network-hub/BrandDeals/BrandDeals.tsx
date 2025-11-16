@@ -44,10 +44,10 @@ export default function BrandDeals() {
 
         {/* Description */}
         <div className={styles.descriptionSection}>
-          <Text className={styles.description}>
+          <p className={styles.description}>
             Manage brand collaborations with structured deliverables and timeline management. 
             Both sides know exactly where projects stand with fair payments and clear expectations throughout.
-          </Text>
+          </p>
         </div>
 
         {/* Features Section */}

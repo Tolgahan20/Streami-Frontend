@@ -39,10 +39,10 @@ export default function GeneralMessages() {
 
         {/* Description */}
         <div className={styles.descriptionSection}>
-          <Text className={styles.description}>
+          <p className={styles.description}>
             Private one-to-one messages with the organizational features you need. Send files, pin important messages, 
             and track read receipts to keep your creator conversations clear and productive.
-          </Text>
+          </p>
         </div>
 
         {/* DM Interface Layout */}

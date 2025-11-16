@@ -1,6 +1,7 @@
 .text {
   margin: 0;
   font-family: var(--font-sans);
+  text-align: inherit;
 }
 
 /* Headings */

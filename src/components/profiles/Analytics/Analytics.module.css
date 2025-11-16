@@ -87,7 +87,7 @@
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--foreground);
-  text-align: center;
+text-align: center !important;
   margin-bottom: var(--space-10);
   letter-spacing: -0.02em;
 }

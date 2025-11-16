@@ -63,10 +63,10 @@ export default function GeneralContact() {
 
         {/* Description */}
         <div className={styles.descriptionSection}>
-          <Text className={styles.description}>
+          <p className={styles.description}>
             Have a question, idea, or issue? Reach out directly and we&apos;ll get back to you as quickly as possible. 
             Whether you need user support or want to share feedback, we&apos;re here to listen.
-          </Text>
+          </p>
         </div>
 
         {/* Contact Layout */}

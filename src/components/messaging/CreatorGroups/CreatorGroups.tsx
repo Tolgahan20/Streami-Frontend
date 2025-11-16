@@ -39,10 +39,10 @@ export default function CreatorGroups() {
 
         {/* Description */}
         <div className={styles.descriptionSection}>
-          <Text className={styles.description}>
+          <p className={styles.description}>
             Creator Groups are where designers, animators, and developers come together. 
             Share progress updates, request feedback, and collaborate on new projects that push the streaming industry forward.
-          </Text>
+          </p>
         </div>
 
         {/* Features Section */}

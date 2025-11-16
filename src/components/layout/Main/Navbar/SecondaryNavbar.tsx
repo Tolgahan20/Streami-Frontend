@@ -97,7 +97,7 @@ export default function SecondaryNavbar({ visible }: SecondaryNavbarProps) {
               >
                 About Us
               </button>
-              <Link href="/contact" className={styles.link}>Contact Us</Link>
+              <Link href="/contact-us" className={styles.link}>Contact Us</Link>
             </div>
           </div>
           

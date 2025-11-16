@@ -76,6 +76,7 @@
   margin: 0 auto;
   color: var(--muted-foreground);
   line-height: 1.7;
+  text-align: center !important;
 }
 
 /* Features Section */
@@ -87,7 +88,7 @@
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--foreground);
-  text-align: center;
+  text-align: center !important;
   margin-bottom: var(--space-12);
   letter-spacing: -0.02em;
 }

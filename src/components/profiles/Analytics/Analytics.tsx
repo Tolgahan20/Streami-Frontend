@@ -44,10 +44,10 @@ export default function Analytics() {
 
         {/* Description */}
         <div className={styles.descriptionSection}>
-          <Text className={styles.description}>
+          <p className={styles.description}>
             Stay on top of your performance with comprehensive analytics. Track follower growth, 
             sales commissions, and engagement insights across multiple platforms with clear, actionable data visualizations.
-          </Text>
+          </p>
         </div>
 
         {/* Features Section */}

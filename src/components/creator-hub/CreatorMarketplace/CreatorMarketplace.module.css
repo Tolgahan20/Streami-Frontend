@@ -75,6 +75,7 @@
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--foreground);
+  text-align: center !important;
   text-align: center;
   margin-bottom: var(--space-12);
   letter-spacing: -0.02em;

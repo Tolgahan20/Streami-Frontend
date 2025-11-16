@@ -44,10 +44,10 @@ export default function Advertising() {
 
         {/* Description */}
         <div className={styles.descriptionSection}>
-          <Text className={styles.description}>
+          <p className={styles.description}>
             Our advertising is built on transparency and ethics. No selling user data - just simple, 
             effective ad placements with clear metrics, analytics, and flexible budgets for brands of all sizes.
-          </Text>
+          </p>
         </div>
 
         {/* Features Section */}

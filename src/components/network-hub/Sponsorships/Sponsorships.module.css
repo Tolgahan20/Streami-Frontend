@@ -75,6 +75,7 @@
   margin: 0 auto;
   color: var(--muted-foreground);
   line-height: 1.7;
+  text-align: center !important;
 }
 
 /* Features Section */
