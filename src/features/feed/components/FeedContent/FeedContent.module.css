@@ -2,7 +2,14 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 0 var(--space-4);
+  padding: var(--space-8) var(--space-6);
+  background: var(--background); /* Light background for content area */
+  border-top-right-radius: 28px; /* Large curve on top-right only */
+  height: calc(100vh - 64px); /* Fixed height minus header */
+  position: relative;
+  margin-top: 0; /* No gap - curves up to meet header */
+  overflow-y: auto; /* Make content scrollable */
+  overflow-x: hidden;
 }
 
 .feed {
@@ -11,6 +18,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  background: transparent; /* Let parent background show through */
 }
 
 .post {

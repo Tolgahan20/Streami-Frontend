@@ -1,0 +1,35 @@
+.platformWidget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: var(--space-1);
+}
+
+.iconWrapper {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats {
+  text-align: center;
+}
+
+.value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: currentColor;
+  margin-bottom: 2px;
+}
+
+.label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+

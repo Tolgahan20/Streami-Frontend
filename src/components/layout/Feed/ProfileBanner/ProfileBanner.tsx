@@ -3,10 +3,24 @@
 import React, { useState } from 'react';
 import { User, Camera, Settings } from 'lucide-react';
 import { WidgetGrid, PlatformWidget, StatsWidget } from '@/components/ui/widgets';
-import styles from './FeedSidebar.module.css';
+import styles from './ProfileBanner.module.css';
 
-export const FeedSidebar: React.FC = () => {
-  const [currentWallpaper, setCurrentWallpaper] = useState<string | undefined>();
+interface ProfileBannerProps {
+  userName?: string;
+  userHandle?: string;
+  userDescription?: string;
+  wallpaper?: string;
+  isEditable?: boolean;
+}
+
+export const ProfileBanner: React.FC<ProfileBannerProps> = ({
+  userName = 'Benjamin Loki',
+  userHandle = '@benjamin_loki',
+  userDescription = 'AI streamer co-pilot. Tips, overlays and growth tools for creators.',
+  wallpaper,
+  isEditable = true,
+}) => {
+  const [currentWallpaper, setCurrentWallpaper] = useState<string | undefined>(wallpaper);
   const [isEditingWidgets, setIsEditingWidgets] = useState(false);
 
   const handleWallpaperUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,15 +43,14 @@ export const FeedSidebar: React.FC = () => {
     : {};
 
   return (
-    <aside className={styles.sidebar}>
-      {/* Profile Banner with Wallpaper */}
-      <div className={styles.sidebarContent}>
-      <div className={styles.profileBanner}>
-        <div className={styles.wallpaperContainer} style={bannerStyle}>
-          {!currentWallpaper && <div className={styles.defaultWallpaper} />}
+    <div className={styles.profileBanner}>
+      <div className={styles.wallpaperContainer} style={bannerStyle}>
+        {!currentWallpaper && <div className={styles.defaultWallpaper} />}
+        {isEditable && (
           <div className={styles.wallpaperControls}>
             <label htmlFor="wallpaper-upload" className={styles.uploadButton}>
-              <Camera size={14} />
+              <Camera size={16} />
+              <span>Change Wallpaper</span>
               <input
                 id="wallpaper-upload"
                 type="file"
@@ -50,62 +63,61 @@ export const FeedSidebar: React.FC = () => {
               className={styles.editWidgetsButton}
               onClick={() => setIsEditingWidgets(!isEditingWidgets)}
             >
-              <Settings size={14} />
+              <Settings size={16} />
+              <span>{isEditingWidgets ? 'Done' : 'Edit Widgets'}</span>
             </button>
           </div>
-        </div>
+        )}
       </div>
 
-      {/* Profile Info */}
-      <div className={styles.userProfile}>
-        <div className={styles.avatar}>
-          <User size={32} />
-        </div>
-        <div className={styles.userInfo}>
-          <h3 className={styles.userName}>Benjamin Loki</h3>
-          <p className={styles.userHandle}>@benjamin_loki</p>
-          <p className={styles.userDescription}>
-            AI streamer co-pilot. Tips, overlays and growth tools for creators. Live • Tutorials • Resources. Helping you grow across platforms.
-          </p>
-        </div>
-      </div>
-
-      {/* Stats Cards */}
-      <div className={styles.statsSection}>
-        <div className={styles.summaryCards}>
-          <div className={styles.summaryCard}>
-            <div className={styles.cardContent}>
-              <span className={styles.cardLabel}>Sales Generated</span>
-              <span className={styles.cardValue}>£3,200</span>
-            </div>
+      <div className={styles.bannerContent}>
+        <div className={styles.userProfile}>
+          <div className={styles.avatar}>
+            <User size={32} />
           </div>
-          <div className={styles.summaryCard}>
-            <div className={styles.cardContent}>
-              <span className={styles.cardLabel}>Live Listings</span>
-              <span className={styles.cardValue}>14</span>
-            </div>
+          <div className={styles.userInfo}>
+            <h2 className={styles.userName}>{userName}</h2>
+            <p className={styles.userHandle}>{userHandle}</p>
+            <p className={styles.userDescription}>{userDescription}</p>
           </div>
         </div>
-      </div>
 
-      {/* Widgets Area */}
-      <div className={styles.widgetsSection}>
-        <h4 className={styles.sectionTitle}>Platform Stats</h4>
         <WidgetGrid isEditable={isEditingWidgets}>
-          <PlatformWidget
-            id="widget-twitch"
-            size="small"
+          {/* Stats Widgets */}
+          <StatsWidget
+            id="widget-sales"
+            size="medium"
             style="gradient"
-            platform="Twitch"
-            icon="🎮"
-            stats="5.3K"
+            value="£3,200"
+            label="Sales Generated"
+            trend="up"
+            trendValue="+15%"
             isEditable={isEditingWidgets}
           />
           
+          <StatsWidget
+            id="widget-listings"
+            size="small"
+            style="gradient"
+            value="14"
+            label="Live Listings"
+            isEditable={isEditingWidgets}
+          />
+          
+          <StatsWidget
+            id="widget-followers"
+            size="small"
+            style="solid"
+            value="5.3K"
+            label="Twitch"
+            isEditable={isEditingWidgets}
+          />
+
+          {/* Platform Widgets */}
           <PlatformWidget
             id="widget-youtube"
             size="small"
-            style="gradient"
+            style="solid"
             platform="YouTube"
             icon="🎥"
             stats="2.1K"
@@ -115,7 +127,7 @@ export const FeedSidebar: React.FC = () => {
           <PlatformWidget
             id="widget-twitter"
             size="small"
-            style="gradient"
+            style="solid"
             platform="X"
             icon="🐦"
             stats="9.8K"
@@ -125,7 +137,7 @@ export const FeedSidebar: React.FC = () => {
           <PlatformWidget
             id="widget-kick"
             size="small"
-            style="gradient"
+            style="solid"
             platform="Kick"
             icon="⚡"
             stats="1.45K"
@@ -133,7 +145,7 @@ export const FeedSidebar: React.FC = () => {
           />
         </WidgetGrid>
       </div>
-      </div>
-    </aside>
+    </div>
   );
 };
+

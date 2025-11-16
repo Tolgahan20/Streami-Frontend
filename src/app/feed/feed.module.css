@@ -1,10 +1,9 @@
 .root {
-  min-height: 100vh;
-  background: var(--background);
+  height: 100vh; /* Fixed height - no more, no less */
+  background: var(--foreground); /* Dark background like header */
   width: 100%;
-  overflow-x: hidden; /* Prevent horizontal scroll */
-  position: relative; /* Ensure sticky positioning works */
-  overflow-y: auto; /* Allow vertical scrolling for sticky to work */
+  overflow: hidden; /* Prevent all scrolling on root */
+  position: relative;
 }
 
 .skipLink {
@@ -28,20 +27,21 @@
   width: 100%;
   max-width: 100vw; /* Ensure full viewport width */
   display: flex;
-  gap: var(--space-6);
+  gap: var(--space-4); /* Reduced gap between feed and sidebar */
   align-items: flex-start; /* Align items to top */
-  position: relative; /* Ensure sticky positioning works */
-  padding-top: 80px; /* Add padding to start below header */
+  position: relative;
+  padding-top: 64px; /* Add padding to start below header */
   padding-left: 250px; /* Add padding for fixed left sidebar */
-  padding-right: 400px; /* Extra padding for equal visual spacing */
-  min-height: calc(200vh); /* Make it much taller to ensure scrolling */
+  padding-right: 380px; /* Updated for narrower sidebar */
+  height: 100%; /* Take full height of parent */
+  overflow: hidden; /* No scrolling here */
 }
 
 @media (max-width: 1024px) {
   .main {
-    gap: var(--space-4);
+    gap: var(--space-3);
     padding-left: 200px;
-    padding-right: 350px;
+    padding-right: 320px;
   }
 }
 
@@ -51,6 +51,7 @@
     gap: var(--space-3);
     padding-left: 0;
     padding-right: 0;
+    padding-top: 56px; /* Match mobile header height */
   }
 }
 

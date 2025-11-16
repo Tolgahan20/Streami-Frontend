@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Home, Rss, Video, Store, Settings, User } from 'lucide-react';
 import { useUnifiedAuth } from '@/features/auth/hooks/useUnifiedAuth';
@@ -45,33 +45,15 @@ const navigationItems = [
 ];
 
 export const FeedNavigation: React.FC = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
   const { user } = useUnifiedAuth();
-
-  const handleMouseEnter = () => {
-    setIsCollapsed(false);
-  };
-
-  const handleMouseLeave = () => {
-    setIsCollapsed(true);
-  };
-
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      setIsCollapsed(true);
-    }
-  };
 
   return (
     <nav 
-      className={`${styles.navigation} ${isCollapsed ? styles.collapsed : ''}`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onKeyDown={handleKeyDown}
+      className={styles.navigation}
       role="navigation"
       aria-label="Main navigation"
-      tabIndex={0}
     >
+
       <div className={styles.navSection}>
         <h3 className={styles.sectionTitle}>Navigation</h3>
         <ul className={styles.navList} role="list">

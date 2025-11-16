@@ -9,11 +9,13 @@
   overflow-x: hidden;
   align-self: flex-start;
   padding-top: 0; /* Remove padding since main has it */
+  background: transparent;
 }
 
 .content {
   flex: 1; /* Take up remaining space in the layout */
   transition: margin-left 0.3s ease;
+  background: transparent;
 }
 
 @media (max-width: 1200px) {

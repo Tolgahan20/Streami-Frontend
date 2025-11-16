@@ -1,10 +1,11 @@
 .navigation {
+  padding-top: 10px;
   width: 250px;
-  background: var(--card);
+  background: var(--background);
   border-right: 1px solid var(--border);
-  height: calc(100vh - 80px); /* Set height to viewport minus header */
+  height: calc(100vh - 64px); /* Set height to viewport minus header */
   position: fixed; /* Use fixed positioning to stay in place */
-  top: 80px; /* Position below header */
+  top: 64px; /* Position below header */
   left: 0; /* Position at left edge */
   overflow-y: visible; /* Keep visible to prevent scrolling */
   overflow-x: hidden; /* Prevent horizontal overflow */
@@ -12,8 +13,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: width 0.3s ease;
-  z-index: 1000; /* Increase z-index to ensure it's above all content */
+  z-index: 100; /* Below header but above content */
+  border-top-left-radius: 28px; /* Curve on top-left */
 }
 
 /* Hide navigation on mobile */
@@ -21,43 +22,6 @@
   .navigation {
     display: none;
   }
-}
-
-/* Collapsed state for hover behavior */
-.navigation.collapsed {
-  width: 80px;
-  overflow-x: hidden; /* Prevent horizontal overflow */
-}
-
-.navigation.collapsed .navText {
-  display: none; /* Hide text completely */
-}
-
-.navigation.collapsed .navLink {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px; /* Full width of collapsed sidebar */
-  height: 48px;
-  padding: 0;
-  margin: 0;
-}
-
-.navigation.collapsed .iconContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-}
-
-
-.navigation.collapsed .sectionTitle {
-  opacity: 0;
-}
-
-.navigation.collapsed .userInfo {
-  opacity: 0;
 }
 
 .navSection {
@@ -73,6 +37,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: var(--space-1); /* Further reduce margin to save space */
+  padding-left: 12px;
   transition: opacity 0.3s ease;
 }
 
@@ -83,18 +48,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
-}
-
-.navigation.collapsed .navList {
-  padding: 0;
-  margin: 0;
-  gap: 0;
-}
-
-.navigation.collapsed .navList li {
-  width: 80px;
-  margin: 0;
-  padding: 0;
 }
 
 .navLink {
